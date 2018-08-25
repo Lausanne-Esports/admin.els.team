@@ -1,0 +1,27 @@
+{
+  "name": "admin.els.team",
+  "version": "1.0.0",
+  "description": "Admin Panel of els.team",
+  "author": "Romain Lanz",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "nuxt": "^1.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.0.1",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^5.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "autoprefixer": "^8.6.4",
+    "tailwindcss": "^0.6.1"
+  }
+}
