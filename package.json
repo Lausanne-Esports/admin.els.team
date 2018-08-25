@@ -13,15 +13,16 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "nuxt-edge": "^2.0.0-25586506.608b913"
   },
   "devDependencies": {
-    "cross-env": "^5.0.1",
+    "autoprefixer": "^8.6.4",
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.0.1",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
-    "autoprefixer": "^8.6.4",
+    "postcss-import": "^12.0.0",
     "tailwindcss": "^0.6.1"
   }
 }
