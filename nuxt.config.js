@@ -1,3 +1,4 @@
+require('dotenv').config()
 const pkg = require('./package')
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
   },
 
   /*
@@ -27,7 +28,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/css/tailwind.css'
+    '@/assets/css/tailwind.css'
   ],
 
   /*
@@ -40,7 +41,14 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    credentials: true,
+    proxyHeaders: true,
+  },
 
   /*
   ** Build configuration
