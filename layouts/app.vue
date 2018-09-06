@@ -14,9 +14,16 @@
 
     <div class="flex h-full">
       <nav class="flex flex-col px-4 bg-light-blue-grey h-full w-1/6">
-        <nuxt-link class="border-b py-4 border-darker-blue" to="/">Dashboard</nuxt-link>
+        <nuxt-link class="border-b py-4 border-darker-blue" to="/">
+          <i class="fa fa-home mr-4"></i>
+          Dashboard
+        </nuxt-link>
+        <nuxt-link class="border-b py-4 border-darker-blue" to="/articles">
+          <i class="fa fa-newspaper mr-4"></i>
+          Articles
+        </nuxt-link>
       </nav>
-      <main>
+      <main class="p-4 w-full bg-grey-lightest">
         <nuxt/>
       </main>
     </div>

@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center justify-center w-full text-darker-blue">
     <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
 
-    <form class="w-1/5 flex flex-col bg-white p-8" @submit.prevent="authenticate">
+    <form class="w-1/5 flex flex-col bg-white p-8 rounded-lg" @submit.prevent="authenticate">
       <span class="text-red mb-8" v-if="errors">{{ errors[0].detail }}</span>
 
       <div class="flex items-center mb-4">
