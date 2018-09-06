@@ -64,3 +64,11 @@
 html, body, #__nuxt, #__layout {
   height: 100%;
 }
+
+a {
+  text-decoration: none;
+}
+
+.transition {
+  transition: all 0.3s;
+}

@@ -9,6 +9,7 @@ export const mutations = {
 
   CLEAR_STORE (state) {
     // TODO: Clear the state to avoid any leaks
+    state.currentUser = null
   }
 }
 
@@ -34,7 +35,7 @@ export const actions = {
         email, password
       })
 
-      dispatch('getCurrentUser')
+      await dispatch('getCurrentUser')
     } catch (e) {
       throw e
     }

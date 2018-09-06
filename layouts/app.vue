@@ -1,13 +1,25 @@
 <template>
-  <div>
+  <div class="relative h-full">
     <div class="flex items-center justify-between bg-darker-blue text-white h-16 px-8">
       <div>Lausanne eSports</div>
       <div>
-        <span class="mr-4">{{ currentUser.username }}</span>
-        <button class="text-white" @click="logout">Logout</button>
+        <span>{{ currentUser.username }}</span>
+        <span class="mx-4">|</span>
+        <button class="text-white" @click="logout">
+          <i class="fa fa-sign-out-alt mr-1"></i>
+          Logout
+        </button>
       </div>
     </div>
-    <nuxt/>
+
+    <div class="flex h-full">
+      <nav class="flex flex-col px-4 bg-light-blue-grey h-full w-1/6">
+        <nuxt-link class="border-b py-4 border-darker-blue" to="/">Dashboard</nuxt-link>
+      </nav>
+      <main>
+        <nuxt/>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -20,8 +32,11 @@ export default {
   },
 
   methods: {
-    logout () {
-      this.$store.dispatch('logout')
+    async logout () {
+      try {
+        await this.$store.dispatch('logout')
+        this.$router.push('/login')
+      } catch (e) {}
     },
   },
 }
