@@ -10,15 +10,17 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit ({ dispatch }, { app }) {
-    dispatch('getCurrentUser')
+    await dispatch('getCurrentUser')
   },
 
-  async getCurrentUser ({ commit }) {
-    try {
-      const user = await this.$axios.$get('me')
-      commit('SET_AUTHENTICATE_USER', user)
-    } catch (e) {}
-  },
+async getCurrentUser ({ commit }) {
+  try {
+    const user = await this.$axios.$get('me')
+    commit('SET_AUTHENTICATE_USER', user)
+  } catch (e) {
+    throw e
+  }
+},
 
   async login ({ dispatch }, { email, password }) {
     try {
@@ -27,6 +29,8 @@ export const actions = {
       })
 
       dispatch('getCurrentUser')
-    } catch (e) {}
+    } catch (e) {
+      throw e
+    }
   },
 }

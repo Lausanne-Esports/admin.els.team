@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span v-if="errors">{{ errors[0].detail }}</span>
     <form class="flex flex-col" @submit.prevent="authenticate">
       <input type="text" placeholder="Email" v-model="form.email">
       <input type="password" placeholder="Password" v-model="form.password">
@@ -16,7 +17,8 @@ export default {
     form: {
       email: null,
       password: null,
-    }
+    },
+    errors: null,
   }),
 
   methods: {
@@ -29,7 +31,7 @@ export default {
 
         this.$router.push('/')
       } catch (e) {
-        console.log(e)
+        this.errors = e.response.data.errors
       }
     }
   },
