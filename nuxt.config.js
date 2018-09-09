@@ -27,7 +27,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: '#384168' },
 
   /*
   ** Global CSS
@@ -40,6 +40,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/izitoast.js', ssr: false },
   ],
 
   /*
@@ -72,6 +73,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   }
 }

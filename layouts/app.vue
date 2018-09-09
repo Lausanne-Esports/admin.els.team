@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex h-full">
-      <nav class="flex flex-col px-4 bg-light-blue-grey h-full w-1/6">
+      <nav class="flex flex-col px-4 h-full w-1/6 bg-light-blue-grey">
         <nuxt-link class="border-b py-4 border-darker-blue" to="/">
           <i class="fa fa-home mr-4"></i>
           Dashboard
@@ -23,7 +23,7 @@
           Articles
         </nuxt-link>
       </nav>
-      <main class="p-4 w-full bg-grey-lightest">
+      <main class="p-4 w-full overflow-scroll bg-grey-lightest">
         <nuxt/>
       </main>
     </div>
