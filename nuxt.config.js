@@ -44,6 +44,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/simple-mde', ssr: false },
     { src: '~/plugins/izitoast', ssr: false },
+    { src: '~/plugins/portal' },
   ],
 
   /*

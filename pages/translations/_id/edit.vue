@@ -9,12 +9,27 @@
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="border rounded-full py-2 px-8 mr-2 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
         @click="save"
       >Sauvegarder</button>
+
+      <delete-translation-button
+        :translation="translation"
+        v-if="translation && translation.language.code === 'en'"
+      ></delete-translation-button>
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
+      <div class="w-1/5">
+        <div class="flex flex-col">
+          <label class="mb-2">Status</label>
+          <searchable-select
+            :items="articleStates"
+            v-model="form.state_id"
+          ></searchable-select>
+        </div>
+      </div>
+
       <div class="flex justify-between">
         <div class="flex flex-col w-full mr-8">
           <label class="mb-2">Titre</label>
@@ -61,24 +76,36 @@
 
 <script>
 import slug from '@slynova/slug'
+import SearchableSelect from '@/components/Common/SearchableSelect'
+import DeleteTranslationButton from '@/components/Article/DeleteTranslationButton'
 
 export default {
   layout: 'app',
+
+  components: { DeleteTranslationButton, SearchableSelect },
 
   data: () => ({
     form: {
       headline: '',
       description: null,
       body: null,
+      state_id: null,
     },
-    translation: {},
+    articleStates: [],
+    translation: null,
     errors: null,
   }),
 
-  async created () {
-    this.translation = await this.$axios.$get(`admin/translations/${this.$route.params.id}`)
+  created () {
+    this.$axios.$get('articles/states').then((response) => {
+      this.articleStates = response
+    })
 
-    this.hydrate()
+    this.$axios.$get(`admin/translations/${this.$route.params.id}`).then((response) => {
+      this.translation = response
+      this.hydrate()
+    })
+
   },
 
   computed: {
@@ -92,6 +119,7 @@ export default {
       this.form.headline = this.translation.headline
       this.form.description = this.translation.description
       this.form.body = this.translation.body
+      this.form.state_id = this.translation.state_id
     },
 
     async save () {

@@ -27,6 +27,9 @@
         <nuxt/>
       </main>
     </div>
+
+    <portal-target name="modals">
+    </portal-target>
   </div>
 </template>
 

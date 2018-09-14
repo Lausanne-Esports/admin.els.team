@@ -15,6 +15,16 @@
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
+      <div class="w-1/5">
+        <div class="flex flex-col">
+          <label class="mb-2">Status</label>
+          <searchable-select
+            :items="articleStates"
+            v-model="form.state_id"
+          ></searchable-select>
+        </div>
+      </div>
+
       <div class="flex justify-between">
         <div class="flex flex-col w-full mr-8">
           <label class="mb-2">Titre</label>
@@ -61,17 +71,22 @@
 
 <script>
 import slug from '@slynova/slug'
+import SearchableSelect from '@/components/Common/SearchableSelect'
 
 export default {
   layout: 'app',
+
+  components: { SearchableSelect },
 
   data: () => ({
     form: {
       headline: '',
       description: null,
       body: null,
+      state_id: null,
       language_id: 2,
     },
+    articleStates: [],
     translation: {},
     errors: null,
   }),
@@ -80,6 +95,12 @@ export default {
     slug () {
       return slug(this.form.headline)
     }
+  },
+
+  created () {
+    this.$axios.$get('articles/states').then((response) => {
+      this.articleStates = response
+    })
   },
 
   methods: {
