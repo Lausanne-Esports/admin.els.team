@@ -69,6 +69,10 @@ a, a:visited {
   text-decoration: none;
 }
 
+a:visited {
+  color: inherit;
+}
+
 .transition {
   transition: all 0.3s;
 }
