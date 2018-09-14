@@ -13,12 +13,13 @@
         >
           {{ translation.language.code }}
         </a>
-        <!-- <a
-          class="bg-dark-purple-blue text-white h-10 w-10 flex items-center justify-center rounded-full"
+        <a
+          class="bg-white border border-dark-purple-blue h-10 w-10 flex items-center justify-center rounded-full"
           :href="addTranslationLink"
+          v-if="article.translations.length < 2"
         >
-          +
-        </a> -->
+          <i class="fa fa-plus"></i>
+        </a>
       </div>
     </td>
     <td>
