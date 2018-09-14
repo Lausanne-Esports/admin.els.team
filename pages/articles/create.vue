@@ -4,12 +4,12 @@
 
     <div class="pb-4 mb-4">
       <nuxt-link
-        class="border rounded-full py-2 px-8 mr-2 border-darker-blue mt-10 hover:bg-darker-blue hover:text-white transition"
+        class="border rounded-full py-2 px-8 mr-2 border-darker-blue hover:bg-darker-blue hover:text-white transition"
         to="/articles"
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue mt-10 bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
         @click="save"
       >Sauvegarder</button>
     </div>
@@ -79,7 +79,7 @@
             <input
               class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
               type="text"
-              v-model="form.thumbnail_featured"
+              v-model="form.featured_thumbnail"
             >
           </div>
         </div>
@@ -123,11 +123,13 @@
 
       <div class="flex flex-col w-full">
         <label class="mb-2">Contenu</label>
-        <textarea
-          class="bg-light-blue-grey text-darker-blue rounded-lg p-4 mb-6"
-          rows="30"
-          v-model="form.body"
-        ></textarea>
+        <no-ssr>
+          <markdown-editor
+            class="text-darker-blue rounded-lg mb-6"
+            rows="30"
+            v-model="form.body"
+          ></markdown-editor>
+        </no-ssr>
       </div>
     </section>
   </div>
@@ -148,7 +150,7 @@
         headline: '',
         description: '',
         thumbnail: '',
-        thumbnail_featured: '',
+        featured_thumbnail: '',
         body: '',
         published_at: null,
         template_id: 1,
@@ -162,16 +164,18 @@
       errors: [],
     }),
 
-    async created () {
-      const [articleCategories, articleStates, articleTemplates] = await Promise.all([
-        await this.$axios.$get('articles/categories'),
-        await this.$axios.$get('articles/states'),
-        await this.$axios.$get('articles/templates'),
-      ])
+    created () {
+      this.$axios.$get('articles/categories').then((response) => {
+        this.articleCategories = response
+      })
 
-      this.articleCategories = articleCategories
-      this.articleStates = articleStates
-      this.articleTemplates = articleTemplates
+      this.$axios.$get('articles/states').then((response) => {
+        this.articleStates = response
+      })
+
+      this.$axios.$get('articles/templates').then((response) => {
+        this.articleTemplates = response
+      })
     },
 
     computed: {
@@ -183,10 +187,12 @@
     methods: {
       async save () {
         try {
-          // await this.$axios.$post('articles', this.form)
+          await this.$axios.$post('admin/articles', this.form)
           this.$toast.success('Article sauvegardé !')
         } catch (e) {
+          console.log(e)
           this.errors = e.response.data.errors
+          this.$toast.error('Une erreur est survenue')
         }
       }
     },

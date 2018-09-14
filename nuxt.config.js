@@ -33,14 +33,17 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/css/tailwind.css'
+    '@/assets/css/tailwind.css',
+    'izitoast/dist/css/iziToast.min.css',
+    'simplemde/dist/simplemde.min.css',
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/izitoast.js', ssr: false },
+    { src: '~/plugins/simple-mde', ssr: false },
+    { src: '~/plugins/izitoast', ssr: false },
   ],
 
   /*
