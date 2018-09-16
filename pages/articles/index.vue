@@ -57,6 +57,6 @@ export default {
     const articles = await $axios.$get('admin/articles')
 
     return { articles }
-  }
+  },
 }
 </script>

@@ -66,11 +66,8 @@ html, body, #__nuxt, #__layout {
 }
 
 a, a:visited {
-  text-decoration: none;
-}
-
-a:visited {
   color: inherit;
+  text-decoration: none;
 }
 
 .transition {
