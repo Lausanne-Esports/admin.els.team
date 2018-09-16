@@ -19,7 +19,9 @@
       ></delete-translation-button>
     </div>
 
-    <section class="p-8 bg-white shadow rounded-lg w-full">
+    <section
+      class="p-8 bg-white shadow rounded-lg w-full"
+    >
       <div class="w-1/5">
         <div class="flex flex-col">
           <label class="mb-2">Status</label>
