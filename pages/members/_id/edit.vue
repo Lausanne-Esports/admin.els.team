@@ -93,7 +93,7 @@
       </div>
 
       <div class="flex justify-between">
-        <div class="w-full">
+        <div class="w-full mr-8">
           <div class="flex flex-col">
             <label class="mb-2">Numéro de téléphone</label>
             <input
