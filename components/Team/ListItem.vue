@@ -1,7 +1,7 @@
 <template>
   <tr class="h-16 border-b border-dark-purple-blue">
     <td>{{ team.name }}</td>
-    <td>{{ team.category.name }}</td>
+    <td>{{ team.category.name }} <small v-if="team.academy">(Académie)</small></td>
     <td>
       <div class="flex justify-center item-centers">
         <button

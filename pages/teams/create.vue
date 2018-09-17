@@ -41,6 +41,14 @@
           </div>
         </div>
       </div>
+
+      <div class="flex flex-col">
+        <label class="mb-2">Académie</label>
+        <input
+          type="checkbox"
+          v-model="form.academy"
+        >
+      </div>
     </section>
   </div>
 </template>
@@ -56,6 +64,7 @@ export default {
   data: () => ({
     form: {
       name: null,
+      academy: false,
       category_id: null,
     },
     teamCategories: [],

@@ -41,6 +41,14 @@
           </div>
         </div>
       </div>
+
+      <div class="flex flex-col">
+        <label class="mb-2">Académie</label>
+        <input
+          type="checkbox"
+          v-model="form.academy"
+        >
+      </div>
     </section>
 
     <team-member-form :members="availableMembers" :team="team" @submit="loadTeamMembers"></team-member-form>
@@ -62,6 +70,7 @@ export default {
     form: {
       name: null,
       category_id: null,
+      academy: false,
     },
     teamCategories: [],
     team: {},
@@ -90,6 +99,7 @@ export default {
     hydrate () {
       this.form.name = this.team.name
       this.form.category_id = this.team.category_id
+      this.form.academy = this.team.academy
     },
 
     async loadMembers () {
