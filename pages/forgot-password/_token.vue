@@ -2,30 +2,24 @@
   <div class="flex flex-col items-center justify-center w-full text-darker-blue">
     <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
 
-    <form class="w-1/5 flex flex-col bg-white p-8 rounded-lg" @submit.prevent="authenticate">
+    <form class="w-1/5 flex flex-col bg-white p-8 rounded-lg" @submit.prevent="send">
       <span class="text-red mb-8" v-if="errors">{{ errors[0].detail }}</span>
 
       <div class="flex items-center mb-4">
-        <i class="fa fa-user mr-4"></i>
-        <input class="h-8 w-full" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
+        <i class="fa fa-lock mr-4"></i>
+        <input class="h-8 w-full" type="password" placeholder="Mot de passe" v-model="form.password" autofocus>
       </div>
 
       <div class="flex items-center">
         <i class="fa fa-lock mr-4"></i>
-        <input class="h-8 w-full" type="password" placeholder="Password" v-model="form.password">
+        <input class="h-8 w-full" type="password" placeholder="Confirmation" v-model="form.password_confirmation">
       </div>
 
       <button
         class="border rounded-full py-2 border-darker-blue mt-8 hover:bg-darker-blue hover:text-white transition"
         type="submit"
-      >Connexion</button>
+      >Changer mon mot de passe</button>
     </form>
-
-    <div class="mt-8 text-white">
-      <nuxt-link class="uppercase" to="/forgot-password">
-        Oublié son mot de passe ?
-      </nuxt-link>
-    </div>
   </div>
 </template>
 
@@ -35,23 +29,28 @@ export default {
 
   data: () => ({
     form: {
-      uid: null,
       password: null,
+      password_confirmation: null,
     },
     errors: null,
+    token: null,
   }),
 
-  methods: {
-    async authenticate () {
-      try {
-        await this.$store.dispatch('login', this.form)
+  async created () {
+    this.token = this.$route.params.token
+  },
 
-        this.$router.push('/')
+  methods: {
+    async send () {
+      try {
+        await this.$axios.$post(`/password-requests/${this.token}`, this.form)
+        this.$toast.success('Mot de passe modifié !')
+        this.$router.push('/login')
       } catch (e) {
         this.errors = e.response.data.errors
+        this.$toast.error('Une erreur est survenue')
       }
-    }
+    },
   },
 }
 </script>
-
