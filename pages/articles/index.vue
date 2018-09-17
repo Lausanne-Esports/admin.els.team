@@ -10,9 +10,17 @@
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
-      <div class="flex w-full mb-4">
-
+      <div class="flex mb-4 w-1/3">
+        <div class="w-full flex flex-col">
+          <label class="mb-2">Recherche</label>
+          <input
+            class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+            type="text"
+            v-model="filter"
+          >
+        </div>
       </div>
+
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-dark-purple-blue">
@@ -34,7 +42,7 @@
           </tr>
         </thead>
         <tbody>
-          <list-item v-for="article in articles" :key="article.id" :article="article"></list-item>
+          <list-item v-for="article in filteredArticles" :key="article.id" :article="article"></list-item>
         </tbody>
       </table>
     </section>
@@ -51,6 +59,7 @@ export default {
 
   data: () => ({
     articles: [],
+    filter: null,
   }),
 
   async asyncData ({ $axios }) {
@@ -58,5 +67,25 @@ export default {
 
     return { articles }
   },
+
+  computed: {
+    filteredArticles () {
+      if (!this.filter) {
+        return this.articles
+      }
+
+      const filter = this.filter.toLowerCase()
+
+      return this.articles.filter(article => (
+        this.$getFrenchTranslation(article).headline.toLowerCase().includes(filter)
+      ))
+    }
+  },
+
+  methods: {
+    $getFrenchTranslation (article) {
+      return article.translations.find(t => t.language.code === 'fr')
+    }
+  }
 }
 </script>

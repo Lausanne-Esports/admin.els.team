@@ -10,9 +10,17 @@
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
-      <div class="flex w-full mb-4">
-
+      <div class="flex mb-4 w-1/3">
+        <div class="w-full flex flex-col">
+          <label class="mb-2">Recherche</label>
+          <input
+            class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+            type="text"
+            v-model="filter"
+          >
+        </div>
       </div>
+
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-dark-purple-blue">
@@ -31,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          <list-item v-for="member in members" :key="member.id" :member="member"></list-item>
+          <list-item v-for="member in filteredMembers" :key="member.id" :member="member"></list-item>
         </tbody>
       </table>
     </section>
@@ -48,6 +56,7 @@ export default {
 
   data: () => ({
     members: [],
+    filter: null,
   }),
 
   async asyncData ({ $axios }) {
@@ -55,5 +64,21 @@ export default {
 
     return { members }
   },
+
+  computed: {
+    filteredMembers () {
+      if (!this.filter) {
+        return this.members
+      }
+
+      const filter = this.filter.toLowerCase()
+
+      return this.members.filter(member => (
+        member.nickname && member.nickname.toLowerCase().includes(filter)
+        || member.firstname && member.firstname.toLowerCase().includes(filter)
+        || member.lastname && member.lastname.toLowerCase().includes(filter)
+      ))
+    }
+  }
 }
 </script>
