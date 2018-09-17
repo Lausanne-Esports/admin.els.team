@@ -42,12 +42,21 @@
         </div>
       </div>
 
-      <div class="flex flex-col">
-        <label class="mb-2">Académie</label>
-        <input
-          type="checkbox"
-          v-model="form.academy"
-        >
+      <div class="flex">
+        <div class="flex flex-col mr-8">
+          <label class="mb-2">Académie</label>
+          <input
+            type="checkbox"
+            v-model="form.academy"
+          >
+        </div>
+        <div class="flex flex-col">
+          <label class="mb-2">Activée</label>
+          <input
+            type="checkbox"
+            v-model="form.activated"
+          >
+        </div>
       </div>
     </section>
 
@@ -71,6 +80,7 @@ export default {
       name: null,
       category_id: null,
       academy: false,
+      activated: false,
     },
     teamCategories: [],
     team: {},
@@ -100,6 +110,7 @@ export default {
       this.form.name = this.team.name
       this.form.category_id = this.team.category_id
       this.form.academy = this.team.academy
+      this.form.activated = this.team.activated
     },
 
     async loadMembers () {
