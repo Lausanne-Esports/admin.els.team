@@ -22,13 +22,13 @@
           <i class="far fa-newspaper w-8"></i>
           Articles
         </nuxt-link>
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/teams">
-          <i class="fa fa-users w-8"></i>
-          Teams
-        </nuxt-link>
         <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/members">
           <i class="fa fa-user w-8"></i>
           Membres
+        </nuxt-link>
+        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/teams">
+          <i class="fa fa-users w-8"></i>
+          Teams
         </nuxt-link>
       </nav>
       <main class="p-4 w-full overflow-scroll bg-grey-lightest">

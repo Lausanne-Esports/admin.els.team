@@ -15,6 +15,10 @@
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
+      <header class="pb-4 mb-4 border-b border-darker-blue">
+        <h2>Information</h2>
+      </header>
+
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <div class="flex flex-col">
@@ -27,7 +31,7 @@
           </div>
         </div>
 
-        <div class="w-full mr-8">
+        <div class="w-full">
           <div class="flex flex-col">
             <label class="mb-2">Type</label>
             <searchable-select
@@ -38,16 +42,21 @@
         </div>
       </div>
     </section>
+
+    <team-member-form :members="availableMembers" :team="team" @submit="loadTeamMembers"></team-member-form>
+    <team-member-list :members="teamMembers" :team="team" @submit="loadTeamMembers"></team-member-list>
   </div>
 </template>
 
 <script>
+import TeamMemberForm from '@/components/Team/TeamMemberForm'
+import TeamMemberList from '@/components/Team/TeamMemberList'
 import SearchableSelect from '@/components/Common/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { SearchableSelect },
+  components: { SearchableSelect, TeamMemberForm, TeamMemberList },
 
   data: () => ({
     form: {
@@ -55,22 +64,49 @@ export default {
       category_id: null,
     },
     teamCategories: [],
-    team: {}
+    team: {},
+    members: [],
+    teamMembers: [],
   }),
 
   async created () {
-    this.$axios.$get('teams/categories').then((response) => {
-      this.teamCategories = response
-    })
+    this.loadCategories()
+    this.loadMembers()
+    this.loadTeamMembers()
 
     this.team = await this.$axios.$get(`admin/teams/${this.$route.params.id}`)
     this.hydrate()
+  },
+
+  computed: {
+    availableMembers () {
+      return this.members.filter((member) => {
+        return !this.teamMembers.map(m => m.id).includes(member.id)
+      })
+    }
   },
 
   methods: {
     hydrate () {
       this.form.name = this.team.name
       this.form.category_id = this.team.category_id
+    },
+
+    async loadMembers () {
+      const members = await this.$axios.$get('admin/members')
+
+      this.members = members.map((member) => ({
+        id: member.id,
+        name: `${member.firstname} "${member.nickname}" ${member.lastname}`,
+      }))
+    },
+
+    async loadTeamMembers () {
+      this.teamMembers = await this.$axios.$get(`admin/teams/${this.$route.params.id}/members`)
+    },
+
+    async loadCategories () {
+      this.teamCategories = await this.$axios.$get('teams/categories')
     },
 
     async save () {

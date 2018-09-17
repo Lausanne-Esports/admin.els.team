@@ -10,9 +10,6 @@
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
-      <div class="flex w-full mb-4">
-
-      </div>
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-dark-purple-blue">
@@ -23,12 +20,20 @@
               <span class="flex items-center">Type</span>
             </th>
             <th>
-              <span class="flex items-center">Actions</span>
+            </th>
+            <th>
             </th>
           </tr>
         </thead>
         <tbody>
-          <list-item v-for="team in teams" :key="team.id" :team="team"></list-item>
+          <list-item
+            v-for="(team, index) in teams"
+            :key="team.id"
+            :team="team"
+            :first="index === 0"
+            :last="lastItemIndex === index"
+            @teamUpdated="loadTeams"
+          ></list-item>
         </tbody>
       </table>
     </section>
@@ -52,5 +57,17 @@ export default {
 
     return { teams }
   },
+
+  computed: {
+    lastItemIndex () {
+      return Object.keys(this.teams).length - 1
+    },
+  },
+
+  methods: {
+    async loadTeams () {
+      this.teams = await this.$axios.$get('admin/teams')
+    }
+  }
 }
 </script>

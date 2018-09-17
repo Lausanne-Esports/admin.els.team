@@ -1,9 +1,9 @@
 <template>
   <tr class="h-16 border-b border-dark-purple-blue">
-    <td>{{ team.name }}</td>
-    <td>{{ team.category.name }}</td>
+    <td>{{ fullname }}</td>
+    <td>{{ member.pivot.role }}</td>
     <td>
-      <div class="flex justify-center item-centers">
+      <!-- <div class="flex justify-center item-centers">
         <button
           class="border border-dark-purple-blue mr-2 h-10 w-10 flex items-center justify-center rounded-full"
           v-if="!first"
@@ -18,40 +18,57 @@
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/></svg>
         </button>
-      </div>
+      </div> -->
     </td>
     <td>
-      <div class="flex justify-center item-centers">
-        <nuxt-link
+      <div class="flex item-centers">
+        <button
           class="bg-dark-purple-blue mr-2 h-10 w-10 flex items-center justify-center rounded-full"
-          :to="editTeamLink"
         >
           <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M6.3 12.3l10-10a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1 0 1.4l-10 10a1 1 0 0 1-.7.3H7a1 1 0 0 1-1-1v-4a1 1 0 0 1 .3-.7zM8 16h2.59l9-9L17 4.41l-9 9V16zm10-2a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h6a1 1 0 0 1 0 2H4v14h14v-6z"/></svg>
-        </nuxt-link>
+        </button>
+        <button
+          class="bg-red mr-2 h-10 w-10 flex items-center justify-center rounded-full"
+          @click="deleteMember"
+        >
+          <svg class="text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M8 6V4c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8H3a1 1 0 1 1 0-2h5zM6 8v12h12V8H6zm8-2V4h-4v2h4zm-4 4a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1z"/></svg>
+        </button>
       </div>
     </td>
   </tr>
 </template>
 
 <script>
+// TODO: Handle modification of role with modal
+
 export default {
-  props: ['first', 'last', 'team'],
+  props: ['first', 'last', 'member', 'team'],
 
   computed: {
-    editTeamLink () {
-      return `/teams/${this.team.id}/edit`
-    }
+    fullname () {
+      return `${this.member.firstname || ''} "${this.member.nickname}" ${this.member.lastname || ''}`.trim()
+    },
   },
 
   methods: {
+    async deleteMember () {
+      try {
+        await this.$axios.$delete(`admin/teams/${this.team.id}/members/${this.member.id}`)
+        this.$toast.success("Membre supprimé de l'équipe !")
+        this.$emit('submit')
+      } catch (e) {
+        this.$toast.error('Une erreur est survenue')
+      }
+    },
+
     async up () {
-      await this.$axios.$post(`admin/teams/${this.team.id}/up`)
-      this.$emit('teamUpdated')
+      await this.$axios.$post(`admin/teams/${this.team.id}/members/${this.member.id}/up`)
+      this.$emit('submit')
     },
 
     async down () {
-      await this.$axios.$post(`admin/teams/${this.team.id}/down`)
-      this.$emit('teamUpdated')
+      await this.$axios.$post(`admin/teams/${this.team.id}/members/${this.member.id}/down`)
+      this.$emit('submit')
     },
   },
 }

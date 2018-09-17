@@ -15,6 +15,10 @@
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
+      <header class="pb-4 mb-4 border-b border-darker-blue">
+        <h2>Information</h2>
+      </header>
+
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <div class="flex flex-col">
@@ -64,8 +68,8 @@ export default {
   methods: {
     async save () {
       try {
-        await this.$axios.$post('admin/teams', this.form)
-        this.$router.push('/teams')
+        const team = await this.$axios.$post('admin/teams', this.form)
+        this.$router.push(`/teams/${team.id}/edit`)
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
