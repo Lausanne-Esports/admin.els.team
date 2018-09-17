@@ -29,10 +29,10 @@ export const actions = {
     }
   },
 
-  async login ({ dispatch }, { email, password }) {
+  async login ({ dispatch }, { uid, password }) {
     try {
       await this.$axios.$post('sessions', {
-        email, password
+        uid, password
       })
 
       await dispatch('getCurrentUser')

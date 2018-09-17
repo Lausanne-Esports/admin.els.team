@@ -27,9 +27,17 @@
           Membres
         </nuxt-link>
         <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/teams">
-          <i class="fa fa-users w-8"></i>
-          Teams
+          <i class="fa fa-layer-group w-8"></i>
+          Equipes
         </nuxt-link>
+        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/users">
+          <i class="fa fa-users w-8"></i>
+          Utilisateurs
+        </nuxt-link>
+        <!-- <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/awards">
+          <i class="fa fa-trophy w-8"></i>
+          Palmarès
+        </nuxt-link> -->
       </nav>
       <main class="p-4 w-full overflow-scroll bg-grey-lightest">
         <nuxt/>

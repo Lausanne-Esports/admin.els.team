@@ -7,7 +7,7 @@
 
       <div class="flex items-center mb-4">
         <i class="fa fa-user mr-4"></i>
-        <input class="h-8 w-full" type="text" placeholder="Email" v-model="form.email" autofocus>
+        <input class="h-8 w-full" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
       </div>
 
       <div class="flex items-center">
@@ -26,7 +26,7 @@ export default {
 
   data: () => ({
     form: {
-      email: null,
+      uid: null,
       password: null,
     },
     errors: null,
@@ -35,10 +35,7 @@ export default {
   methods: {
     async authenticate () {
       try {
-        await this.$store.dispatch('login', {
-          email: this.form.email,
-          password: this.form.password,
-        })
+        await this.$store.dispatch('login', this.form)
 
         this.$router.push('/')
       } catch (e) {
