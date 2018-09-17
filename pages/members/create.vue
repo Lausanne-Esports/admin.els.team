@@ -92,14 +92,27 @@
         </div>
       </div>
 
-      <div class="w-full">
-        <div class="flex flex-col">
-          <label class="mb-2">Adresse</label>
-          <input
-            class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-            type="text"
-            v-model="form.address"
-          >
+      <div class="flex justify-between">
+        <div class="w-full">
+          <div class="flex flex-col">
+            <label class="mb-2">Numéro de téléphone</label>
+            <input
+              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+              type="text"
+              v-model="form.phone_number"
+            >
+          </div>
+        </div>
+
+        <div class="w-full">
+          <div class="flex flex-col">
+            <label class="mb-2">Adresse</label>
+            <input
+              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+              type="text"
+              v-model="form.address"
+            >
+          </div>
         </div>
       </div>
 
@@ -262,6 +275,7 @@ export default {
       lastname: null,
       birth_on: null,
       clothes_size: null,
+      phone_number: null,
       address: null,
       postal_code: null,
       city: null,
