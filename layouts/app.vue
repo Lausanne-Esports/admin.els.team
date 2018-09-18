@@ -1,7 +1,7 @@
 <template>
   <div class="relative h-full">
     <div class="flex items-center justify-between bg-darker-blue text-white h-16 px-8">
-      <div>Lausanne eSports</div>
+      <div>Lausanne eSports <small class="ml-4 text-grey-darker">(20180918)</small></div>
       <div>
         <span>{{ currentUser.username }}</span>
         <span class="mx-4">|</span>
