@@ -1,7 +1,7 @@
 <template>
-  <div class="relative h-full">
+  <div class="flex flex-col h-full">
     <div class="flex items-center justify-between bg-darker-blue text-white h-16 px-8">
-      <div>Lausanne eSports <small class="ml-4 text-grey-darker">(20180918)</small></div>
+      <div>Lausanne eSports</div>
       <div>
         <span>{{ currentUser.username }}</span>
         <span class="mx-4">|</span>
@@ -13,32 +13,37 @@
     </div>
 
     <div class="flex h-full">
-      <nav class="flex flex-col px-4 h-full w-1/6 bg-light-blue-grey">
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/">
-          <i class="fa fa-chart-line w-8"></i>
-          Dashboard
-        </nuxt-link>
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/articles">
-          <i class="far fa-newspaper w-8"></i>
-          Articles
-        </nuxt-link>
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/members">
-          <i class="fa fa-user w-8"></i>
-          Membres
-        </nuxt-link>
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/teams">
-          <i class="fa fa-layer-group w-8"></i>
-          Equipes
-        </nuxt-link>
-        <!-- <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/awards">
-          <i class="fa fa-trophy w-8"></i>
-          Palmarès
-        </nuxt-link> -->
-        <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/users">
-          <i class="fa fa-users w-8"></i>
-          Utilisateurs
-        </nuxt-link>
-      </nav>
+      <aside class="flex flex-col justify-between px-4 h-full w-1/6 bg-light-blue-grey">
+        <nav class="flex flex-col">
+          <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/">
+            <i class="fa fa-chart-line w-8"></i>
+            Dashboard
+          </nuxt-link>
+          <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/articles">
+            <i class="far fa-newspaper w-8"></i>
+            Articles
+          </nuxt-link>
+          <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/members">
+            <i class="fa fa-user w-8"></i>
+            Membres
+          </nuxt-link>
+          <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/teams">
+            <i class="fa fa-layer-group w-8"></i>
+            Equipes
+          </nuxt-link>
+          <!-- <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/awards">
+            <i class="fa fa-trophy w-8"></i>
+            Palmarès
+          </nuxt-link> -->
+          <nuxt-link class="flex items-center border-b py-4 border-darker-blue" to="/users">
+            <i class="fa fa-users w-8"></i>
+            Utilisateurs
+          </nuxt-link>
+        </nav>
+        <div class="flex justify-center py-8">
+          <small>v.20180918</small>
+        </div>
+      </aside>
       <main class="p-4 w-full overflow-scroll bg-grey-lightest">
         <nuxt/>
       </main>
