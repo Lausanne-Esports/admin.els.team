@@ -128,6 +128,7 @@
             class="text-darker-blue rounded-lg mb-6"
             rows="30"
             v-model="form.body"
+            :config="{ spellChecker: false }"
           ></markdown-editor>
         </no-ssr>
       </div>
