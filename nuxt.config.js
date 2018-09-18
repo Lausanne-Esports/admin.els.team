@@ -63,7 +63,8 @@ module.exports = {
 
   axios: {
     credentials: true,
-    proxyHeaders: false,
+    proxyHeaders: true,
+    proxyHeadersIgnore: ['cf-ray', 'cf-connecting-ip'],
   },
 
   /*
