@@ -1,7 +1,7 @@
 require('dotenv').config()
 const pkg = require('./package')
 
-module.exports = {
+export default {
   mode: 'universal',
 
   /*
@@ -74,7 +74,7 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    extend(config, ctx) {
+    extend (config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
