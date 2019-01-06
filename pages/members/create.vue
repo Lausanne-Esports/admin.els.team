@@ -54,14 +54,26 @@
         </div>
       </div>
 
-      <div class="w-full">
-        <div class="flex flex-col">
-          <label class="mb-2">Lien contrat</label>
-          <input
-            class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-            type="text"
-            v-model="form.contract"
-          >
+      <div class="flex justify-between">
+        <div class="w-full mr-8">
+          <div class="flex flex-col">
+            <label class="mb-2">Lien photo</label>
+            <input
+              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+              type="text"
+              v-model="form.picture"
+            >
+          </div>
+        </div>
+        <div class="w-full">
+          <div class="flex flex-col">
+            <label class="mb-2">Lien contrat</label>
+            <input
+              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+              type="text"
+              v-model="form.contract"
+            >
+          </div>
         </div>
       </div>
     </section>
@@ -280,6 +292,7 @@ export default {
       postal_code: null,
       city: null,
       contract: null,
+      picture: null,
       iban: null,
       rib: null,
       swift: null,
