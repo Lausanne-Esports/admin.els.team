@@ -189,6 +189,7 @@
       async save () {
         try {
           await this.$axios.$post('admin/articles', this.form)
+          this.$router.push('/articles')
           this.$toast.success('Article sauvegardé !')
         } catch (e) {
           console.log(e)
