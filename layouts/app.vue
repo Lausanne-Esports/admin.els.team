@@ -41,7 +41,7 @@
           </nuxt-link>
         </nav>
         <div class="flex justify-center py-8">
-          <small>v.20180918</small>
+          <small>v.20190106</small>
         </div>
       </aside>
       <main class="p-4 w-full overflow-scroll bg-grey-lightest">
