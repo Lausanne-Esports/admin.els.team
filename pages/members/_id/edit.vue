@@ -1,270 +1,216 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="mb-8">Ajouter un membre</h1>
+    <h1 class="tracking-wide mb-8">Modification du membre</h1>
 
-    <div class="pb-4 mb-4">
+    <div class="flex w-1/4 pb-4 mb-4">
       <nuxt-link
-        class="border rounded-full py-2 px-8 mr-2 border-darker-blue hover:bg-darker-blue hover:text-white transition"
+        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
         to="/members"
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
         @click="save"
       >Sauvegarder</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Information</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Pseudo</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.nickname"
-            >
-          </div>
+          <base-input
+            label="Prénom"
+            name="firstname"
+            v-model="form.firstname"
+          ></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Prénom</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.firstname"
-            >
-          </div>
+          <base-input
+            label="Pseudo"
+            name="nickname"
+            v-model="form.nickname"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Nom</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.lastname"
-            >
-          </div>
+          <base-input
+            label="Nom"
+            name="lastname"
+            v-model="form.lastname"
+          ></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Lien photo</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.picture"
-            >
-          </div>
+          <base-input
+            label="Lien photo"
+            name="picture"
+            v-model="form.picture"
+          ></base-input>
         </div>
+
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Lien contrat</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.contract"
-            >
-          </div>
+          <base-input
+            label="Lien contrat"
+            name="contract"
+            v-model="form.contract"
+          ></base-input>
         </div>
       </div>
     </section>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Information Privée</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Date de naissance</label>
-            <date-picker
-              v-model="form.birth_on"
-            ></date-picker>
-          </div>
+          <date-input
+            label="Date de naissance"
+            v-model="form.birth_on"
+            :yearRange="[1930, 2019]"
+          ></date-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Taille vêtement</label>
-            <searchable-select
-              :items="clothSizes"
-              v-model="form.clothes_size"
-            ></searchable-select>
-          </div>
+          <searchable-select
+            label="Taille vêtement"
+            name="clothes_size"
+            :items="clothSizes"
+            v-model="form.clothes_size"
+          ></searchable-select>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Numéro de téléphone</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.phone_number"
-            >
-          </div>
+          <base-input
+            label="Numéro de téléphone"
+            name="phone_number"
+            v-model="form.phone_number"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Adresse</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.address"
-            >
-          </div>
+          <base-input
+            label="Adresse"
+            name="address"
+            v-model="form.address"
+          ></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Code postale</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.postal_code"
-            >
-          </div>
+          <base-input
+            label="Code postale"
+            name="postal_code"
+            v-model="form.postal_code"
+          ></base-input>
         </div>
+
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Ville</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.city"
-            >
-          </div>
+          <base-input
+            label="Ville"
+            name="city"
+            v-model="form.city"
+          ></base-input>
         </div>
       </div>
     </section>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Information Bancaire</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">IBAN</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.iban"
-            >
-          </div>
+          <base-input
+            label="IBAN"
+            name="iban"
+            v-model="form.iban"
+          ></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">RIB</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.rib"
-            >
-          </div>
+          <base-input
+            label="RIB"
+            name="rib"
+            v-model="form.rib"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">SWIFT</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.swift"
-            >
-          </div>
+          <base-input
+            label="SWIFT"
+            name="swift"
+            v-model="form.swift"
+          ></base-input>
         </div>
       </div>
     </section>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Réseaux sociaux</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Facebook</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.facebook"
-            >
-          </div>
+          <base-input
+            label="Facebook"
+            name="facebook"
+            v-model="form.facebook"
+          ></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Twitter</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.twitter"
-            >
-          </div>
+          <base-input
+            label="Twitter"
+            name="twitter"
+            v-model="form.twitter"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Twitch</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.twitch"
-            >
-          </div>
+          <base-input
+            label="Twitch"
+            name="twitch"
+            v-model="form.twitch"
+          ></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Youtube</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.youtube"
-            >
-          </div>
+          <base-input
+            label="Youtube"
+            name="youtube"
+            v-model="form.youtube"
+          ></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">BattleTag</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.battletag"
-            >
-          </div>
+          <base-input
+            label="BattleTag"
+            name="battletag"
+            v-model="form.battletag"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Steam</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.steam"
-            >
-          </div>
+          <base-input
+            label="Steam"
+            name="steam"
+            v-model="form.steam"
+          ></base-input>
         </div>
       </div>
     </section>
@@ -272,13 +218,14 @@
 </template>
 
 <script>
-import DatePicker from '@/components/Common/DatePicker'
-import SearchableSelect from '@/components/Common/SearchableSelect'
+import BaseInput from '@/components/Form/BaseInput'
+import DateInput from '@/components/Form/DateInput'
+import SearchableSelect from '@/components/Form/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { DatePicker, SearchableSelect },
+  components: { BaseInput, DateInput, SearchableSelect },
 
   data: () => ({
     form: {
