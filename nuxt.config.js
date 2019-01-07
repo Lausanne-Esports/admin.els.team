@@ -58,12 +58,20 @@ export default {
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
+    [
+      '@nuxtjs/proxy',
+      {
+        onProxyReq (req) {
+          req.removeHeader('cf-visitor')
+          req.removeHeader('cf-ray')
+          req.removeHeader('cf-connecting-ip')
+        }
+      },
+    ],
   ],
 
   axios: {
-    credentials: true,
-    proxyHeaders: false,
+    proxy: true,
   },
 
   proxy: {
