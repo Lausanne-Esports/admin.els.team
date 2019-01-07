@@ -1,5 +1,4 @@
 require('dotenv').config()
-const pkg = require('./package')
 
 export default {
   mode: 'universal',
@@ -59,12 +58,16 @@ export default {
   modules: [
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
 
   axios: {
     credentials: true,
     proxyHeaders: true,
-    proxyHeadersIgnore: ['cf-ray', 'cf-connecting-ip'],
+  },
+
+  proxy: {
+    '/api': { target: process.env.PROXY_API_URL, pathRewrite: {'^/api/': ''} },
   },
 
   /*
