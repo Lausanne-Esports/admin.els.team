@@ -1,27 +1,32 @@
 <template>
-  <div class="flex flex-col items-center justify-center w-full text-darker-blue">
-    <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
+  <div class="w-full max-w-sm text-primary-lighter tracking-wide">
+    <form @submit.prevent="authenticate">
 
-    <form class="w-1/5 flex flex-col bg-white p-8 rounded-lg" @submit.prevent="authenticate">
-      <span class="text-red mb-8" v-if="errors">{{ errors[0].detail }}</span>
-
-      <div class="flex items-center mb-4">
-        <i class="fa fa-user mr-4"></i>
-        <input class="h-8 w-full" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
+      <div class="w-full text-white text-center mb-8">
+        <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
       </div>
 
-      <div class="flex items-center">
-        <i class="fa fa-lock mr-4"></i>
-        <input class="h-8 w-full" type="password" placeholder="Password" v-model="form.password">
+      <p class="text-white mb-8" v-if="errors">No account found with the provided credentials.</p>
+
+      <div class="flex flex-col bg-white rounded-lg px-8 py-4">
+        <div class="flex items-center border-b h-16 pb-4">
+          <i class="fa fa-user mr-4"></i>
+          <input class="h-full flex-1 tracking-wide" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
+        </div>
+
+        <div class="flex items-center h-16 pt-4">
+          <i class="fa fa-lock mr-4"></i>
+          <input class="h-full flex-1 tracking-wide" type="password" placeholder="Password" v-model="form.password">
+        </div>
       </div>
 
       <button
-        class="border rounded-full py-2 border-darker-blue mt-8 hover:bg-darker-blue hover:text-white transition"
+        class="w-full font-bold text-white p-4 mt-8 mb-6 bg-primary-light hover:bg-primary transition rounded-full"
         type="submit"
       >Connexion</button>
     </form>
 
-    <div class="mt-8 text-white">
+    <div class="w-full text-center hover:text-white transition">
       <nuxt-link class="uppercase" to="/forgot-password">
         Oublié son mot de passe ?
       </nuxt-link>

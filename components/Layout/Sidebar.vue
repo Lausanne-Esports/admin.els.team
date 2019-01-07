@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .admin-aside-gradient {
   background: rgb(53,57,85);
   background: linear-gradient(45deg, rgba(53,57,85,1) 0%, rgba(53,57,85,.95) 100%);

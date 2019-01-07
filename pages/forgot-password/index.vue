@@ -1,22 +1,29 @@
 <template>
-  <div class="flex flex-col items-center justify-center w-full text-darker-blue">
-    <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
+  <div class="w-full max-w-sm text-primary-lighter tracking-wide">
+    <form @submit.prevent="send">
 
-    <form class="w-1/5 flex flex-col bg-white p-8 rounded-lg" @submit.prevent="send">
-      <span class="text-red mb-8" v-if="errors">{{ errors[0].detail }}</span>
+      <div class="w-full text-white text-center mb-8">
+        <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
+      </div>
 
-      <div class="flex items-center mb-4">
-        <i class="fa fa-user mr-4"></i>
-        <input class="h-8 w-full" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
+      <p class="text-white mb-8" v-if="errors">{{ errors[0].detail }}</p>
+
+      <div class="flex flex-col bg-white rounded-lg px-8 py-4">
+        <div class="flex items-center h-16">
+          <i class="fa fa-user mr-4"></i>
+          <input class="h-full flex-1 tracking-wide" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
+        </div>
       </div>
 
       <button
-        class="border rounded-full py-2 border-darker-blue mt-8 hover:bg-darker-blue hover:text-white transition"
+        class="w-full font-bold text-white p-4 mt-8 mb-6 bg-primary-light hover:bg-primary transition rounded-full"
         type="submit"
-      >Envoyer</button>
+      >
+        Envoyer
+      </button>
     </form>
 
-    <div class="mt-8 text-white">
+    <div class="w-full text-center hover:text-white transition">
       <nuxt-link class="uppercase" to="/login">
         Ou se connecter
       </nuxt-link>
