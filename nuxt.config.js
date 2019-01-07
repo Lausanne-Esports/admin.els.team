@@ -56,8 +56,6 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/dotenv',
-    '@nuxtjs/axios',
     [
       '@nuxtjs/proxy',
       {
@@ -68,6 +66,8 @@ export default {
         }
       },
     ],
+    '@nuxtjs/dotenv',
+    '@nuxtjs/axios',
   ],
 
   axios: {
