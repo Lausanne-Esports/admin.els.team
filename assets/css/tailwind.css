@@ -65,7 +65,7 @@ html, body, #__nuxt, #__layout {
   height: 100%;
 }
 
-a, a:visited {
+a {
   color: inherit;
   text-decoration: none;
 }

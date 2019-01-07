@@ -25,7 +25,7 @@ export default {
       { rel: 'mask-icon', color: '#384168', href: '/safari-pinned-tab.svg' },
     ],
     bodyAttrs: {
-      class: 'font-sans',
+      class: 'font-sans bg-nearly-white',
     },
   },
 

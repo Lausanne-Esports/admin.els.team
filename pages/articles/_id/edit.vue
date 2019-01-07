@@ -1,77 +1,68 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="mb-8">Modification de l'article</h1>
+    <h1 class="tracking-wide mb-8">Modification de l'article</h1>
 
-    <div class="pb-4 mb-4">
+    <div class="flex w-1/4 pb-4 mb-4">
       <nuxt-link
-        class="border rounded-full py-2 px-8 mr-2 border-darker-blue hover:bg-darker-blue hover:text-white transition"
+        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
         to="/articles"
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
         @click="save"
       >Sauvegarder</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Meta-donnée</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Catégorie</label>
-            <searchable-select
-              :items="articleCategories"
-              v-model="form.category_id"
-            ></searchable-select>
-          </div>
+          <searchable-select
+            label="Catégorie"
+            name="category_id"
+            :items="articleCategories"
+            v-model="form.category_id"
+          ></searchable-select>
         </div>
 
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Template</label>
-            <searchable-select
-              :items="articleTemplates"
-              v-model="form.template_id"
-            ></searchable-select>
-          </div>
+          <searchable-select
+            label="Template"
+            name="template_id"
+            :items="articleTemplates"
+            v-model="form.template_id"
+          ></searchable-select>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">Date de publication</label>
-            <date-picker
-              :time="true"
-              v-model="form.published_at"
-            ></date-picker>
-          </div>
+          <date-input
+            label="Date de publication"
+            name="published_at"
+            :time="true"
+            v-model="form.published_at"
+          ></date-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">URL vignette</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.thumbnail"
-            >
-          </div>
+          <base-input
+            label="URL vignette"
+            name="thumbnail"
+            v-model="form.thumbnail"
+          ></base-input>
         </div>
 
         <div class="w-full">
-          <div class="flex flex-col">
-            <label class="mb-2">URL vignette (mis en avant)</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
-              v-model="form.featured_thumbnail"
-            >
-          </div>
+          <base-input
+            label="URL vignette (mis en avant)"
+            name="featured_thumbnail"
+            v-model="form.featured_thumbnail"
+          ></base-input>
         </div>
       </div>
     </section>
@@ -80,13 +71,14 @@
 
 <script>
 import slug from '@slynova/slug'
-import DatePicker from '@/components/Common/DatePicker'
-import SearchableSelect from '@/components/Common/SearchableSelect'
+import BaseInput from '@/components/Form/BaseInput'
+import DateInput from '@/components/Form/DateInput'
+import SearchableSelect from '@/components/Form/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { DatePicker, SearchableSelect },
+  components: { BaseInput, DateInput, SearchableSelect },
 
   data: () => ({
     form: {

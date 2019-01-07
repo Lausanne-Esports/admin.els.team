@@ -9,53 +9,53 @@
 </template>
 
 <script>
-  export default {
-    props: ['open'],
+export default {
+  props: ['open'],
 
-    created () {
-      const escapeHandler = e => {
-        if (e.key === 'Escape' && this.open) {
-          this.dismiss()
-        }
+  created () {
+    const escapeHandler = e => {
+      if (e.key === 'Escape' && this.open) {
+        this.dismiss()
       }
+    }
 
-      document.addEventListener('keydown', escapeHandler)
+    document.addEventListener('keydown', escapeHandler)
 
-      this.$once('hook:destroyed', () => {
-        document.removeEventListener('keydown', escapeHandler)
-      })
+    this.$once('hook:destroyed', () => {
+      document.removeEventListener('keydown', escapeHandler)
+    })
+  },
+
+  methods: {
+    dismiss (e) {
+      if (e && e.target.classList.contains('modal-backdrop')) {
+        this.$emit('close')
+      } else if (e === undefined) {
+        this.$emit('close')
+      }
     },
-
-    methods: {
-      dismiss (e) {
-        if (e && e.target.classList.contains('modal-backdrop')) {
-          this.$emit('close')
-        } else if (e === undefined) {
-          this.$emit('close')
-        }
-      },
-    },
-  }
+  },
+}
 </script>
 
 <style scoped>
-  .modal-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: auto;
-    padding: 2rem;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-  }
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
 
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .3s;
-  }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
 
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>

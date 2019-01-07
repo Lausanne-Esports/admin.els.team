@@ -1,14 +1,14 @@
 <template>
   <div class="flex">
     <div
-      class="flex text-darker-blue items-center justify-center bg-light-blue-grey h-12 rounded-l-lg px-4 mr-px cursor-pointer"
+      class="flex text-primary-light items-center justify-center bg-black-lightest h-12 rounded-l-lg px-4 mr-px cursor-pointer"
       @click="picker.show()"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="fill-current heroicon-ui" d="M17 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h2V3a1 1 0 1 1 2 0v1h6V3a1 1 0 0 1 2 0v1zm-2 2H9v1a1 1 0 1 1-2 0V6H5v4h14V6h-2v1a1 1 0 0 1-2 0V6zm4 6H5v8h14v-8z"/></svg>
     </div>
     <input
       ref="input"
-      class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-r-lg px-4 mb-6"
+      class="bg-black-lightest text-primary h-12 w-full rounded-r-lg px-4 mb-6"
       type="text"
       :value="value"
       :placeholder="placeholder ? placeholder : ''"
@@ -17,33 +17,40 @@
 </template>
 
 <script>
-  if (process.browser) {
-    var Pikaday = require('pikaday-time')
-  }
+if (process.browser) {
+  var Pikaday = require('pikaday-time')
+}
 
-  export default {
-    props: {
-      placeholder: { required: false },
-      value: { required: false },
-      time: { required: false, default: false },
-    },
+export default {
+  props: {
+    placeholder: { required: false },
+    value: { required: false },
+    time: { required: false, default: false },
+    yearRange: { required: false },
+    minDate: { required: false },
+    maxDate: { required: false },
+  },
 
-    mounted () {
-      this.picker = new Pikaday({
-        field: this.$refs.input,
-        showTime: this.time,
-        use24hour: true,
-        format: this.time ? 'DD.MM.YYYY H:mm' : 'DD.MM.YYYY',
-        onSelect: () => {
-          this.$emit('input', this.picker.toString())
-        },
-      })
-    }
+  mounted () {
+    this.picker = new Pikaday({
+      field: this.$refs.input,
+      showTime: this.time,
+      use24hour: true,
+      defaultDate: this.minDate ? this.minDate : false,
+      minDate: this.minDate ? this.minDate : false,
+      maxDate: this.maxDate ? this.maxDate : false,
+      yearRange: this.yearRange ? this.yearRange : [2018],
+      format: this.time ? 'DD.MM.YYYY H:mm' : 'DD.MM.YYYY',
+      onSelect: () => {
+        this.$emit('input', this.picker.toString())
+      },
+    })
   }
+}
 </script>
 
 <style>
-  @charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Pikaday

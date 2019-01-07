@@ -1,62 +1,59 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="mb-8">Ajouter une traduction</h1>
+    <h1 class="tracking-wide mb-8">Ajouter une traduction</h1>
 
-    <div class="pb-4 mb-4">
+    <div class="flex w-1/4 pb-4 mb-4">
       <nuxt-link
-        class="border rounded-full py-2 px-8 mr-2 border-darker-blue hover:bg-darker-blue hover:text-white transition"
+        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
         to="/articles"
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
         @click="save"
       >Sauvegarder</button>
     </div>
 
     <section class="p-8 bg-white shadow rounded-lg w-full">
       <div class="w-1/5">
-        <div class="flex flex-col">
-          <label class="mb-2">Status</label>
-          <searchable-select
-            :items="articleStates"
-            v-model="form.state_id"
-          ></searchable-select>
-        </div>
+        <searchable-select
+          label="Status"
+          name="state_id"
+          :items="articleStates"
+          v-model="form.state_id"
+        ></searchable-select>
       </div>
 
       <div class="flex justify-between">
-        <div class="flex flex-col w-full mr-8">
-          <label class="mb-2">Titre</label>
-          <input
-            class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-            type="text"
+        <div class="w-full mr-8">
+          <base-input
+            label="Titre"
+            name="headline"
             v-model="form.headline"
-          >
+          ></base-input>
         </div>
 
-        <div class="flex flex-col w-full">
-          <label class="mb-2">Slug</label>
-          <input
-            class="bg-grey-lightest text-darker-blue h-12 w-full rounded-lg px-4 mb-6 cursor-not-allowed"
-            type="text"
+        <div class="w-full">
+          <base-input
+            label="Slug"
+            name="slug"
             v-model="slug"
             disabled
-          >
+          ></base-input>
         </div>
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="mb-2">Description</label>
+        <label class="text-primary-lighter mb-2">Description</label>
         <textarea
-          class="bg-light-blue-grey text-darker-blue rounded-lg p-4 mb-6"
+          class="bg-black-lightest text-primary rounded-lg p-4 mb-6"
           rows="10"
           v-model="form.description"
         ></textarea>
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="mb-2">Contenu</label>
+        <label class="text-primary-lighter mb-2">Contenu</label>
         <no-ssr>
           <markdown-editor
             class="text-darker-blue rounded-lg mb-6"
@@ -72,12 +69,13 @@
 
 <script>
 import slug from '@slynova/slug'
-import SearchableSelect from '@/components/Common/SearchableSelect'
+import BaseInput from '@/components/Form/BaseInput'
+import SearchableSelect from '@/components/Form/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { SearchableSelect },
+  components: { BaseInput, SearchableSelect },
 
   data: () => ({
     form: {

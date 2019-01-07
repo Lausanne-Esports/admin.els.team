@@ -1,6 +1,6 @@
 <template>
   <button
-    class="border rounded-full py-2 px-8 text-red border-red hover:bg-red hover:text-white transition"
+    class="flex w-1/4 shadow items-center justify-center text-danger hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
     @click="showModal = true"
   >
     Supprimer
