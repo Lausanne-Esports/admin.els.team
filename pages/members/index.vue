@@ -14,9 +14,11 @@
         <div class="w-full flex flex-col">
           <label class="mb-2">Recherche</label>
           <input
+            ref="firstInput"
             class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
             type="text"
             v-model="filter"
+            autofocus
           >
         </div>
       </div>
@@ -63,6 +65,10 @@ export default {
     const members = await $axios.$get('admin/members')
 
     return { members }
+  },
+
+  mounted () {
+    this.$refs.firstInput.focus()
   },
 
   computed: {
