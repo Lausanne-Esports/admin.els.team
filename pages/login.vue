@@ -23,7 +23,9 @@
       <button
         class="w-full font-bold text-white p-4 mt-8 mb-6 bg-primary-light hover:bg-primary transition rounded-full"
         type="submit"
-      >Connexion</button>
+      >
+        Connexion
+      </button>
     </form>
 
     <div class="w-full text-center hover:text-white transition">

@@ -28,7 +28,7 @@
             <li
               class="cursor-pointer px-4 py-4 mt-2 hover:bg-white-dark rounded-lg"
               v-for="(item, i) in filteredItems"
-              :key="item.name"
+              :key="item.id"
               @click="select(item)"
               :class="{ 'is-active': i === highlightedIndex}"
             >{{ item.name }}</li>

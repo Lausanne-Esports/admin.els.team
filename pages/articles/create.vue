@@ -124,67 +124,67 @@
 </template>
 
 <script>
-  import slug from '@slynova/slug'
-  import BaseInput from '@/components/Form/BaseInput'
-  import DateInput from '@/components/Form/DateInput'
-  import SearchableSelect from '@/components/Form/SearchableSelect'
+import slug from '@slynova/slug'
+import BaseInput from '@/components/Form/BaseInput'
+import DateInput from '@/components/Form/DateInput'
+import SearchableSelect from '@/components/Form/SearchableSelect'
 
-  export default {
-    layout: 'app',
+export default {
+  layout: 'app',
 
-    components: { BaseInput, DateInput, SearchableSelect },
+  components: { BaseInput, DateInput, SearchableSelect },
 
-    data: () => ({
-      form: {
-        headline: '',
-        description: '',
-        thumbnail: '',
-        featured_thumbnail: '',
-        body: '',
-        published_at: null,
-        template_id: 1,
-        state_id: 1,
-        category_id: 1,
-        language_id: 1,
-      },
-      articleCategories: [],
-      articleStates: [],
-      articleTemplates: [],
-      errors: [],
-    }),
-
-    created () {
-      this.$axios.$get('articles/categories').then((response) => {
-        this.articleCategories = response
-      })
-
-      this.$axios.$get('articles/states').then((response) => {
-        this.articleStates = response
-      })
-
-      this.$axios.$get('articles/templates').then((response) => {
-        this.articleTemplates = response
-      })
+  data: () => ({
+    form: {
+      headline: '',
+      description: '',
+      thumbnail: '',
+      featured_thumbnail: '',
+      body: '',
+      published_at: null,
+      template_id: 1,
+      state_id: 1,
+      category_id: 1,
+      language_id: 1,
     },
+    articleCategories: [],
+    articleStates: [],
+    articleTemplates: [],
+    errors: [],
+  }),
 
-    computed: {
-      slug () {
-        return slug(this.form.headline)
-      },
+  created () {
+    this.$axios.$get('articles/categories').then((response) => {
+      this.articleCategories = response
+    })
+
+    this.$axios.$get('articles/states').then((response) => {
+      this.articleStates = response
+    })
+
+    this.$axios.$get('articles/templates').then((response) => {
+      this.articleTemplates = response
+    })
+  },
+
+  computed: {
+    slug () {
+      return slug(this.form.headline)
     },
+  },
 
-    methods: {
-      async save () {
-        try {
-          await this.$axios.$post('admin/articles', this.form)
-          this.$router.push('/articles')
-          this.$toast.success('Article sauvegardé !')
-        } catch (e) {
-          console.log(e)
-          this.errors = e.response.data.errors
-          this.$toast.error('Une erreur est survenue')
-        }
+  methods: {
+    async save () {
+      try {
+        await this.$axios.$post('admin/articles', this.form)
+        this.$router.push('/articles')
+        this.$toast.success('Article sauvegardé !')
+      } catch (e) {
+        console.log(e)
+        this.errors = e.response.data.errors
+        this.$toast.error('Une erreur est survenue')
       }
-    },
-  }
+    }
+  },
+}
 </script>

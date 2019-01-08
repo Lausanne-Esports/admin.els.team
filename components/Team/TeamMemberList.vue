@@ -1,6 +1,6 @@
 <template>
   <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-    <header class="pb-4 mb-4 border-b border-darker-blue">
+    <header class="text-primary mb-8 pb-8 border-b border-primary">
       <h2>Membre(s)</h2>
     </header>
 
@@ -14,7 +14,7 @@
             <span class="flex items-center">Rôle(s)</span>
           </th>
           <th></th>
-          <th></th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
