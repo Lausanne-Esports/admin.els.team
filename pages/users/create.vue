@@ -2,77 +2,73 @@
   <div class="flex flex-col">
     <h1 class="mb-8">Ajouter un utilisateur</h1>
 
-    <div class="pb-4 mb-4">
+    <div class="flex w-1/4 pb-4 mb-4">
       <nuxt-link
-        class="border rounded-full py-2 px-8 mr-2 border-darker-blue hover:bg-darker-blue hover:text-white transition"
+        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
         to="/users"
       >Retour</nuxt-link>
 
       <button
-        class="border rounded-full py-2 px-8 hover:border-darker-blue bg-darker-blue text-white hover:bg-transparent hover:text-darker-blue transition"
+        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
         @click="save"
       >Sauvegarder</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="pb-4 mb-4 border-b border-darker-blue">
+      <header class="text-primary mb-8 pb-8 border-b border-primary">
         <h2>Information</h2>
       </header>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Nom d'utilisateur</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
+      <form @submit.prevent="save">
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input
+              label="Nom d'utilisateur"
+              name="username"
               v-model="form.username"
-            >
+            ></base-input>
           </div>
-        </div>
 
-        <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Email</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
-              type="text"
+          <div class="w-full mr-8">
+            <base-input
+              label="Email"
+              name="email"
               v-model="form.email"
-            >
+            ></base-input>
           </div>
         </div>
-      </div>
 
-            <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Mot de passe</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input
+              label="Mot de passe"
+              name="password"
               type="password"
               v-model="form.password"
-            >
+            ></base-input>
           </div>
-        </div>
 
-        <div class="w-full mr-8">
-          <div class="flex flex-col">
-            <label class="mb-2">Confirmation du mot de passe</label>
-            <input
-              class="bg-light-blue-grey text-darker-blue h-12 w-full rounded-lg px-4 mb-6"
+          <div class="w-full mr-8">
+            <base-input
+              label="Confirmation du mot de passe"
+              name="password_confirmation"
               type="password"
               v-model="form.password_confirmation"
-            >
+            ></base-input>
           </div>
         </div>
-      </div>
+      </form>
     </section>
   </div>
 </template>
 
 <script>
+import BaseInput from '@/components/Form/BaseInput'
+
 export default {
   layout: 'app',
+
+  components: { BaseInput },
 
   data: () => ({
     form: {

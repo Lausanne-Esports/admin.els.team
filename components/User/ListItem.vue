@@ -1,9 +1,8 @@
 <template>
-  <tr class="h-16 border-b border-dark-purple-blue">
+  <tr class="h-16 border-b border-primary-lightest">
     <td>{{ user.username }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.account_status }}</td>
-    <td></td>
   </tr>
 </template>
 
