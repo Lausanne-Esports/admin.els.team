@@ -10,6 +10,7 @@
       <menu-item to="/articles" icon="newspaper">Articles</menu-item>
       <menu-item to="/members" icon="user">Members</menu-item>
       <menu-item to="/teams" icon="layer-group">Teams</menu-item>
+      <menu-item to="/streams" icon="video">Streams</menu-item>
       <menu-item to="/users" icon="users">Users</menu-item>
     </div>
     <div class="flex justify-center py-8">
