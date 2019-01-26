@@ -43,8 +43,6 @@ export default {
   data: () => ({
     form: {
       username: null,
-      twitch_id: null,
-      display_name: null,
     },
   }),
 

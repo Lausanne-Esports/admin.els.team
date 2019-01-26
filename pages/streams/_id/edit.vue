@@ -64,7 +64,7 @@ export default {
       twitch_id: null,
       display_name: null,
     },
-    stream: {}
+    stream: {},
   }),
 
   async created () {
@@ -88,8 +88,8 @@ export default {
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

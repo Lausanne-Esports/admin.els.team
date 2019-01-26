@@ -55,8 +55,5 @@ export default {
 
     return { streams }
   },
-
-  computed: {
-  }
 }
 </script>
