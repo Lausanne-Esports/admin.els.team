@@ -12,6 +12,11 @@
         class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
         @click="save"
       >Save</button>
+
+      <button
+        class="flex w-1/2 shadow items-center justify-center bg-danger hover:bg-danger-dark transition rounded-full text-white ml-4 p-4"
+        @click="destroy"
+      >Delete</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
@@ -84,11 +89,21 @@ export default {
       try {
         await this.$axios.$put(`admin/streams/${this.stream.id}`, this.form)
         this.$router.push('/streams')
-        this.$toast.success('Stream sauvegardé !')
+        this.$toast.success('Stream saved !')
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
     },
+
+    async destroy () {
+      try {
+        await this.$axios.$delete(`admin/streams/${this.stream.id}`)
+        this.$router.push('/streams')
+        this.$toast.success('Stream deleted !')
+      } catch (e) {
+        this.$toast.error('Une erreur est survenue')
+      }
+    }
   },
 }
 </script>
