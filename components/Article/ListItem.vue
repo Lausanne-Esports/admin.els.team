@@ -32,11 +32,18 @@
           <i class="far fa-star" v-else></i>
         </button>
         <nuxt-link
-          class="flex shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full h-10 w-10 text-white"
+          class="flex shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full h-10 w-10 text-white mr-3"
           :to="editArticleLink"
         >
           <i class="fas fa-pen"></i>
         </nuxt-link>
+        <a
+          class="flex cursor-pointer shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full h-10 w-10 text-white"
+          target="_blank"
+          :href="frontendUrl"
+        >
+          <i class="fas fa-link"></i>
+        </a>
       </div>
     </td>
   </tr>
@@ -57,7 +64,11 @@ export default {
 
     frenchTranslation () {
       return this.article.translations.find(t => t.language.code === 'fr')
-    }
+    },
+
+    frontendUrl () {
+      return `${process.env.FRONTEND_URL}/articles/${this.article.id}`
+    },
   },
 
   methods: {
