@@ -1,5 +1,5 @@
 <template>
-  <tr class="h-16 border-b border-primary-lightest">
+  <tr class="h-16 border-b border-neutral-200">
     <td>{{ stream.username }}</td>
     <td><a :href="url" target="_blank">twitch.tv/{{ stream.username }}</a></td>
     <td>
