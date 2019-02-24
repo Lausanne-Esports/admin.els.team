@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Modifier une équipe</h1>
+    <h1 class="tracking-wide mb-8">Modification of a team</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -14,7 +14,7 @@
       <button
         class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
-      >Sauvegarder</button>
+      >Save</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
@@ -25,7 +25,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Nom"
+            label="Name"
             name="name"
             v-model="form.name"
           ></base-input>
@@ -44,13 +44,13 @@
       <div class="flex">
         <div class="mr-8">
           <checkbox
-            label="Académie"
+            label="Academy"
             name="academy"
             v-model="form.academy"
           ></checkbox>
         </div>
        <checkbox
-          label="Activée"
+          label="Enabled"
           name="activated"
           v-model="form.activated"
         ></checkbox>

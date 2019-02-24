@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Ajouter une traduction</h1>
+    <h1 class="tracking-wide mb-8">Add a translation</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -14,7 +14,7 @@
       <button
         class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
-      >Sauvegarder</button>
+      >Save</button>
     </div>
 
     <section class="p-8 bg-white shadow rounded w-full">
@@ -30,7 +30,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Titre"
+            label="Headline"
             name="headline"
             v-model="form.headline"
           ></base-input>
@@ -56,7 +56,7 @@
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="text-neutral-500 mb-2">Contenu</label>
+        <label class="text-neutral-500 mb-2">Content</label>
         <no-ssr>
           <markdown-editor
             class="rounded mb-6"

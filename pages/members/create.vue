@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Ajouter un membre</h1>
+    <h1 class="tracking-wide mb-8">Add a member</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -14,7 +14,7 @@
       <button
         class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
-      >Sauvegarder</button>
+      >Save</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
@@ -25,7 +25,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Prénom"
+            label="First name"
             name="firstname"
             v-model="form.firstname"
           ></base-input>
@@ -41,7 +41,7 @@
 
         <div class="w-full">
           <base-input
-            label="Nom"
+            label="Last name"
             name="lastname"
             v-model="form.lastname"
           ></base-input>
@@ -51,7 +51,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Lien photo"
+            label="Picture URL"
             name="picture"
             v-model="form.picture"
           ></base-input>
@@ -59,7 +59,7 @@
 
         <div class="w-full">
           <base-input
-            label="Lien contrat"
+            label="Contract URL"
             name="contract"
             v-model="form.contract"
           ></base-input>
@@ -69,13 +69,13 @@
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
       <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information Privée</h2>
+        <h2>Private Information</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <date-input
-            label="Date de naissance"
+            label="Birth Date"
             v-model="form.birth_on"
             :yearRange="[1930, 2019]"
           ></date-input>
@@ -83,7 +83,7 @@
 
         <div class="w-full">
           <searchable-select
-            label="Taille vêtement"
+            label="Clothing Sizes"
             name="clothes_size"
             :items="clothSizes"
             v-model="form.clothes_size"
@@ -94,7 +94,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Numéro de téléphone"
+            label="Phone number"
             name="phone_number"
             v-model="form.phone_number"
           ></base-input>
@@ -102,7 +102,7 @@
 
         <div class="w-full">
           <base-input
-            label="Adresse"
+            label="Address"
             name="address"
             v-model="form.address"
           ></base-input>
@@ -112,7 +112,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="Code postale"
+            label="Postal Code"
             name="postal_code"
             v-model="form.postal_code"
           ></base-input>
@@ -120,7 +120,7 @@
 
         <div class="w-full">
           <base-input
-            label="Ville"
+            label="City"
             name="city"
             v-model="form.city"
           ></base-input>
@@ -130,7 +130,7 @@
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
       <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information Bancaire</h2>
+        <h2>Bank Information</h2>
       </header>
 
       <div class="flex justify-between">
@@ -162,7 +162,7 @@
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
       <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Réseaux sociaux</h2>
+        <h2>Social Netowrks</h2>
       </header>
 
       <div class="flex justify-between">

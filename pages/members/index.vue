@@ -8,7 +8,7 @@
         to="/members/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Ajouter un membre</span>
+        <span>Add a member</span>
       </nuxt-link>
     </div>
 
@@ -30,7 +30,7 @@
                 Pseudo
               </th>
               <th>
-                Nom
+                Name
               </th>
               <th>
                 Actions

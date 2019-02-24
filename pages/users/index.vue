@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking mb-8">Utilisateurs</h1>
+    <h1 class="tracking mb-8">Users</h1>
 
         <div class="flex mb-8">
       <nuxt-link
@@ -8,7 +8,7 @@
         to="/users/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Ajouter un utilisateur</span>
+        <span>Add a user</span>
       </nuxt-link>
     </div>
 
@@ -16,15 +16,9 @@
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-neutral-500">
-            <th>
-              Nom d'utilisateur
-            </th>
-            <th>
-              Email
-            </th>
-            <th>
-              Status
-            </th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>

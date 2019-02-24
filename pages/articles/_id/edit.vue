@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Modification de l'article</h1>
+    <h1 class="tracking-wide mb-8">Modification of an article</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -14,18 +14,18 @@
       <button
         class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
-      >Sauvegarder</button>
+      >Save</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
       <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Meta-donnée</h2>
+        <h2>Metadata</h2>
       </header>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <searchable-select
-            label="Catégorie"
+            label="Category"
             name="category_id"
             :items="articleCategories"
             v-model="form.category_id"
@@ -43,7 +43,7 @@
 
         <div class="w-full">
           <date-input
-            label="Date de publication"
+            label="Release Date"
             name="published_at"
             :time="true"
             v-model="form.published_at"
@@ -54,7 +54,7 @@
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input
-            label="URL vignette"
+            label="Thumbnail URL"
             name="thumbnail"
             v-model="form.thumbnail"
           ></base-input>
@@ -62,7 +62,7 @@
 
         <div class="w-full">
           <base-input
-            label="URL vignette (mis en avant)"
+            label="Featured Thumbnail URL"
             name="featured_thumbnail"
             v-model="form.featured_thumbnail"
           ></base-input>

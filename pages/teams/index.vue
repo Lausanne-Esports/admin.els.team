@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking mb-8">Equipes</h1>
+    <h1 class="tracking mb-8">Teams</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -8,7 +8,7 @@
         to="/teams/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Ajouter une équipe</span>
+        <span>Add a team</span>
       </nuxt-link>
     </div>
 
@@ -17,13 +17,13 @@
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-neutral-500">
             <th>
-              Nom
+              Name
             </th>
             <th>
               Type
             </th>
             <th>
-              Ordre
+              Order
             </th>
             <th>
               Actions

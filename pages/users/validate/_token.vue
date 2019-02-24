@@ -7,7 +7,7 @@ export default {
   layout: 'auth',
 
   data: () => ({
-    message: 'Validation en cours...'
+    message: 'Validation in progress...'
   }),
 
   async created () {

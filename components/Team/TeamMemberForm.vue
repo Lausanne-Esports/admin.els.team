@@ -1,7 +1,7 @@
 <template>
   <section class="p-8 mb-8 bg-white shadow rounded w-full">
     <header class="mb-8 pb-4 border-b border-neutral-300">
-      <h2>Ajouter un membre</h2>
+      <h2>Add a member</h2>
     </header>
 
     <div class="flex justify-between">
@@ -26,7 +26,7 @@
         <button
           class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
           @click="addMember"
-        >Ajouter</button>
+        >Add</button>
       </div>
     </div>
   </section>

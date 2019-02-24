@@ -1,17 +1,17 @@
 <template>
   <section class="p-8 mb-8 bg-white shadow rounded w-full">
     <header class="mb-8 pb-4 border-b border-neutral-300">
-      <h2>Membre(s)</h2>
+      <h2>Members</h2>
     </header>
 
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-sm h-12 text-left uppercase text-neutral-500">
           <th>
-            Nom
+            Name
           </th>
           <th>
-            Rôle(s)
+            Roles
           </th>
           <th></th>
           <th>Actions</th>

@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="mb-8">Ajouter un utilisateur</h1>
+    <h1 class="mb-8">Add a user</h1>
 
     <div class="flex mb-8">
       <nuxt-link
@@ -14,7 +14,7 @@
       <button
         class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
-      >Sauvegarder</button>
+      >Save</button>
     </div>
 
     <section class="p-8 mb-8 bg-white shadow rounded w-full">
@@ -26,7 +26,7 @@
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <base-input
-              label="Nom d'utilisateur"
+              label="Username"
               name="username"
               v-model="form.username"
             ></base-input>
@@ -44,7 +44,7 @@
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <base-input
-              label="Mot de passe"
+              label="Password"
               name="password"
               type="password"
               v-model="form.password"
@@ -53,7 +53,7 @@
 
           <div class="w-full mr-8">
             <base-input
-              label="Confirmation du mot de passe"
+              label="Password Confirmation"
               name="password_confirmation"
               type="password"
               v-model="form.password_confirmation"

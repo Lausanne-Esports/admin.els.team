@@ -8,7 +8,7 @@
         to="/articles/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Rédiger un article</span>
+        <span>Write an article</span>
       </nuxt-link>
     </div>
 
@@ -26,17 +26,17 @@
           <thead>
             <tr class="text-sm h-12 text-left uppercase text-neutral-500">
               <th>
-                Titre <small>(FR)</small>
+                Headline <small>(FR)</small>
               </th>
               <th></th>
               <th>
-                Date de publication
+                Release Date
               </th>
               <th>
                 Category
               </th>
               <th>
-                Langue(s)
+                Languages
               </th>
               <th>
                 Actions
