@@ -3,6 +3,8 @@ require('dotenv').config()
 export default {
   mode: 'universal',
 
+  modern: true,
+
   /*
   ** Headers of the page
   */
