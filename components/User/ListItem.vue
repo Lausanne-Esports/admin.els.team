@@ -1,5 +1,5 @@
 <template>
-  <tr class="h-16 border-b border-primary-lightest">
+  <tr class="h-16 border-b border-neutral-200">
     <td>{{ user.username }}</td>
     <td>{{ user.email }}</td>
     <td>{{ user.account_status }}</td>

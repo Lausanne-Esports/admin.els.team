@@ -23,7 +23,8 @@
     "popper.js": "^1.14.7",
     "portal-vue": "^1.5.1",
     "vue-izitoast": "^1.1.2",
-    "vue-simplemde": "^0.5.1"
+    "vue-simplemde": "^0.5.1",
+    "vue-svg-loader": "^0.12.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.8",

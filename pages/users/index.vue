@@ -2,25 +2,28 @@
   <div class="flex flex-col">
     <h1 class="tracking mb-8">Utilisateurs</h1>
 
-    <div class="pb-4 mb-4">
+        <div class="flex mb-8">
       <nuxt-link
-        class="flex w-1/4 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
+        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         to="/users/create"
-      >Ajouter un utilisateur</nuxt-link>
+      >
+        <IconAdd class="fill-current h-8 mr-1" />
+        <span>Ajouter un utilisateur</span>
+      </nuxt-link>
     </div>
 
     <panel>
       <table class="w-full border-collapse">
         <thead>
-          <tr class="text-sm h-12 text-left uppercase text-primary-light">
+          <tr class="text-sm h-12 text-left uppercase text-neutral-500">
             <th>
-              <span class="flex items-center">Nom d'utilisateur</span>
+              Nom d'utilisateur
             </th>
             <th>
-              <span class="flex items-center">Email</span>
+              Email
             </th>
             <th>
-              <span class="flex items-center">Status</span>
+              Status
             </th>
           </tr>
         </thead>
@@ -37,13 +40,14 @@
 </template>
 
 <script>
+import IconAdd from '@/assets/icons/icon-add.svg'
 import Panel from '@/components/Layout/Panel'
 import ListItem from '@/components/User/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { Panel, ListItem },
+  components: { IconAdd, Panel, ListItem },
 
   data: () => ({
     users: [],

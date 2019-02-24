@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex w-1/4 shadow items-center justify-center text-danger hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
+    class="inline-flex shadow items-center text-s-red-600 hover:bg-neutral-200 transition rounded bg-white px-4 py-2"
     @click="showModal = true"
   >
     Supprimer

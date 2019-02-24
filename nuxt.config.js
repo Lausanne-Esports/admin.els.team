@@ -25,7 +25,7 @@ export default {
       { rel: 'mask-icon', color: '#384168', href: '/safari-pinned-tab.svg' },
     ],
     bodyAttrs: {
-      class: 'font-sans bg-nearly-white',
+      class: 'font-sans bg-neutral-100',
     },
   },
 
@@ -86,6 +86,15 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      const svgRule = config.module.rules.find(rule => rule.test.test('.svg'))
+
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        loader: 'vue-svg-loader',
+      })
+
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({

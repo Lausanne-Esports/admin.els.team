@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col">
-    <label class="text-primary-lighter mb-2" :for="name">{{ label }}</label>
+    <label class="text-neutral-500 mb-2" :for="name">{{ label }}</label>
     <date-picker
       :name="name"
       :placeholder="placeholder"

@@ -1,36 +1,67 @@
 <template>
-  <aside class="text-white h-full w-1/6 flex flex-col justify-between admin-aside-gradient">
+  <aside class="text-white h-full flex flex-col justify-between bg-neutral-1000">
     <div class="flex flex-col">
       <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
-        <img class="h-32" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
+        <LausanneLogo class="h-32" />
       </nuxt-link>
 
-      <span class="tracking-wide uppercase bg-martinique-light p-4">Main</span>
-      <menu-item to="/" icon="chart-line">Dashboard</menu-item>
-      <menu-item to="/articles" icon="newspaper">Articles</menu-item>
-      <menu-item to="/members" icon="user">Members</menu-item>
-      <menu-item to="/teams" icon="layer-group">Teams</menu-item>
-      <menu-item to="/streams" icon="video">Streams</menu-item>
-      <menu-item to="/users" icon="users">Users</menu-item>
+      <span class="tracking-wide uppercase bg-neutral-800 p-4">Main</span>
+      <menu-item to="/" icon="chart-line">
+        <DashboardIcon class="fill-current h-6 mr-3" />
+        Dashboard
+      </menu-item>
+      <menu-item to="/articles">
+        <NewsIcon class="fill-current h-6 mr-3" />
+        Articles
+      </menu-item>
+      <menu-item to="/members">
+        <MembersIcon class="fill-current h-6 mr-3" />
+        Members
+      </menu-item>
+      <menu-item to="/teams">
+        <TeamIcon class="fill-current h-6 mr-3" />
+        Teams
+      </menu-item>
+      <menu-item to="/streams">
+        <StreamsIcon class="fill-current h-6 mr-3" />
+        Streams
+      </menu-item>
+      <menu-item to="/users">
+        <UsersIcon class="fill-current h-6 mr-3" />
+        Users
+      </menu-item>
     </div>
     <div class="flex justify-center py-8">
-      <small>v.20190223</small>
+      <small>v.20190224</small>
     </div>
   </aside>
 </template>
 
 <script>
+import LausanneLogo from '@/assets/images/logo-white.svg'
+import DashboardIcon from '@/assets/icons/icon-dashboard.svg'
+import NewsIcon from '@/assets/icons/icon-news.svg'
+import MembersIcon from '@/assets/icons/icon-user-group.svg'
+import TeamIcon from '@/assets/icons/icon-layers.svg'
+import StreamsIcon from '@/assets/icons/icon-videocam.svg'
+import UsersIcon from '@/assets/icons/icon-user-couple.svg'
 import MenuItem from '@/components/Layout/Sidebar/MenuItem'
 
 export default {
-  components: { MenuItem },
+  components: {
+    DashboardIcon, UsersIcon, MembersIcon, NewsIcon, TeamIcon, StreamsIcon,
+    LausanneLogo, MenuItem,
+  },
 }
 </script>
 
-<style scoped>
-.admin-aside-gradient {
-  background: rgb(53,57,85);
-  background: linear-gradient(45deg, rgba(53,57,85,1) 0%, rgba(53,57,85,.95) 100%);
+<style lang="postcss" scoped>
+aside {
+  min-width: 300px;
+}
+
+svg .primary {
+  @apply .text-neutral-500
 }
 </style>
 

@@ -1,5 +1,11 @@
 export const state = () => ({
   currentUser: null,
+  textStates: {
+    1: 'Draft',
+    2: 'Proofreading Requested',
+    3: 'Ready',
+    4: 'Published',
+  }
 })
 
 export const mutations = {

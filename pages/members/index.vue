@@ -1,42 +1,39 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Membres</h1>
+    <h1 class="tracking-wide mb-8">Members</h1>
 
-    <div class="pb-4 mb-4">
+    <div class="flex mb-8">
       <nuxt-link
-        class="flex w-1/4 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
+        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         to="/members/create"
-      >Ajouter un membre</nuxt-link>
+      >
+        <IconAdd class="fill-current h-8 mr-1" />
+        <span>Ajouter un membre</span>
+      </nuxt-link>
     </div>
 
     <panel>
       <div class="w-full">
-        <div class="flex w-full items-center mb-4">
-          <svg class="text-martinique fill-current mr-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
-          <search-input
-            class="w-1/3"
-            name="search"
-            placeholder="Search"
-            :nomargin="true"
-            v-model="filter"
-            autofocus
-          ></search-input>
-        </div>
+        <search-input
+          class="mb-4"
+          name="search"
+          placeholder="Search"
+          :nomargin="true"
+          v-model="filter"
+          autofocus
+        ></search-input>
 
         <table class="w-full border-collapse">
           <thead>
-            <tr class="text-sm h-12 text-left uppercase text-primary-light">
+            <tr class="text-sm h-12 text-left uppercase text-neutral-500">
               <th>
-                <span class="flex items-center">Pseudo</span>
+                Pseudo
               </th>
               <th>
-                <span class="flex items-center">Nom</span>
+                Nom
               </th>
               <th>
-                <span class="flex items-center">Equipe(s)</span>
-              </th>
-              <th>
-                <span class="flex items-center">Actions</span>
+                Actions
               </th>
             </tr>
           </thead>
@@ -50,6 +47,7 @@
 </template>
 
 <script>
+import IconAdd from '@/assets/icons/icon-add.svg'
 import Panel from '@/components/Layout/Panel'
 import SearchInput from '@/components/Form/SearchInput'
 import ListItem from '@/components/Member/ListItem'
@@ -57,7 +55,7 @@ import ListItem from '@/components/Member/ListItem'
 export default {
   layout: 'app',
 
-  components: { ListItem, Panel, SearchInput },
+  components: { IconAdd, ListItem, Panel, SearchInput },
 
   data: () => ({
     members: [],

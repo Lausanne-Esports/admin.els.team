@@ -1,8 +1,8 @@
 <template>
   <div :class="`flex flex-col ${nomargin ? '' : 'mb-6' }`">
-    <label class="text-primary-lighter mb-2" :for="name">{{ label }}</label>
+    <label class="text-neutral-500 mb-2" :for="name">{{ label }}</label>
     <input
-      :class="`bg-black-lightest text-primary h-12 rounded-lg px-4 mb-1 ${disabled !== false ? 'cursor-not-allowed' : ''}`"
+      :class="`bg-white h-12 rounded border border-neutral-300 px-4 mb-1 ${disabled !== false ? 'cursor-not-allowed' : ''}`"
       :id="name"
       :type="type"
       :placeholder="placeholder"

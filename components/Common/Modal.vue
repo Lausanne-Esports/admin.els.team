@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div v-show="open" class="flex items-center justify-center modal-backdrop" @click="dismiss">
-      <div class="shadow flex flex-col bg-white rounded-lg p-12 lg:w-2/5 md:w-2/3 max-h-screen">
+      <div class="shadow flex flex-col bg-white rounded p-12 lg:w-2/5 md:w-2/3 max-h-screen">
         <slot></slot>
       </div>
     </div>

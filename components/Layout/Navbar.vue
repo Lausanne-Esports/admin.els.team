@@ -1,9 +1,9 @@
 <template>
   <header class="flex items-center justify-end w-full h-16">
     <div class="flex items-center">
-      <span class="tracking-wide mr-4">{{ currentUser.username }}</span>
+      <small class="tracking-wide mr-4">({{ currentUser.username }})</small>
       <button class="flex items-center tracking-wide" @click="logout">
-        <i class="fa fa-sign-out-alt mr-1"></i>
+        <LogoutIcon class="fill-current h-5 mr-1" />
         Sign Out
       </button>
     </div>
@@ -11,7 +11,11 @@
 </template>
 
 <script>
+import LogoutIcon from '@/assets/icons/icon-door-exit.svg'
+
 export default {
+  components: { LogoutIcon },
+
   computed: {
     currentUser () { return this.$store.state.currentUser },
   },

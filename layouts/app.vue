@@ -2,7 +2,7 @@
   <div class="flex h-full">
     <sidebar></sidebar>
 
-    <main class="w-5/6 px-4 py-4 overflow-scroll text-martinique">
+    <main class="flex-1 px-4 py-4 overflow-scroll text-neutral-1000">
       <navbar></navbar>
       <nuxt />
     </main>

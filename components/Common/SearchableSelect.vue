@@ -2,18 +2,18 @@
   <on-click-outside :do="close">
     <div class="flex flex-col">
       <div class="flex relative">
-        <div ref="button" class="flex items-center text-primary w-full bg-black-lightest h-12 rounded-l-lg px-4 mb-6 cursor-pointer" type="text" @click="open">
+        <div ref="button" class="flex items-center text-neutral w-full bg-white h-12 rounded-l border border-neutral-300 px-4 mb-6 cursor-pointer" type="text" @click="open">
           <span v-if="value && items.length > 0">{{ getValue().name }}</span>
-          <span class="text-primary-lighter opacity-50" v-else>Select your options</span>
+          <span class="text-neutral-500 opacity-50" v-else>Select your options</span>
         </div>
 
-        <div class="flex text-primary-light items-center justify-center bg-black-lightest h-12 rounded-r-lg px-4 ml-px cursor-pointer" @click="open()">
+        <div class="flex text-neutral-500 items-center justify-center bg-white h-12 rounded-r border border-l-0 border-neutral-300 px-4 cursor-pointer" @click="open()">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/></svg>
         </div>
 
-        <div ref="dropdown" v-show="isOpen" class="shadow flex flex-col bg-white rounded-lg absolute m-0 p-2 pin-r pin-l z-30">
+        <div ref="dropdown" v-show="isOpen" class="shadow flex flex-col bg-white rounded absolute m-0 p-2 pin-r pin-l z-30">
           <input
-            class="block w-full text-black w-full bg-black-lightest h-12 rounded-lg px-4"
+            class="block w-full w-full bg-white h-12 border-neutral-300 border rounded px-4"
             type="text"
             v-model="search"
             ref="search"
@@ -26,7 +26,7 @@
 
           <ul ref="items" class="list-reset p0 max-h-52 relative overflow-y-auto">
             <li
-              class="cursor-pointer px-4 py-4 mt-2 hover:bg-white-dark rounded-lg"
+              class="cursor-pointer px-4 py-4 mt-2 hover:bg-neutral-200 rounded"
               v-for="(item, i) in filteredItems"
               :key="item.id"
               @click="select(item)"
@@ -145,8 +145,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .is-active {
-  background-color: #f7f7f9;
+  @apply .bg-neutral-200
 }
 </style>

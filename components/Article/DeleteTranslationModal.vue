@@ -1,12 +1,12 @@
 <template>
   <modal :open="open" @close="dismiss()">
-    <h3 class="text-primary mb-8 pb-8 border-b border-primary">Êtes-vous sûr ?</h3>
+    <h3 class="mb-8 pb-4  border-b border-primary">Êtes-vous sûr ?</h3>
 
-    <p class="my-8">Voulez-vous vraiment supprimer cette traduction ?</p>
+    <p class="mb-16">Voulez-vous vraiment supprimer cette traduction ?</p>
 
     <div class="flex items-center justify-center">
-      <a class="text-primary mr-8" href="#" @click="dismiss()">Annuler</a>
-      <a class="text-white bg-danger rounded-full py-2 px-4" href="#" @click="sendQuery()">Supprimer</a>
+      <button class="mr-8" @click="dismiss()">Annuler</button>
+      <button class="text-white bg-s-red-600 rounded py-2 px-4" @click="sendQuery()">Supprimer</button>
     </div>
   </modal>
 </template>

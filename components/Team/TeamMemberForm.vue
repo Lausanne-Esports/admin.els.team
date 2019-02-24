@@ -1,6 +1,6 @@
 <template>
-  <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-    <header class="text-primary mb-8 pb-8 border-b border-primary">
+  <section class="p-8 mb-8 bg-white shadow rounded w-full">
+    <header class="mb-8 pb-4 border-b border-neutral-300">
       <h2>Ajouter un membre</h2>
     </header>
 
@@ -24,7 +24,7 @@
 
       <div class="flex items-center ml-8">
         <button
-          class="border rounded-full py-2 px-8 bg-primary-light hover:bg-primary transition rounded-full text-white"
+          class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
           @click="addMember"
         >Ajouter</button>
       </div>

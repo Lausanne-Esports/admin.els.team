@@ -2,25 +2,28 @@
   <div class="flex flex-col">
     <h1 class="tracking-wide mb-8">Update stream</h1>
 
-    <div class="flex w-1/4 pb-4 mb-4">
+    <div class="flex mb-8">
       <nuxt-link
-        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
+        class="inline-flex shadow items-center justify-center hover:bg-neutral-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/streams"
-      >Back</nuxt-link>
+      >
+        <BackIcon class="fill-current h-8 mr-1" />
+        <span>Back</span>
+      </nuxt-link>
 
       <button
-        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
+        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2 mr-4"
         @click="save"
-      >Save</button>
+      >Sauvegarder</button>
 
       <button
-        class="flex w-1/2 shadow items-center justify-center bg-danger hover:bg-danger-dark transition rounded-full text-white ml-4 p-4"
+        class="inline-flex shadow items-center text-s-red-600 hover:bg-neutral-200 transition rounded bg-white px-4 py-2"
         @click="destroy"
       >Delete</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-      <header class="text-primary mb-8 pb-8 border-b border-primary">
+    <section class="p-8 mb-8 bg-white shadow rounded w-full">
+      <header class="mb-8 pb-4 border-b border-neutral-300">
         <h2>Information</h2>
       </header>
 
@@ -56,12 +59,13 @@
 </template>
 
 <script>
+import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
 
 export default {
   layout: 'app',
 
-  components: { BaseInput },
+  components: { BackIcon, BaseInput },
 
   data: () => ({
     form: {

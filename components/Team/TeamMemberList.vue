@@ -1,17 +1,17 @@
 <template>
-  <section class="p-8 mb-8 bg-white shadow rounded-lg w-full">
-    <header class="text-primary mb-8 pb-8 border-b border-primary">
+  <section class="p-8 mb-8 bg-white shadow rounded w-full">
+    <header class="mb-8 pb-4 border-b border-neutral-300">
       <h2>Membre(s)</h2>
     </header>
 
     <table class="w-full border-collapse">
       <thead>
-        <tr class="text-sm h-12 text-left uppercase text-dark-purple-blue">
+        <tr class="text-sm h-12 text-left uppercase text-neutral-500">
           <th>
-            <span class="flex items-center">Nom</span>
+            Nom
           </th>
           <th>
-            <span class="flex items-center">Rôle(s)</span>
+            Rôle(s)
           </th>
           <th></th>
           <th>Actions</th>

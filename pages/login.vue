@@ -1,27 +1,27 @@
 <template>
-  <div class="w-full max-w-sm text-primary-lighter tracking-wide">
+  <div class="w-full max-w-sm text-neutral-500 tracking-wide">
     <form @submit.prevent="authenticate">
 
       <div class="w-full text-white text-center mb-8">
-        <img class="h-32 mb-10" src="~/assets/images/logo-white.svg" alt="Lausanne eSports">
+        <LausanneLogo class="h-32 mb-10" />
       </div>
 
       <p class="text-white mb-8" v-if="errors">No account found with the provided credentials.</p>
 
-      <div class="flex flex-col bg-white rounded-lg px-8 py-4">
+      <div class="flex flex-col bg-white rounded px-8 py-4">
         <div class="flex items-center border-b h-16 pb-4">
-          <i class="fa fa-user mr-4"></i>
+          <UserIcon class="fill-current h-5 mr-4" />
           <input class="h-full flex-1 tracking-wide" type="text" placeholder="Username / Email" v-model="form.uid" autofocus>
         </div>
 
         <div class="flex items-center h-16 pt-4">
-          <i class="fa fa-lock mr-4"></i>
+          <PasswordIcon class="fill-current h-5 mr-4" />
           <input class="h-full flex-1 tracking-wide" type="password" placeholder="Password" v-model="form.password">
         </div>
       </div>
 
       <button
-        class="w-full font-bold text-white p-4 mt-8 mb-6 bg-primary-light hover:bg-primary transition rounded-full"
+        class="w-full font-bold text-white p-4 mt-8 mb-6 bg-neutral-900 hover:bg-neutral-800 transition rounded"
         type="submit"
       >
         Connexion
@@ -37,8 +37,16 @@
 </template>
 
 <script>
+import LausanneLogo from '~/assets/images/logo-white.svg'
+import UserIcon from '~/assets/icons/icon-user.svg'
+import PasswordIcon from '~/assets/icons/icon-lock.svg'
+
 export default {
   layout: 'auth',
+
+  components: {
+    LausanneLogo, UserIcon, PasswordIcon
+  },
 
   data: () => ({
     form: {

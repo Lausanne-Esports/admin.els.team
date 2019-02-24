@@ -2,19 +2,22 @@
   <div class="flex flex-col">
     <h1 class="tracking-wide mb-8">Ajouter une traduction</h1>
 
-    <div class="flex w-1/4 pb-4 mb-4">
+    <div class="flex mb-8">
       <nuxt-link
-        class="flex w-1/4 shadow items-center justify-center text-primary-light hover:bg-white-blue-dark transition rounded-full bg-white p-4 mr-4"
+        class="inline-flex shadow items-center justify-center hover:bg-neutral-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/articles"
-      >Retour</nuxt-link>
+      >
+        <BackIcon class="fill-current h-8 mr-1" />
+        <span>Back</span>
+      </nuxt-link>
 
       <button
-        class="flex w-1/2 shadow items-center justify-center bg-primary-light hover:bg-primary transition rounded-full text-white p-4"
+        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
         @click="save"
       >Sauvegarder</button>
     </div>
 
-    <section class="p-8 bg-white shadow rounded-lg w-full">
+    <section class="p-8 bg-white shadow rounded w-full">
       <div class="w-1/5">
         <searchable-select
           label="Status"
@@ -44,19 +47,19 @@
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="text-primary-lighter mb-2">Description</label>
+        <label class="text-neutral-500 mb-2">Description</label>
         <textarea
-          class="bg-black-lightest text-primary rounded-lg p-4 mb-6"
+          class="bg-white border border-neutral-300 rounded p-4 mb-6"
           rows="10"
           v-model="form.description"
         ></textarea>
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="text-primary-lighter mb-2">Contenu</label>
+        <label class="text-neutral-500 mb-2">Contenu</label>
         <no-ssr>
           <markdown-editor
-            class="text-darker-blue rounded-lg mb-6"
+            class="rounded mb-6"
             rows="30"
             v-model="form.body"
             :configs="{ spellChecker: false }"
@@ -69,13 +72,14 @@
 
 <script>
 import slug from '@slynova/slug'
+import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { BaseInput, SearchableSelect },
+  components: { BackIcon, BaseInput, SearchableSelect },
 
   data: () => ({
     form: {

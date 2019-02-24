@@ -1,14 +1,14 @@
 <template>
   <div class="flex">
     <div
-      class="flex text-primary-light items-center justify-center bg-black-lightest h-12 rounded-l-lg px-4 mr-px cursor-pointer"
+      class="flex items-center justify-center bg-white h-12 border border-r-0 border-neutral-300 rounded-l px-4 cursor-pointer"
       @click="picker.show()"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="fill-current heroicon-ui" d="M17 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h2V3a1 1 0 1 1 2 0v1h6V3a1 1 0 0 1 2 0v1zm-2 2H9v1a1 1 0 1 1-2 0V6H5v4h14V6h-2v1a1 1 0 0 1-2 0V6zm4 6H5v8h14v-8z"/></svg>
     </div>
     <input
       ref="input"
-      class="bg-black-lightest text-primary h-12 w-full rounded-r-lg px-4 mb-6"
+      class="bg-white h-12 w-full border border-neutral-300 rounded-r px-4 mb-6"
       type="text"
       :value="value"
       :placeholder="placeholder ? placeholder : ''"
