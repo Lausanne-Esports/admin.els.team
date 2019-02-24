@@ -24,13 +24,13 @@
         class="w-full font-bold text-white p-4 mt-8 mb-6 bg-neutral-900 hover:bg-neutral-800 transition rounded"
         type="submit"
       >
-        Connexion
+        Sign In
       </button>
     </form>
 
     <div class="w-full text-center hover:text-white transition">
       <nuxt-link class="uppercase" to="/forgot-password">
-        Oublié son mot de passe ?
+        Forgot your password ?
       </nuxt-link>
     </div>
   </div>

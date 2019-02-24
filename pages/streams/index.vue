@@ -8,7 +8,7 @@
         to="/streams/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Add Stream</span>
+        <span>Add a Stream</span>
       </nuxt-link>
     </div>
 

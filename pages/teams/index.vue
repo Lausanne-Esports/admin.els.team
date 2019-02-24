@@ -8,7 +8,7 @@
         to="/teams/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Add a team</span>
+        <span>Add a Team</span>
       </nuxt-link>
     </div>
 

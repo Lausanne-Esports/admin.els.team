@@ -24,7 +24,7 @@
         class="w-full font-bold text-white p-4 mt-8 mb-6 bg-neutral-900 hover:bg-neutral-800 transition rounded"
         type="submit"
       >
-        Changer mon mot de passe
+        Change my Password
       </button>
     </form>
   </div>

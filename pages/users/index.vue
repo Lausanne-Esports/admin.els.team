@@ -8,7 +8,7 @@
         to="/users/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
-        <span>Add a user</span>
+        <span>Add a User</span>
       </nuxt-link>
     </div>
 
