@@ -66,12 +66,7 @@ export default {
 
   axios: {
     credentials: true,
-    // proxy: true,
   },
-
-  // proxy: {
-  //   '/api': { target: process.env.PROXY_API_URL, pathRewrite: {'^/api/': ''} },
-  // },
 
   /*
   ** Build configuration
