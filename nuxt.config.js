@@ -52,33 +52,26 @@ export default {
     { src: '~/plugins/simple-mde', ssr: false },
     { src: '~/plugins/izitoast', ssr: false },
     { src: '~/plugins/portal' },
+    { src: '~/plugins/nuxt-client-init.js', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    [
-      '@nuxtjs/proxy',
-      {
-        onProxyReq (req) {
-          req.removeHeader('cf-visitor')
-          req.removeHeader('cf-ray')
-          req.removeHeader('cf-connecting-ip')
-        }
-      },
-    ],
+    '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/axios',
   ],
 
   axios: {
-    proxy: true,
+    credentials: true,
+    // proxy: true,
   },
 
-  proxy: {
-    '/api': { target: process.env.PROXY_API_URL, pathRewrite: {'^/api/': ''} },
-  },
+  // proxy: {
+  //   '/api': { target: process.env.PROXY_API_URL, pathRewrite: {'^/api/': ''} },
+  // },
 
   /*
   ** Build configuration

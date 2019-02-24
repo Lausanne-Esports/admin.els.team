@@ -8,6 +8,7 @@ npm-debug.log
 
 # Nuxt build
 .nuxt
+static/sw.js
 
 # Nuxt generate
 dist

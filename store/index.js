@@ -20,7 +20,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit ({ dispatch }, { app }) {
+  async nuxtClientInit ({ dispatch }, { app }) {
     try {
       await dispatch('getCurrentUser')
     } catch (e) {}
