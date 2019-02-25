@@ -1,4 +1,5 @@
 .env
+.netlify
 
 # dependencies
 node_modules
