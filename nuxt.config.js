@@ -1,9 +1,10 @@
 require('dotenv').config()
 
+const isProduction = process.env.NODE_ENV === 'production'
+
 export default {
   mode: 'spa',
-
-  modern: true,
+  modern: isProduction,
 
   /*
    ** Headers of the page
@@ -99,6 +100,10 @@ export default {
    ** Build configuration
    */
   build: {
+    cache: !isProduction,
+    hardSource: !isProduction,
+    parallel: !isProduction,
+
     /*
      ** You can extend webpack config here
      */
