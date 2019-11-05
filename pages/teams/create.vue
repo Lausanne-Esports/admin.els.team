@@ -24,11 +24,7 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Name"
-            name="name"
-            v-model="form.name"
-          ></base-input>
+          <base-input label="Name" name="name" v-model="form.name"></base-input>
         </div>
 
         <div class="w-full mr-8">
@@ -42,11 +38,7 @@
       </div>
 
       <div class="flex flex-col">
-        <checkbox
-          label="Academy"
-          name="academy"
-          v-model="form.academy"
-        ></checkbox>
+        <NewCheckbox label="Academy" name="academy" v-model="form.academy" />
       </div>
     </section>
   </div>
@@ -54,14 +46,14 @@
 
 <script>
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
-import Checkbox from '@/components/Form/Checkbox'
+import NewCheckbox from '@/components/Form/NewCheckbox'
 import BaseInput from '@/components/Form/BaseInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
 
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, Checkbox, SearchableSelect },
+  components: { BackIcon, BaseInput, NewCheckbox, SearchableSelect },
 
   data: () => ({
     form: {
@@ -72,12 +64,12 @@ export default {
     teamCategories: [],
   }),
 
-  async created () {
+  async created() {
     this.teamCategories = await this.$axios.$get('teams/categories')
   },
 
   methods: {
-    async save () {
+    async save() {
       try {
         const team = await this.$axios.$post('admin/teams', this.form)
         this.$router.push(`/teams/${team.id}/edit`)
@@ -86,6 +78,6 @@ export default {
         this.$toast.error('Une erreur est survenue')
       }
     },
-  }
+  },
 }
 </script>

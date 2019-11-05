@@ -24,11 +24,7 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Name"
-            name="name"
-            v-model="form.name"
-          ></base-input>
+          <base-input label="Name" name="name" v-model="form.name"></base-input>
         </div>
 
         <div class="w-full">
@@ -43,17 +39,9 @@
 
       <div class="flex">
         <div class="mr-8">
-          <checkbox
-            label="Academy"
-            name="academy"
-            v-model="form.academy"
-          ></checkbox>
+          <NewCheckbox label="Academy" name="academy" v-model="form.academy" />
         </div>
-       <checkbox
-          label="Enabled"
-          name="activated"
-          v-model="form.activated"
-        ></checkbox>
+        <NewCheckbox label="Enabled" name="activated" v-model="form.activated" />
       </div>
     </section>
 
@@ -65,6 +53,7 @@
 <script>
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import Checkbox from '@/components/Form/Checkbox'
+import NewCheckbox from '@/components/Form/NewCheckbox'
 import BaseInput from '@/components/Form/BaseInput'
 import TeamMemberForm from '@/components/Team/TeamMemberForm'
 import TeamMemberList from '@/components/Team/TeamMemberList'
@@ -75,8 +64,11 @@ export default {
 
   components: {
     BackIcon,
-    Checkbox, BaseInput, SearchableSelect,
-    TeamMemberForm, TeamMemberList,
+    NewCheckbox,
+    BaseInput,
+    SearchableSelect,
+    TeamMemberForm,
+    TeamMemberList,
   },
 
   data: () => ({
@@ -92,7 +84,7 @@ export default {
     teamMembers: [],
   }),
 
-  async created () {
+  async created() {
     this.loadCategories()
     this.loadMembers()
     this.loadTeamMembers()
@@ -102,47 +94,51 @@ export default {
   },
 
   computed: {
-    availableMembers () {
-      return this.members.filter((member) => {
+    availableMembers() {
+      return this.members.filter(member => {
         return !this.teamMembers.map(m => m.id).includes(member.id)
       })
-    }
+    },
   },
 
   methods: {
-    hydrate () {
+    hydrate() {
       this.form.name = this.team.name
       this.form.category_id = this.team.category_id
       this.form.academy = this.team.academy
       this.form.activated = this.team.activated
     },
 
-    async loadMembers () {
+    async loadMembers() {
       const members = await this.$axios.$get('admin/members')
 
-      this.members = members.map((member) => ({
+      this.members = members.map(member => ({
         id: member.id,
-        name: `${member.firstname || ''} "${member.nickname}" ${member.lastname || ''}`,
+        name: `${member.firstname || ''} "${
+          member.nickname
+        }" ${member.lastname || ''}`,
       }))
     },
 
-    async loadTeamMembers () {
-      this.teamMembers = await this.$axios.$get(`admin/teams/${this.$route.params.id}/members`)
+    async loadTeamMembers() {
+      this.teamMembers = await this.$axios.$get(
+        `admin/teams/${this.$route.params.id}/members`
+      )
     },
 
-    async loadCategories () {
+    async loadCategories() {
       this.teamCategories = await this.$axios.$get('teams/categories')
     },
 
-    async save () {
+    async save() {
       try {
         await this.$axios.$put(`admin/teams/${this.team.id}`, this.form)
         this.$toast.success('Equipe sauvegardée !')
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
