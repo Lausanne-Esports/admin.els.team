@@ -16,36 +16,28 @@
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-neutral-500">
-            <th>
-              Name
-            </th>
-            <th>
-              Type
-            </th>
-            <th>
-              Order
-            </th>
-            <th>
-              Actions
-            </th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <list-item
+        <Draggable v-model="teams" tag="tbody" @update="computeNewOrder">
+          <ListItem
             v-for="(team, index) in teams"
             :key="team.id"
             :team="team"
             :first="index === 0"
             :last="lastItemIndex === index"
             @teamUpdated="loadTeams"
-          ></list-item>
-        </tbody>
+          />
+        </Draggable>
       </table>
     </panel>
   </div>
 </template>
 
 <script>
+import Draggable from 'vuedraggable'
 import IconAdd from '@/assets/icons/icon-add.svg'
 import Panel from '@/components/Layout/Panel'
 import ListItem from '@/components/Team/ListItem'
@@ -53,28 +45,42 @@ import ListItem from '@/components/Team/ListItem'
 export default {
   layout: 'app',
 
-  components: { IconAdd, ListItem, Panel },
+  components: { Draggable, IconAdd, ListItem, Panel },
 
   data: () => ({
     teams: [],
   }),
 
-  async asyncData ({ $axios }) {
+  async asyncData({ $axios }) {
     const teams = await $axios.$get('admin/teams')
 
     return { teams }
   },
 
   computed: {
-    lastItemIndex () {
+    lastItemIndex() {
       return Object.keys(this.teams).length - 1
     },
   },
 
   methods: {
-    async loadTeams () {
+    async loadTeams() {
       this.teams = await this.$axios.$get('admin/teams')
-    }
-  }
+    },
+
+    async computeNewOrder() {
+      this.teams = this.teams.map((team, i) => ({
+        ...team,
+        order: i + 1,
+      }))
+
+      const newOrder = this.teams.map(team => ({
+        id: team.id,
+        order: team.order,
+      }))
+
+      await this.$axios.$post(`admin/teams/order`, { order: newOrder })
+    },
+  },
 }
 </script>

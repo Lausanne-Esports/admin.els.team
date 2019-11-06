@@ -24,7 +24,8 @@
     "portal-vue": "^1.5.1",
     "vue-izitoast": "^1.1.2",
     "vue-simplemde": "^0.5.1",
-    "vue-svg-loader": "^0.12.0"
+    "vue-svg-loader": "^0.12.0",
+    "vuedraggable": "^2.23.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.9",
