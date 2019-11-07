@@ -1,5 +1,5 @@
 <template>
-  <label class="checkbox flex items-center">
+  <label class="cursor-pointer checkbox flex items-center">
     <div
       class="rounded cursor-pointer bg-white outline-none shadow hover:shadow-md focus:shadow-md w-6 h-6 p-1 flex justify-center items-center mr-2 border border-neutral-300"
     >
@@ -34,24 +34,24 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue'
 
 const Checkbox = Vue.extend({
-  name: "Checkbox",
+  name: 'Checkbox',
 
   props: {
     label: {
       required: true,
-      type: String
+      type: String,
     },
     value: {
       required: true,
-      type: [Number, String]
-    }
-  }
-});
+      type: [Number, String],
+    },
+  },
+})
 
-export default Checkbox;
+export default Checkbox
 </script>
 
 <style scoped>
