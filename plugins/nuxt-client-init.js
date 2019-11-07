@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+Vue.component('DateTime', () =>
+  import(/* webpackChunkName: "date-time" */ '@/components/Common/DateTime.vue')
+)
+
 Vue.component('Spacer', () =>
   import(/* webpackChunkName: "spacer" */ '@/components/Common/Spacer.vue')
 )

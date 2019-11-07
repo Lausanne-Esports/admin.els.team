@@ -9,7 +9,9 @@
     <td>
       <span :class="`${stateStyle} px-3 py-1 rounded`">{{ stateText }}</span>
     </td>
-    <td>{{ article.published_at }}</td>
+    <td>
+      <DateTime :time="article.published_at" format="dd.MM.yyyy HH:mm" />
+    </td>
     <td>{{ article.category.name }}</td>
     <td>
       <div class="inline-flex items-center">
