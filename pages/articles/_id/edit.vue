@@ -23,7 +23,7 @@
       </div>
     </section>
 
-    <Panel header="Metadata">
+    <Panel v-else header="Metadata">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <searchable-select
