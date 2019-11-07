@@ -59,9 +59,9 @@ export default {
         case 2:
           return 'bg-yellow-200 text-yellow-800'
         case 3:
-          return 'bg-s-pink-200 text-s-pink-800'
+          return 'bg-pink-200 text-pink-800'
         case 4:
-          return 'bg-s-teal-200 text-s-teal-800'
+          return 'bg-teal-200 text-teal-800'
       }
 
       return ''
