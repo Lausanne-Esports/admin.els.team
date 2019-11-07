@@ -55,7 +55,7 @@ export default {
       { rel: 'mask-icon', color: '#384168', href: '/safari-pinned-tab.svg' },
     ],
     bodyAttrs: {
-      class: 'font-sans bg-gray-100',
+      class: 'bg-gray-100',
     },
   },
 
@@ -105,6 +105,8 @@ export default {
     // cache: !isProduction,
     // hardSource: !isProduction,
     // parallel: !isProduction,
+
+    extractCSS: true,
 
     /*
      ** You can extend webpack config here
