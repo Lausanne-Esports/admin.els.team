@@ -9,7 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
-@import "tailwindcss/preflight";
+@import 'tailwindcss/preflight';
 
 /**
  * This injects any component classes registered by plugins.
@@ -18,7 +18,7 @@
  *
  * @import "tailwindcss/components";
  */
-@import "tailwindcss/components";
+@import 'tailwindcss/components';
 
 /**
  * Here you would add any of your custom component classes; stuff that you'd
@@ -44,7 +44,7 @@
  *
  * @import "tailwindcss/utilities";
  */
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';
 
 /**
  * Here you would add any custom utilities you need that don't come out of the
@@ -61,7 +61,10 @@
  * @import "utilities/skew-transforms";
  */
 
-html, body, #__nuxt, #__layout {
+html,
+body,
+#__nuxt,
+#__layout {
   height: 100%;
 }
 
@@ -70,6 +73,78 @@ a {
   text-decoration: none;
 }
 
+button:focus {
+  outline: 0;
+}
+
 .transition {
   transition: all 0.3s;
+}
+
+.svg-up {
+  transform: rotate(0deg);
+}
+
+.svg-right {
+  transform: rotate(90deg);
+}
+
+.svg-down {
+  transform: rotate(180deg);
+}
+
+.svg-left {
+  transform: rotate(-90deg);
+}
+
+.origin-top-right {
+  transform-origin: top right;
+}
+
+.origin-top-left {
+  transform-origin: top left;
+}
+
+.transition-all {
+  transition-property: all;
+}
+
+.transition-fastest {
+  transition-duration: 50ms;
+}
+
+.transition-faster {
+  transition-duration: 100ms;
+}
+
+.transition-fast {
+  transition-duration: 150ms;
+}
+
+.transition-medium {
+  transition-duration: 200ms;
+}
+
+.transition-slow {
+  transition-duration: 300ms;
+}
+
+.ease-out-quad {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ease-in-quad {
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.scale-70 {
+  transform: scale(0.7);
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.font-variant-numeric {
+  font-variant-numeric: tabular-nums;
 }

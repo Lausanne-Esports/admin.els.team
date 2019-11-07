@@ -46,7 +46,12 @@
     </section>
 
     <team-member-form :members="availableMembers" :team="team" @submit="loadTeamMembers"></team-member-form>
-    <team-member-list :members="teamMembers" :team="team" @submit="loadTeamMembers"></team-member-list>
+    <team-member-list
+      :members="teamMembers"
+      :team="team"
+      @submit="loadTeamMembers"
+      @updateMemberList="updateMemberList"
+    ></team-member-list>
   </div>
 </template>
 
@@ -137,6 +142,10 @@ export default {
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
+    },
+
+    updateMemberList(members) {
+      this.teamMembers = members
     },
   },
 }

@@ -1,43 +1,43 @@
 <template>
-  <tr class="h-16 border-b border-neutral-200">
+  <tr class="h-16 border-b border-neutral-200 cursor-pointer">
     <td>{{ fullname }}</td>
     <td>{{ member.pivot.role }}</td>
     <td>
-      <!-- <div class="flex justify-center item-centers">
-        <button
-          class="border border-dark-purple-blue mr-2 h-10 w-10 flex items-center justify-center rounded-full"
-          v-if="!first"
-          @click="up"
-        >
-          <svg class="text-dark-purple-blue fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M8.7 14.7a1 1 0 0 1-1.4-1.4l4-4a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1-1.4 1.4L12 11.42l-3.3 3.3z"/></svg>
-        </button>
-        <button
-          class="border border-dark-purple-blue mr-2 h-10 w-10 flex items-center justify-center rounded-full"
-          v-if="!last"
-          @click="down"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/></svg>
-        </button>
-      </div>-->
-    </td>
-    <td>
       <div class="flex item-centers">
-        <button
-          class="inline-flex text-s-red-600 shadow items-center justify-center hover:bg-neutral-100 transition rounded h-10 w-10 text-neutral-700"
-          @click="deleteMember"
-        >
+        <button class="relative outline-none relative text-neutral-500">
           <svg
-            class="fill-current"
+            class="fill-current svg-right h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="24"
-            height="24"
+            viewBox="0 0 30 26.6"
+            @click="showDropdown = true"
           >
             <path
-              class="heroicon-ui"
-              d="M8 6V4c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v2h5a1 1 0 0 1 0 2h-1v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8H3a1 1 0 1 1 0-2h5zM6 8v12h12V8H6zm8-2V4h-4v2h4zm-4 4a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1zm4 0a1 1 0 0 1 1 1v6a1 1 0 0 1-2 0v-6a1 1 0 0 1 1-1z"
+              d="M3.4 16.7c-1.9 0-3.4-1.5-3.4-3.4s1.5-3.4 3.4-3.4 3.4 1.5 3.4 3.4-1.5 3.4-3.4 3.4zm0-4.9c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.6-1.5-1.5-1.5zM15 16.7c-1.9 0-3.4-1.5-3.4-3.4s1.5-3.4 3.4-3.4 3.4 1.5 3.4 3.4-1.5 3.4-3.4 3.4zm0-4.9c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zM26.6 16.7c-1.9 0-3.4-1.5-3.4-3.4s1.5-3.4 3.4-3.4 3.4 1.5 3.4 3.4-1.5 3.4-3.4 3.4zm0-4.9c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5z"
             />
           </svg>
+
+          <div v-if="showDropdown" class="fixed pin" @click="showDropdown = false"></div>
+
+          <transition
+            enter-active-class="transition-all transition-fastest ease-out-quad"
+            leave-active-class="transition-all transition-faster ease-in-quad"
+            enter-class="opacity-0 scale-70"
+            enter-to-class="opacity-100 scale-100"
+            leave-class="opacity-100 scale-100"
+            leave-to-class="opacity-0 scale-70"
+          >
+            <div
+              v-show="showDropdown"
+              class="origin-top-right border border-neutral-200 absolute w-48 right-0 rounded shadow bg-white mt-2 py-1 overflow-hidden z-30"
+            >
+              <ul class="list-reset">
+                <li
+                  class="hover:bg-primary-500 hover:text-white px-4 py-2 cursor-pointer transition"
+                  @click="deleteMember"
+                >Remove from the team</li>
+              </ul>
+            </div>
+          </transition>
         </button>
       </div>
     </td>
@@ -49,6 +49,10 @@
 
 export default {
   props: ['first', 'last', 'member', 'team'],
+
+  data: () => ({
+    showDropdown: false,
+  }),
 
   computed: {
     fullname() {
@@ -68,20 +72,6 @@ export default {
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
-    },
-
-    async up() {
-      await this.$axios.$post(
-        `admin/teams/${this.team.id}/members/${this.member.id}/up`
-      )
-      this.$emit('submit')
-    },
-
-    async down() {
-      await this.$axios.$post(
-        `admin/teams/${this.team.id}/members/${this.member.id}/down`
-      )
-      this.$emit('submit')
     },
   },
 }

@@ -7,18 +7,13 @@
     <table class="w-full border-collapse">
       <thead>
         <tr class="text-sm h-12 text-left uppercase text-neutral-500">
-          <th>
-            Name
-          </th>
-          <th>
-            Roles
-          </th>
-          <th></th>
+          <th>Name</th>
+          <th>Roles</th>
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <list-item
+      <Draggable v-model="members" tag="tbody" @update="computeNewOrder">
+        <ListItem
           v-for="(member, index) in members"
           :key="member.id"
           :member="member"
@@ -26,23 +21,43 @@
           :first="index === 0"
           :last="lastItemIndex === index"
           @submit="$emit('submit')"
-        ></list-item>
-      </tbody>
+        ></ListItem>
+      </Draggable>
     </table>
   </section>
 </template>
 
 <script>
+import Draggable from 'vuedraggable'
 import ListItem from '@/components/Team/TeamMemberListItem'
 
 export default {
   props: ['members', 'team'],
 
-  components: { ListItem },
+  components: { Draggable, ListItem },
 
   computed: {
-    lastItemIndex () {
+    lastItemIndex() {
       return Object.keys(this.members).length - 1
+    },
+  },
+
+  methods: {
+    async computeNewOrder() {
+      const members = this.members.map((member, i) => ({
+        ...member,
+        order: i + 1,
+      }))
+
+      const newOrder = members.map(member => ({
+        id: member.id,
+        order: member.order,
+      }))
+
+      await this.$axios.$post(`admin/teams/${this.team.id}/members/order`, {
+        order: newOrder,
+      })
+      this.$emit('updateMemberList', members)
     },
   },
 }
