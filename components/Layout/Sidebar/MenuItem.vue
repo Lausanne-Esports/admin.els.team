@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-    class="flex items-center py-4 px-8 hover:bg-neutral-900 transition"
+    class="flex items-center py-4 px-8 hover:bg-gray-900 transition"
     :to="to"
   >
     <slot></slot>

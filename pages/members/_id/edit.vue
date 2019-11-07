@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Modification of a member</h1>
+    <h1 class="tracking-wider mb-8">Modification of a member</h1>
 
     <div class="flex mb-8">
       <nuxt-link
-        class="inline-flex shadow items-center justify-center hover:bg-neutral-200 transition rounded bg-white px-4 py-2 mr-4"
+        class="inline-flex shadow items-center justify-center hover:bg-gray-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/members"
       >
         <BackIcon class="fill-current h-8 mr-1" />
@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <button
-        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         @click="save"
       >Save</button>
     </div>
@@ -24,45 +24,25 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="First name"
-            name="firstname"
-            v-model="form.firstname"
-          ></base-input>
+          <base-input label="First name" name="firstname" v-model="form.firstname"></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <base-input
-            label="Pseudo"
-            name="nickname"
-            v-model="form.nickname"
-          ></base-input>
+          <base-input label="Pseudo" name="nickname" v-model="form.nickname"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Last name"
-            name="lastname"
-            v-model="form.lastname"
-          ></base-input>
+          <base-input label="Last name" name="lastname" v-model="form.lastname"></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Picture URL"
-            name="picture"
-            v-model="form.picture"
-          ></base-input>
+          <base-input label="Picture URL" name="picture" v-model="form.picture"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Contract URL"
-            name="contract"
-            v-model="form.contract"
-          ></base-input>
+          <base-input label="Contract URL" name="contract" v-model="form.contract"></base-input>
         </div>
       </div>
     </section>
@@ -74,11 +54,7 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <date-input
-            label="Birth Date"
-            v-model="form.birth_on"
-            :yearRange="[1930, 2019]"
-          ></date-input>
+          <date-input label="Birth Date" v-model="form.birth_on" :yearRange="[1930, 2019]"></date-input>
         </div>
 
         <div class="w-full">
@@ -93,37 +69,21 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Phone Number"
-            name="phone_number"
-            v-model="form.phone_number"
-          ></base-input>
+          <base-input label="Phone Number" name="phone_number" v-model="form.phone_number"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Address"
-            name="address"
-            v-model="form.address"
-          ></base-input>
+          <base-input label="Address" name="address" v-model="form.address"></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Postal Code"
-            name="postal_code"
-            v-model="form.postal_code"
-          ></base-input>
+          <base-input label="Postal Code" name="postal_code" v-model="form.postal_code"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="City"
-            name="city"
-            v-model="form.city"
-          ></base-input>
+          <base-input label="City" name="city" v-model="form.city"></base-input>
         </div>
       </div>
     </section>
@@ -135,27 +95,15 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="IBAN"
-            name="iban"
-            v-model="form.iban"
-          ></base-input>
+          <base-input label="IBAN" name="iban" v-model="form.iban"></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <base-input
-            label="RIB"
-            name="rib"
-            v-model="form.rib"
-          ></base-input>
+          <base-input label="RIB" name="rib" v-model="form.rib"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="SWIFT"
-            name="swift"
-            v-model="form.swift"
-          ></base-input>
+          <base-input label="SWIFT" name="swift" v-model="form.swift"></base-input>
         </div>
       </div>
     </section>
@@ -167,57 +115,33 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Facebook"
-            name="facebook"
-            v-model="form.facebook"
-          ></base-input>
+          <base-input label="Facebook" name="facebook" v-model="form.facebook"></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <base-input
-            label="Twitter"
-            name="twitter"
-            v-model="form.twitter"
-          ></base-input>
+          <base-input label="Twitter" name="twitter" v-model="form.twitter"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Twitch"
-            name="twitch"
-            v-model="form.twitch"
-          ></base-input>
+          <base-input label="Twitch" name="twitch" v-model="form.twitch"></base-input>
         </div>
       </div>
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Youtube"
-            name="youtube"
-            v-model="form.youtube"
-          ></base-input>
+          <base-input label="Youtube" name="youtube" v-model="form.youtube"></base-input>
         </div>
 
         <div class="w-full mr-8">
-          <base-input
-            label="BattleTag"
-            name="battletag"
-            v-model="form.battletag"
-          ></base-input>
+          <base-input label="BattleTag" name="battletag" v-model="form.battletag"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Steam"
-            name="steam"
-            v-model="form.steam"
-          ></base-input>
+          <base-input label="Steam" name="steam" v-model="form.steam"></base-input>
         </div>
       </div>
     </section>
-   </div>
+  </div>
 </template>
 
 <script>
@@ -264,28 +188,30 @@ export default {
     ],
     member: {},
   }),
-  async created () {
-    this.member = await this.$axios.$get(`admin/members/${this.$route.params.id}`)
+  async created() {
+    this.member = await this.$axios.$get(
+      `admin/members/${this.$route.params.id}`
+    )
 
     this.hydrate()
   },
 
   methods: {
-    hydrate () {
-      Object.keys(this.member).forEach((key) => {
+    hydrate() {
+      Object.keys(this.member).forEach(key => {
         this.form[key] = this.member[key]
       })
     },
 
-    async save () {
+    async save() {
       try {
         await this.$axios.$put(`admin/members/${this.member.id}`, this.form)
         this.$toast.success('Membre sauvegardé !')
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -4,7 +4,7 @@
     <td>{{ member.pivot.role }}</td>
     <td>
       <div class="flex item-centers">
-        <button class="relative outline-none relative text-neutral-500">
+        <button class="relative outline-none relative text-gray-500">
           <svg
             class="fill-current svg-right h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@
             />
           </svg>
 
-          <div v-if="showDropdown" class="fixed pin" @click="showDropdown = false"></div>
+          <div v-if="showDropdown" class="fixed inset-0" @click="showDropdown = false"></div>
 
           <transition
             enter-active-class="transition-all transition-fastest ease-out-quad"
@@ -30,9 +30,9 @@
               v-show="showDropdown"
               class="origin-top-right border border-neutral-200 absolute w-48 right-0 rounded shadow bg-white mt-2 py-1 overflow-hidden z-30"
             >
-              <ul class="list-reset">
+              <ul>
                 <li
-                  class="hover:bg-primary-500 hover:text-white px-4 py-2 cursor-pointer transition"
+                  class="hover:bg-blue-500 hover:text-white px-4 py-2 cursor-pointer transition"
                   @click="deleteMember"
                 >Remove from the team</li>
               </ul>

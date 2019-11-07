@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Modification of a translation</h1>
+    <h1 class="tracking-wider mb-8">Modification of a translation</h1>
 
     <div class="flex mb-8">
       <nuxt-link
-        class="inline-flex shadow items-center justify-center hover:bg-neutral-200 transition rounded bg-white px-4 py-2 mr-4"
+        class="inline-flex shadow items-center justify-center hover:bg-gray-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/articles"
       >
         <BackIcon class="fill-current h-8 mr-1" />
@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <button
-        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         :class="{ 'mr-4': translation && translation.language.code === 'en' }"
         @click="save"
       >Save</button>
@@ -35,25 +35,16 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <base-input
-            label="Headline"
-            name="headline"
-            v-model="form.headline"
-          ></base-input>
+          <base-input label="Headline" name="headline" v-model="form.headline"></base-input>
         </div>
 
         <div class="w-full">
-          <base-input
-            label="Slug"
-            name="slug"
-            v-model="slug"
-            disabled
-          ></base-input>
+          <base-input label="Slug" name="slug" v-model="slug" disabled></base-input>
         </div>
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="text-neutral-500 mb-2">Description</label>
+        <label class="text-gray-500 mb-2">Description</label>
         <textarea
           class="bg-white border border-neutral-300 rounded p-4 mb-6"
           rows="10"
@@ -62,7 +53,7 @@
       </div>
 
       <div class="flex flex-col w-full">
-        <label class="text-neutral-500 mb-2">Content</label>
+        <label class="text-gray-500 mb-2">Content</label>
         <no-ssr>
           <markdown-editor
             class="rounded mb-6"
@@ -86,7 +77,12 @@ import DeleteTranslationButton from '@/components/Article/DeleteTranslationButto
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, DeleteTranslationButton, SearchableSelect },
+  components: {
+    BackIcon,
+    BaseInput,
+    DeleteTranslationButton,
+    SearchableSelect,
+  },
 
   data: () => ({
     form: {
@@ -100,42 +96,46 @@ export default {
     errors: null,
   }),
 
-  created () {
-    this.$axios.$get('articles/states').then((response) => {
+  created() {
+    this.$axios.$get('articles/states').then(response => {
       this.articleStates = response
     })
 
-    this.$axios.$get(`admin/translations/${this.$route.params.id}`).then((response) => {
-      this.translation = response
-      this.hydrate()
-    })
-
+    this.$axios
+      .$get(`admin/translations/${this.$route.params.id}`)
+      .then(response => {
+        this.translation = response
+        this.hydrate()
+      })
   },
 
   computed: {
-    slug () {
+    slug() {
       return slug(this.form.headline)
-    }
+    },
   },
 
   methods: {
-    hydrate () {
+    hydrate() {
       this.form.headline = this.translation.headline
       this.form.description = this.translation.description
       this.form.body = this.translation.body
       this.form.state_id = this.translation.state_id
     },
 
-    async save () {
+    async save() {
       try {
-        await this.$axios.$put(`admin/translations/${this.translation.id}`, this.form)
+        await this.$axios.$put(
+          `admin/translations/${this.translation.id}`,
+          this.form
+        )
         this.$toast.success('Traduction sauvegardée !')
       } catch (e) {
         console.log(e)
         this.errors = e.response.data.errors
         this.$toast.error('Une erreur est survenue')
       }
-    }
+    },
   },
 }
 </script>

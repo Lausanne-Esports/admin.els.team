@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Streams</h1>
+    <h1 class="tracking-wider mb-8">Streams</h1>
 
     <div class="flex mb-8">
       <nuxt-link
-        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         to="/streams/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
@@ -16,19 +16,11 @@
       <div class="w-full">
         <table class="w-full border-collapse">
           <thead>
-            <tr class="text-sm h-12 text-left uppercase text-neutral-500">
-              <th>
-                Username
-              </th>
-              <th>
-                Url
-              </th>
-              <th>
-                Status
-              </th>
-              <th>
-                Actions
-              </th>
+            <tr class="text-sm h-12 text-left uppercase text-gray-500">
+              <th>Username</th>
+              <th>Url</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +46,7 @@ export default {
     streams: [],
   }),
 
-  async asyncData ({ $axios }) {
+  async asyncData({ $axios }) {
     const streams = await $axios.$get('admin/streams')
 
     return { streams }

@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-center h-full bg-neutral-1000">
-    <nuxt/>
+  <div class="flex items-center justify-center h-full bg-gray-900">
+    <nuxt />
   </div>
 </template>
 

@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Dashboard</h1>
+    <h1 class="tracking-wider mb-8">Dashboard</h1>
 
     <!-- <div class="inline-flex">
       <div class="flex-1 mr-8">
         <panel>
-          <header class="w-full text-neutral-400 mb-4 pb-4">
+          <header class="w-full text-gray-400 mb-4 pb-4">
             <h2 class="font-normal">Members</h2>
           </header>
 
@@ -18,7 +18,7 @@
 
       <div class="flex-1 mr-8">
         <panel>
-          <header class="w-full text-neutral-400 mb-4 pb-4">
+          <header class="w-full text-gray-400 mb-4 pb-4">
             <h2 class="font-normal">Awards</h2>
           </header>
 
@@ -31,7 +31,7 @@
 
       <div class="flex-1">
         <panel>
-          <header class="w-full text-neutral-400 mb-4 pb-4">
+          <header class="w-full text-gray-400 mb-4 pb-4">
             <h2 class="font-normal">Awards</h2>
           </header>
 
@@ -62,6 +62,6 @@ export default {
 
 <style lang="postcss" scoped>
 svg .primary {
-  @apply .text-primary-200
+  @apply .text-blue-200;
 }
 </style>

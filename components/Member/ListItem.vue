@@ -4,7 +4,7 @@
     <td>{{ fullname }}</td>
     <td>
       <nuxt-link
-        class="inline-flex shadow items-center justify-center hover:bg-neutral-100 transition rounded h-10 w-10 text-neutral-700"
+        class="inline-flex shadow items-center justify-center hover:bg-gray-100 transition rounded h-10 w-10 text-gray-700"
         :to="editMemberLink"
       >
         <IconEdit class="fill-current h-5" />

@@ -34,10 +34,10 @@ export default {
 
 <style lang="postcss" scoped>
 svg .primary {
-  @apply .text-neutral-200
+  @apply .text-gray-200
 }
 
 input::placeholder {
-  @apply .text-neutral-600
+  @apply .text-gray-600
 }
 </style>

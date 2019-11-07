@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Modification of a team</h1>
+    <h1 class="tracking-wider mb-8">Modification of a team</h1>
 
     <div class="flex mb-8">
       <nuxt-link
-        class="inline-flex shadow items-center justify-center hover:bg-neutral-200 transition rounded bg-white px-4 py-2 mr-4"
+        class="inline-flex shadow items-center justify-center hover:bg-gray-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/teams"
       >
         <BackIcon class="fill-current h-8 mr-1" />
@@ -12,7 +12,7 @@
       </nuxt-link>
 
       <button
-        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         @click="save"
       >Save</button>
     </div>

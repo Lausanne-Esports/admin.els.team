@@ -2,16 +2,33 @@
   <on-click-outside :do="close">
     <div class="flex flex-col">
       <div class="flex relative">
-        <div ref="button" class="flex items-center text-neutral w-full bg-white h-12 rounded-l border border-neutral-300 px-4 mb-6 cursor-pointer" type="text" @click="open">
+        <div
+          ref="button"
+          class="flex items-center text-gray w-full bg-white h-12 rounded-l border border-neutral-300 px-4 mb-6 cursor-pointer"
+          type="text"
+          @click="open"
+        >
           <span v-if="value && items.length > 0">{{ getValue().name }}</span>
-          <span class="text-neutral-500 opacity-50" v-else>Select your options</span>
+          <span class="text-gray-500 opacity-50" v-else>Select your options</span>
         </div>
 
-        <div class="flex text-neutral-500 items-center justify-center bg-white h-12 rounded-r border border-l-0 border-neutral-300 px-4 cursor-pointer" @click="open()">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"/></svg>
+        <div
+          class="flex text-gray-500 items-center justify-center bg-white h-12 rounded-r border border-l-0 border-neutral-300 px-4 cursor-pointer"
+          @click="open()"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path
+              class="heroicon-ui"
+              d="M15.3 9.3a1 1 0 0 1 1.4 1.4l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 0 1 1.4-1.4l3.3 3.29 3.3-3.3z"
+            />
+          </svg>
         </div>
 
-        <div ref="dropdown" v-show="isOpen" class="shadow flex flex-col bg-white rounded absolute m-0 p-2 pin-r pin-l z-30">
+        <div
+          ref="dropdown"
+          v-show="isOpen"
+          class="shadow flex flex-col bg-white rounded absolute m-0 p-2 right left z-30"
+        >
           <input
             class="block w-full w-full bg-white h-12 border-neutral-300 border rounded px-4"
             type="text"
@@ -22,11 +39,11 @@
             @keydown.down="highlightNext"
             @keydown.enter.prevent="selectHighlighted"
             @keydown.tab.prevent
-          >
+          />
 
-          <ul ref="items" class="list-reset p0 max-h-52 relative overflow-y-auto">
+          <ul ref="items" class="p0 max-h-52 relative overflow-y-auto">
             <li
-              class="cursor-pointer px-4 py-4 mt-2 hover:bg-neutral-200 rounded"
+              class="cursor-pointer px-4 py-4 mt-2 hover:bg-gray-200 rounded"
               v-for="(item, i) in filteredItems"
               :key="item.id"
               @click="select(item)"
@@ -57,18 +74,18 @@ export default {
     highlightedIndex: 0,
   }),
 
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.popper !== undefined) {
       this.popper.destroy()
     }
   },
 
   computed: {
-    filteredItems () {
+    filteredItems() {
       if (this.search) {
-        return this.items.filter((item) => (
+        return this.items.filter(item =>
           item.name.toLowerCase().includes(this.search.toLowerCase())
-        ))
+        )
       }
 
       return this.items
@@ -76,18 +93,18 @@ export default {
   },
 
   methods: {
-    getValue () {
-      return this.items.find((i) => i.id === this.value)
+    getValue() {
+      return this.items.find(i => i.id === this.value)
     },
 
-    select (item) {
+    select(item) {
       this.$emit('input', item)
       this.search = null
       this.highlightedIndex = 0
       this.close()
     },
 
-    open () {
+    open() {
       this.isOpen = true
       this.$nextTick(() => {
         this.setupPopper()
@@ -96,11 +113,11 @@ export default {
       })
     },
 
-    close () {
+    close() {
       this.isOpen = false
     },
 
-    setupPopper () {
+    setupPopper() {
       if (this.popper === undefined) {
         this.popper = new Popper(this.$refs.button, this.$refs.dropdown, {
           placement: 'bottom-start',
@@ -116,7 +133,7 @@ export default {
 
     scrollToHighlighted() {
       this.$refs.items.children[this.highlightedIndex].scrollIntoView({
-        block: 'nearest'
+        block: 'nearest',
       })
     },
 
@@ -141,12 +158,12 @@ export default {
     highlightNext() {
       this.highlight(this.highlightedIndex + 1)
     },
-  }
+  },
 }
 </script>
 
 <style lang="postcss" scoped>
 .is-active {
-  @apply .bg-neutral-200
+  @apply .bg-gray-200;
 }
 </style>

@@ -9,7 +9,7 @@
         :checked="value"
         @change="() => $emit('input', +!value)"
       />
-      <svg class="hidden w-4 h-4 text-primary-600 pointer-events-none" viewBox="0 0 172 172">
+      <svg class="hidden w-4 h-4 text-blue-600 pointer-events-none" viewBox="0 0 172 172">
         <g
           fill="none"
           stroke-width="none"

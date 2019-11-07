@@ -24,7 +24,7 @@
 
       <div class="flex items-center ml-8">
         <button
-          class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+          class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
           @click="addMember"
         >Add</button>
       </div>

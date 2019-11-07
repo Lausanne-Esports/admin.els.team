@@ -1,34 +1,28 @@
 <template>
-  <aside class="text-white h-full flex flex-col justify-between bg-neutral-1000">
+  <aside class="text-white h-full flex flex-col justify-between bg-gray-900">
     <div class="flex flex-col">
       <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
         <LausanneLogo class="h-32" />
       </nuxt-link>
 
-      <span class="tracking-wide uppercase bg-neutral-800 p-4">Main</span>
+      <span class="tracking-wider uppercase bg-gray-800 p-4">Main</span>
       <menu-item to="/" icon="chart-line">
-        <DashboardIcon class="fill-current h-6 mr-3" />
-        Dashboard
+        <DashboardIcon class="fill-current h-6 mr-3" />Dashboard
       </menu-item>
       <menu-item to="/articles">
-        <NewsIcon class="fill-current h-6 mr-3" />
-        Articles
+        <NewsIcon class="fill-current h-6 mr-3" />Articles
       </menu-item>
       <menu-item to="/members">
-        <MembersIcon class="fill-current h-6 mr-3" />
-        Members
+        <MembersIcon class="fill-current h-6 mr-3" />Members
       </menu-item>
       <menu-item to="/teams">
-        <TeamIcon class="fill-current h-6 mr-3" />
-        Teams
+        <TeamIcon class="fill-current h-6 mr-3" />Teams
       </menu-item>
       <menu-item to="/streams">
-        <StreamsIcon class="fill-current h-6 mr-3" />
-        Streams
+        <StreamsIcon class="fill-current h-6 mr-3" />Streams
       </menu-item>
       <menu-item to="/users">
-        <UsersIcon class="fill-current h-6 mr-3" />
-        Users
+        <UsersIcon class="fill-current h-6 mr-3" />Users
       </menu-item>
     </div>
     <div class="flex justify-center py-8">
@@ -49,8 +43,14 @@ import MenuItem from '@/components/Layout/Sidebar/MenuItem'
 
 export default {
   components: {
-    DashboardIcon, UsersIcon, MembersIcon, NewsIcon, TeamIcon, StreamsIcon,
-    LausanneLogo, MenuItem,
+    DashboardIcon,
+    UsersIcon,
+    MembersIcon,
+    NewsIcon,
+    TeamIcon,
+    StreamsIcon,
+    LausanneLogo,
+    MenuItem,
   },
 }
 </script>
@@ -61,7 +61,7 @@ aside {
 }
 
 svg .primary {
-  @apply .text-neutral-500
+  @apply .text-gray-500;
 }
 </style>
 

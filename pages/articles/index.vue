@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wide mb-8">Articles</h1>
+    <h1 class="tracking-wider mb-8">Articles</h1>
 
     <div class="flex mb-8">
       <nuxt-link
-        class="inline-flex items-center shadow bg-primary-800 hover:bg-primary-900 transition rounded text-white px-4 py-2"
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         to="/articles/create"
       >
         <IconAdd class="fill-current h-8 mr-1" />
@@ -14,33 +14,20 @@
 
     <panel>
       <div class="w-full">
-        <search-input
-          class="mb-4"
-          name="search"
-          placeholder="Search"
-          v-model="filter"
-          autofocus
-        ></search-input>
+        <search-input class="mb-4" name="search" placeholder="Search" v-model="filter" autofocus></search-input>
 
         <table class="w-full border-collapse">
           <thead>
-            <tr class="text-sm h-12 text-left uppercase text-neutral-500">
+            <tr class="text-sm h-12 text-left uppercase text-gray-500">
               <th>
-                Headline <small>(FR)</small>
+                Headline
+                <small>(FR)</small>
               </th>
               <th></th>
-              <th>
-                Release Date
-              </th>
-              <th>
-                Category
-              </th>
-              <th>
-                Languages
-              </th>
-              <th>
-                Actions
-              </th>
+              <th>Release Date</th>
+              <th>Category</th>
+              <th>Languages</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -63,7 +50,9 @@ export default {
 
   components: {
     IconAdd,
-    SearchInput, ListItem, Panel
+    SearchInput,
+    ListItem,
+    Panel,
   },
 
   data: () => ({
@@ -71,30 +60,32 @@ export default {
     filter: null,
   }),
 
-  async asyncData ({ $axios }) {
+  async asyncData({ $axios }) {
     const articles = await $axios.$get('admin/articles')
 
     return { articles }
   },
 
   computed: {
-    filteredArticles () {
+    filteredArticles() {
       if (!this.filter) {
         return this.articles
       }
 
       const filter = this.filter.toLowerCase()
 
-      return this.articles.filter(article => (
-        this.$getFrenchTranslation(article).headline.toLowerCase().includes(filter)
-      ))
-    }
+      return this.articles.filter(article =>
+        this.$getFrenchTranslation(article)
+          .headline.toLowerCase()
+          .includes(filter)
+      )
+    },
   },
 
   methods: {
-    $getFrenchTranslation (article) {
+    $getFrenchTranslation(article) {
       return article.translations.find(t => t.language.code === 'fr')
-    }
-  }
+    },
+  },
 }
 </script>

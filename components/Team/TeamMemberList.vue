@@ -6,7 +6,7 @@
 
     <table class="w-full border-collapse">
       <thead>
-        <tr class="text-sm h-12 text-left uppercase text-neutral-500">
+        <tr class="text-sm h-12 text-left uppercase text-gray-500">
           <th>Name</th>
           <th>Roles</th>
           <th>Actions</th>
