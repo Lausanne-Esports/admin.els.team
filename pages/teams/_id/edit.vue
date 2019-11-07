@@ -17,11 +17,7 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information</h2>
-      </header>
-
+    <Panel header="Information">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input label="Name" name="name" v-model="form.name"></base-input>
@@ -43,15 +39,24 @@
         </div>
         <NewCheckbox label="Enabled" name="activated" v-model="form.activated" />
       </div>
-    </section>
+    </Panel>
 
-    <team-member-form :members="availableMembers" :team="team" @submit="loadTeamMembers"></team-member-form>
-    <team-member-list
-      :members="teamMembers"
-      :team="team"
-      @submit="loadTeamMembers"
-      @updateMemberList="updateMemberList"
-    ></team-member-list>
+    <Spacer direction="b" :size="8" />
+
+    <Panel header="Add a member">
+      <TeamMemberForm :members="availableMembers" :team="team" @submit="loadTeamMembers" />
+    </Panel>
+
+    <Spacer direction="b" :size="8" />
+
+    <Panel header="Members">
+      <TeamMemberList
+        :members="teamMembers"
+        :team="team"
+        @submit="loadTeamMembers"
+        @updateMemberList="updateMemberList"
+      />
+    </Panel>
   </div>
 </template>
 

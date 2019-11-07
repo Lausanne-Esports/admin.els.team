@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <panel>
+    <Panel>
       <div class="w-full">
         <search-input class="mb-4" name="search" placeholder="Search" v-model="filter" autofocus></search-input>
 
@@ -35,13 +35,12 @@
           </tbody>
         </table>
       </div>
-    </panel>
+    </Panel>
   </div>
 </template>
 
 <script>
 import IconAdd from '@/assets/icons/icon-add.svg'
-import Panel from '@/components/Layout/Panel'
 import SearchInput from '@/components/Form/SearchInput'
 import ListItem from '@/components/Article/ListItem'
 
@@ -52,7 +51,6 @@ export default {
     IconAdd,
     SearchInput,
     ListItem,
-    Panel,
   },
 
   data: () => ({

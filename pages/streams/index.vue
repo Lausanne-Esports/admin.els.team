@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <panel>
+    <Panel>
       <div class="w-full">
         <table class="w-full border-collapse">
           <thead>
@@ -28,19 +28,18 @@
           </tbody>
         </table>
       </div>
-    </panel>
+    </Panel>
   </div>
 </template>
 
 <script>
 import IconAdd from '@/assets/icons/icon-add.svg'
-import Panel from '@/components/Layout/Panel'
 import ListItem from '@/components/Stream/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { IconAdd, ListItem, Panel },
+  components: { IconAdd, ListItem },
 
   data: () => ({
     streams: [],

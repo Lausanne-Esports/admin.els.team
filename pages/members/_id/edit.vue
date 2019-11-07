@@ -25,11 +25,7 @@
 
     <template v-else>
       <!-- General Information Section -->
-      <section class="p-8 mb-8 bg-white shadow rounded w-full">
-        <header class="mb-8 pb-4 border-b border-neutral-300">
-          <h2>General Information</h2>
-        </header>
-
+      <Panel header="General Information">
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <base-input label="First name" name="firstname" v-model="form.firstname"></base-input>
@@ -53,14 +49,12 @@
             <base-input label="Contract URL" name="contract" v-model="form.contract"></base-input>
           </div>
         </div>
-      </section>
+      </Panel>
+
+      <Spacer direction="b" :size="8" />
 
       <!-- Private Information Section -->
-      <section class="p-8 mb-8 bg-white shadow rounded w-full">
-        <header class="mb-8 pb-4 border-b border-neutral-300">
-          <h2>Private Information</h2>
-        </header>
-
+      <Panel header="Private Information">
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <DateTimePicker label="Birth Date" name="birth_on" v-model="form.birth_on" />
@@ -95,14 +89,12 @@
             <base-input label="City" name="city" v-model="form.city"></base-input>
           </div>
         </div>
-      </section>
+      </Panel>
+
+      <Spacer direction="b" :size="8" />
 
       <!-- Bank Information Section -->
-      <section class="p-8 mb-8 bg-white shadow rounded w-full">
-        <header class="mb-8 pb-4 border-b border-neutral-300">
-          <h2>Bank Information</h2>
-        </header>
-
+      <Panel header="Bank Information">
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <base-input label="IBAN" name="iban" v-model="form.iban"></base-input>
@@ -116,14 +108,12 @@
             <base-input label="SWIFT" name="swift" v-model="form.swift"></base-input>
           </div>
         </div>
-      </section>
+      </Panel>
+
+      <Spacer direction="b" :size="8" />
 
       <!-- Social Networks Section -->
-      <section class="p-8 mb-8 bg-white shadow rounded w-full">
-        <header class="mb-8 pb-4 border-b border-neutral-300">
-          <h2>Social Networks</h2>
-        </header>
-
+      <Panel header="Social Networks">
         <div class="flex justify-between">
           <div class="w-full mr-8">
             <base-input label="Facebook" name="facebook" v-model="form.facebook"></base-input>
@@ -151,7 +141,7 @@
             <base-input label="Steam" name="steam" v-model="form.steam"></base-input>
           </div>
         </div>
-      </section>
+      </Panel>
     </template>
   </div>
 </template>

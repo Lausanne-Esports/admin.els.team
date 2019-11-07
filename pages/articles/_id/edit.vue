@@ -23,11 +23,7 @@
       </div>
     </section>
 
-    <section v-else class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Metadata</h2>
-      </header>
-
+    <Panel header="Metadata">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <searchable-select
@@ -70,7 +66,7 @@
           ></base-input>
         </div>
       </div>
-    </section>
+    </Panel>
   </div>
 </template>
 

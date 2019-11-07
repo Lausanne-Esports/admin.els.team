@@ -17,11 +17,7 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information</h2>
-      </header>
-
+    <Panel header="Information">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input label="Name" name="name" v-model="form.name"></base-input>
@@ -40,7 +36,7 @@
       <div class="flex flex-col">
         <NewCheckbox label="Academy" name="academy" v-model="form.academy" />
       </div>
-    </section>
+    </Panel>
   </div>
 </template>
 

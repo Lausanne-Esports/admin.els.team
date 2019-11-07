@@ -1,5 +1,13 @@
 import Vue from 'vue'
 
+Vue.component('Spacer', () =>
+  import(/* webpackChunkName: "spacer" */ '@/components/Common/Spacer.vue')
+)
+
+Vue.component('Panel', () =>
+  import(/* webpackChunkName: "panel" */ '@/components/Common/Panel.vue')
+)
+
 Vue.component('Loader', () =>
   import(/* webpackChunkName: "loader" */ '@/components/Common/Loader.vue')
 )

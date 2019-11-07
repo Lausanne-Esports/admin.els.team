@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <panel>
+    <Panel>
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-gray-500">
@@ -32,20 +32,19 @@
           />
         </Draggable>
       </table>
-    </panel>
+    </Panel>
   </div>
 </template>
 
 <script>
 import Draggable from 'vuedraggable'
 import IconAdd from '@/assets/icons/icon-add.svg'
-import Panel from '@/components/Layout/Panel'
 import ListItem from '@/components/Team/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { Draggable, IconAdd, ListItem, Panel },
+  components: { Draggable, IconAdd, ListItem },
 
   data: () => ({
     teams: [],

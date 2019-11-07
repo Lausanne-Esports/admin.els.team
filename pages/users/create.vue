@@ -17,38 +17,21 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information</h2>
-      </header>
-
+    <Panel header="Information">
       <form @submit.prevent="save">
         <div class="flex justify-between">
           <div class="w-full mr-8">
-            <base-input
-              label="Username"
-              name="username"
-              v-model="form.username"
-            ></base-input>
+            <base-input label="Username" name="username" v-model="form.username"></base-input>
           </div>
 
           <div class="w-full mr-8">
-            <base-input
-              label="Email"
-              name="email"
-              v-model="form.email"
-            ></base-input>
+            <base-input label="Email" name="email" v-model="form.email"></base-input>
           </div>
         </div>
 
         <div class="flex justify-between">
           <div class="w-full mr-8">
-            <base-input
-              label="Password"
-              name="password"
-              type="password"
-              v-model="form.password"
-            ></base-input>
+            <base-input label="Password" name="password" type="password" v-model="form.password"></base-input>
           </div>
 
           <div class="w-full mr-8">
@@ -61,7 +44,7 @@
           </div>
         </div>
       </form>
-    </section>
+    </Panel>
   </div>
 </template>
 
@@ -80,11 +63,11 @@ export default {
       email: null,
       password: null,
       password_confirmation: null,
-    }
+    },
   }),
 
   methods: {
-    async save () {
+    async save() {
       try {
         await this.$axios.$post('admin/users', this.form)
         this.$toast.success('Utilisateur sauvegardé !')
@@ -92,8 +75,8 @@ export default {
       } catch (e) {
         this.$toast.error('Une erreur est survenue')
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

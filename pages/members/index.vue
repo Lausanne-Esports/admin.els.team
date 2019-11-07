@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <panel>
+    <Panel>
       <div class="w-full">
         <search-input
           class="mb-4"
@@ -36,20 +36,19 @@
           </tbody>
         </table>
       </div>
-    </panel>
+    </Panel>
   </div>
 </template>
 
 <script>
 import IconAdd from '@/assets/icons/icon-add.svg'
-import Panel from '@/components/Layout/Panel'
 import SearchInput from '@/components/Form/SearchInput'
 import ListItem from '@/components/Member/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { IconAdd, ListItem, Panel, SearchInput },
+  components: { IconAdd, ListItem, SearchInput },
 
   data: () => ({
     members: [],

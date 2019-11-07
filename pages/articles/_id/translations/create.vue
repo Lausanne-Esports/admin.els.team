@@ -17,7 +17,7 @@
       >Save</button>
     </div>
 
-    <section class="p-8 bg-white shadow rounded w-full">
+    <Panel>
       <div class="w-1/5">
         <searchable-select
           label="Status"
@@ -57,7 +57,7 @@
           ></markdown-editor>
         </no-ssr>
       </div>
-    </section>
+    </Panel>
   </div>
 </template>
 

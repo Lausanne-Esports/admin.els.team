@@ -17,11 +17,7 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Metadata</h2>
-      </header>
-
+    <Panel header="Metadata">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <searchable-select
@@ -73,13 +69,11 @@
           ></base-input>
         </div>
       </div>
-    </section>
+    </Panel>
 
-    <section class="p-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Content</h2>
-      </header>
+    <Spacer direction="b" :size="8" />
 
+    <Panel header="Content">
       <div class="flex justify-between">
         <div class="w-full mr-8">
           <base-input label="Headline" name="headline" v-model="form.headline"></base-input>
@@ -109,7 +103,7 @@
           ></markdown-editor>
         </no-ssr>
       </div>
-    </section>
+    </Panel>
   </div>
 </template>
 

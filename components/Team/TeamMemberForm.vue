@@ -1,35 +1,20 @@
 <template>
-  <section class="p-8 mb-8 bg-white shadow rounded w-full">
-    <header class="mb-8 pb-4 border-b border-neutral-300">
-      <h2>Add a member</h2>
-    </header>
-
-    <div class="flex justify-between">
-      <div class="w-full mr-8">
-        <searchable-select
-          label="Membre"
-          name="member_id"
-          :items="members"
-          v-model="form.member_id"
-        ></searchable-select>
-      </div>
-
-      <div class="w-full">
-        <base-input
-          label="Rôle(s)"
-          name="role"
-          v-model="form.role"
-        ></base-input>
-      </div>
-
-      <div class="flex items-center ml-8">
-        <button
-          class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
-          @click="addMember"
-        >Add</button>
-      </div>
+  <div class="flex justify-between">
+    <div class="w-full mr-8">
+      <searchable-select label="Membre" name="member_id" :items="members" v-model="form.member_id"></searchable-select>
     </div>
-  </section>
+
+    <div class="w-full">
+      <base-input label="Rôle(s)" name="role" v-model="form.role"></base-input>
+    </div>
+
+    <div class="flex items-center ml-8">
+      <button
+        class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
+        @click="addMember"
+      >Add</button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -49,9 +34,12 @@ export default {
   }),
 
   methods: {
-    async addMember () {
+    async addMember() {
       try {
-        await this.$axios.$post(`admin/teams/${this.team.id}/members`, this.form)
+        await this.$axios.$post(
+          `admin/teams/${this.team.id}/members`,
+          this.form
+        )
         this.$toast.success('Membre ajouté !')
         this.form = { member_id: null, role: null }
         this.$emit('submit')

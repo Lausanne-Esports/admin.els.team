@@ -12,7 +12,7 @@
       </nuxt-link>
     </div>
 
-    <panel>
+    <Panel>
       <table class="w-full border-collapse">
         <thead>
           <tr class="text-sm h-12 text-left uppercase text-gray-500">
@@ -25,19 +25,18 @@
           <list-item v-for="user in users" :key="user.id" :user="user"></list-item>
         </tbody>
       </table>
-    </panel>
+    </Panel>
   </div>
 </template>
 
 <script>
 import IconAdd from '@/assets/icons/icon-add.svg'
-import Panel from '@/components/Layout/Panel'
 import ListItem from '@/components/User/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { IconAdd, Panel, ListItem },
+  components: { IconAdd, ListItem },
 
   data: () => ({
     users: [],
