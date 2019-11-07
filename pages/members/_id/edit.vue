@@ -17,143 +17,155 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Information</h2>
-      </header>
-
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="First name" name="firstname" v-model="form.firstname"></base-input>
-        </div>
-
-        <div class="w-full mr-8">
-          <base-input label="Pseudo" name="nickname" v-model="form.nickname"></base-input>
-        </div>
-
-        <div class="w-full">
-          <base-input label="Last name" name="lastname" v-model="form.lastname"></base-input>
-        </div>
-      </div>
-
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="Picture URL" name="picture" v-model="form.picture"></base-input>
-        </div>
-
-        <div class="w-full">
-          <base-input label="Contract URL" name="contract" v-model="form.contract"></base-input>
-        </div>
+    <section v-if="!member" class="p-8 mb-8 bg-white shadow rounded w-full">
+      <div class="flex items-center justify-center">
+        <Loader color="#4299e1" />
       </div>
     </section>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Private Information</h2>
-      </header>
+    <template v-else>
+      <!-- General Information Section -->
+      <section class="p-8 mb-8 bg-white shadow rounded w-full">
+        <header class="mb-8 pb-4 border-b border-neutral-300">
+          <h2>General Information</h2>
+        </header>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <date-input label="Birth Date" v-model="form.birth_on" :yearRange="[1930, 2019]"></date-input>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="First name" name="firstname" v-model="form.firstname"></base-input>
+          </div>
+
+          <div class="w-full mr-8">
+            <base-input label="Pseudo" name="nickname" v-model="form.nickname"></base-input>
+          </div>
+
+          <div class="w-full">
+            <base-input label="Last name" name="lastname" v-model="form.lastname"></base-input>
+          </div>
         </div>
 
-        <div class="w-full">
-          <searchable-select
-            label="Clothing Sizes"
-            name="clothes_size"
-            :items="clothSizes"
-            v-model="form.clothes_size"
-          ></searchable-select>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="Picture URL" name="picture" v-model="form.picture"></base-input>
+          </div>
+
+          <div class="w-full">
+            <base-input label="Contract URL" name="contract" v-model="form.contract"></base-input>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="Phone Number" name="phone_number" v-model="form.phone_number"></base-input>
-        </div>
+      <!-- Private Information Section -->
+      <section class="p-8 mb-8 bg-white shadow rounded w-full">
+        <header class="mb-8 pb-4 border-b border-neutral-300">
+          <h2>Private Information</h2>
+        </header>
 
-        <div class="w-full">
-          <base-input label="Address" name="address" v-model="form.address"></base-input>
-        </div>
-      </div>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <DateTimePicker label="Birth Date" name="birth_on" v-model="form.birth_on" />
+          </div>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="Postal Code" name="postal_code" v-model="form.postal_code"></base-input>
-        </div>
-
-        <div class="w-full">
-          <base-input label="City" name="city" v-model="form.city"></base-input>
-        </div>
-      </div>
-    </section>
-
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Bank Information</h2>
-      </header>
-
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="IBAN" name="iban" v-model="form.iban"></base-input>
+          <div class="w-full">
+            <searchable-select
+              label="Clothing Sizes"
+              name="clothes_size"
+              :items="clothSizes"
+              v-model="form.clothes_size"
+            ></searchable-select>
+          </div>
         </div>
 
-        <div class="w-full mr-8">
-          <base-input label="RIB" name="rib" v-model="form.rib"></base-input>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="Phone Number" name="phone_number" v-model="form.phone_number"></base-input>
+          </div>
+
+          <div class="w-full">
+            <base-input label="Address" name="address" v-model="form.address"></base-input>
+          </div>
         </div>
 
-        <div class="w-full">
-          <base-input label="SWIFT" name="swift" v-model="form.swift"></base-input>
-        </div>
-      </div>
-    </section>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="Postal Code" name="postal_code" v-model="form.postal_code"></base-input>
+          </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
-      <header class="mb-8 pb-4 border-b border-neutral-300">
-        <h2>Social Networks</h2>
-      </header>
+          <div class="w-full">
+            <base-input label="City" name="city" v-model="form.city"></base-input>
+          </div>
+        </div>
+      </section>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="Facebook" name="facebook" v-model="form.facebook"></base-input>
+      <!-- Bank Information Section -->
+      <section class="p-8 mb-8 bg-white shadow rounded w-full">
+        <header class="mb-8 pb-4 border-b border-neutral-300">
+          <h2>Bank Information</h2>
+        </header>
+
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="IBAN" name="iban" v-model="form.iban"></base-input>
+          </div>
+
+          <div class="w-full mr-8">
+            <base-input label="RIB" name="rib" v-model="form.rib"></base-input>
+          </div>
+
+          <div class="w-full">
+            <base-input label="SWIFT" name="swift" v-model="form.swift"></base-input>
+          </div>
+        </div>
+      </section>
+
+      <!-- Social Networks Section -->
+      <section class="p-8 mb-8 bg-white shadow rounded w-full">
+        <header class="mb-8 pb-4 border-b border-neutral-300">
+          <h2>Social Networks</h2>
+        </header>
+
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="Facebook" name="facebook" v-model="form.facebook"></base-input>
+          </div>
+
+          <div class="w-full mr-8">
+            <base-input label="Twitter" name="twitter" v-model="form.twitter"></base-input>
+          </div>
+
+          <div class="w-full">
+            <base-input label="Twitch" name="twitch" v-model="form.twitch"></base-input>
+          </div>
         </div>
 
-        <div class="w-full mr-8">
-          <base-input label="Twitter" name="twitter" v-model="form.twitter"></base-input>
-        </div>
+        <div class="flex justify-between">
+          <div class="w-full mr-8">
+            <base-input label="Youtube" name="youtube" v-model="form.youtube"></base-input>
+          </div>
 
-        <div class="w-full">
-          <base-input label="Twitch" name="twitch" v-model="form.twitch"></base-input>
-        </div>
-      </div>
+          <div class="w-full mr-8">
+            <base-input label="BattleTag" name="battletag" v-model="form.battletag"></base-input>
+          </div>
 
-      <div class="flex justify-between">
-        <div class="w-full mr-8">
-          <base-input label="Youtube" name="youtube" v-model="form.youtube"></base-input>
+          <div class="w-full">
+            <base-input label="Steam" name="steam" v-model="form.steam"></base-input>
+          </div>
         </div>
-
-        <div class="w-full mr-8">
-          <base-input label="BattleTag" name="battletag" v-model="form.battletag"></base-input>
-        </div>
-
-        <div class="w-full">
-          <base-input label="Steam" name="steam" v-model="form.steam"></base-input>
-        </div>
-      </div>
-    </section>
+      </section>
+    </template>
   </div>
 </template>
 
 <script>
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
-import DateInput from '@/components/Form/DateInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
+import DateTimePicker from '@/components/Form/DateTimePicker'
 
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, DateInput, SearchableSelect },
+  components: { BackIcon, BaseInput, DateTimePicker, SearchableSelect },
 
   data: () => ({
     form: {
@@ -186,7 +198,7 @@ export default {
       { id: 'xl', name: 'XL' },
       { id: 'xxl', name: 'XXL' },
     ],
-    member: {},
+    member: null,
   }),
   async created() {
     this.member = await this.$axios.$get(

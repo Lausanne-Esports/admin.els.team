@@ -55,7 +55,7 @@ export default {
       { rel: 'mask-icon', color: '#384168', href: '/safari-pinned-tab.svg' },
     ],
     bodyAttrs: {
-      class: 'font-sans bg-neutral-100',
+      class: 'font-sans bg-gray-100',
     },
   },
 
@@ -69,6 +69,7 @@ export default {
    */
   css: [
     '@/assets/css/tailwind.css',
+    'flatpickr/dist/flatpickr.css',
     'izitoast/dist/css/iziToast.min.css',
     'simplemde/dist/simplemde.min.css',
   ],
@@ -81,6 +82,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
+    { src: '~/plugins/composition-api', ssr: false },
     { src: '~/plugins/simple-mde', ssr: false },
     { src: '~/plugins/izitoast', ssr: false },
     { src: '~/plugins/portal' },
@@ -100,9 +102,9 @@ export default {
    ** Build configuration
    */
   build: {
-    cache: !isProduction,
-    hardSource: !isProduction,
-    parallel: !isProduction,
+    // cache: !isProduction,
+    // hardSource: !isProduction,
+    // parallel: !isProduction,
 
     /*
      ** You can extend webpack config here

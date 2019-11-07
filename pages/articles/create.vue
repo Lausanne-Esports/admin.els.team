@@ -51,12 +51,12 @@
         </div>
 
         <div class="w-full">
-          <date-input
+          <DateTimePicker
             label="Release Date"
             name="published_at"
-            :time="true"
             v-model="form.published_at"
-          ></date-input>
+            :hasTime="true"
+          />
         </div>
       </div>
 
@@ -117,13 +117,13 @@
 import slug from '@slynova/slug'
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
-import DateInput from '@/components/Form/DateInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
+import DateTimePicker from '@/components/Form/DateTimePicker'
 
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, DateInput, SearchableSelect },
+  components: { BackIcon, BaseInput, DateTimePicker, SearchableSelect },
 
   data: () => ({
     form: {

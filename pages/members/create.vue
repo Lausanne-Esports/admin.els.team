@@ -54,7 +54,7 @@
 
       <div class="flex justify-between">
         <div class="w-full mr-8">
-          <date-input label="Birth Date" v-model="form.birth_on" :yearRange="[1930, 2019]"></date-input>
+          <DateTimePicker label="Birth Date" name="published_at" v-model="form.birth_on" />
         </div>
 
         <div class="w-full">
@@ -147,13 +147,13 @@
 <script>
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
-import DateInput from '@/components/Form/DateInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
+import DateTimePicker from '@/components/Form/DateTimePicker'
 
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, DateInput, SearchableSelect },
+  components: { BackIcon, BaseInput, DateTimePicker, SearchableSelect },
 
   data: () => ({
     form: {

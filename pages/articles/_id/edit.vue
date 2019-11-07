@@ -17,7 +17,13 @@
       >Save</button>
     </div>
 
-    <section class="p-8 mb-8 bg-white shadow rounded w-full">
+    <section v-if="!article" class="p-8 mb-8 bg-white shadow rounded w-full">
+      <div class="flex items-center justify-center">
+        <Loader color="#4299e1" />
+      </div>
+    </section>
+
+    <section v-else class="p-8 mb-8 bg-white shadow rounded w-full">
       <header class="mb-8 pb-4 border-b border-neutral-300">
         <h2>Metadata</h2>
       </header>
@@ -42,12 +48,12 @@
         </div>
 
         <div class="w-full">
-          <date-input
+          <DateTimePicker
             label="Release Date"
             name="published_at"
-            :time="true"
             v-model="form.published_at"
-          ></date-input>
+            :hasTime="true"
+          />
         </div>
       </div>
 
@@ -72,13 +78,18 @@
 import slug from '@slynova/slug'
 import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
-import DateInput from '@/components/Form/DateInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
+import DateTimePicker from '@/components/Form/DateTimePicker'
 
 export default {
   layout: 'app',
 
-  components: { BackIcon, BaseInput, DateInput, SearchableSelect },
+  components: {
+    BackIcon,
+    BaseInput,
+    DateTimePicker,
+    SearchableSelect,
+  },
 
   data: () => ({
     form: {
@@ -88,7 +99,7 @@ export default {
       template_id: 1,
       category_id: 1,
     },
-    article: {},
+    article: null,
     articleCategories: [],
     articleTemplates: [],
     errors: null,
