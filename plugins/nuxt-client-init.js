@@ -1,5 +1,9 @@
 import Vue from 'vue'
 
+Vue.component('Heading', () =>
+  import(/* webpackChunkName: "heading" */ '@/components/Layout/Heading.vue')
+)
+
 Vue.component('DateTime', () =>
   import(/* webpackChunkName: "date-time" */ '@/components/Common/DateTime.vue')
 )

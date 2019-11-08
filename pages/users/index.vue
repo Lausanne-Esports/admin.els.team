@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wider mb-8">Users</h1>
+    <Heading>Users</Heading>
+    <Spacer direction="b" :size="8" />
 
     <div class="flex mb-8">
       <nuxt-link

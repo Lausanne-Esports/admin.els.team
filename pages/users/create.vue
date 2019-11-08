@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="mb-8">Add a user</h1>
+    <Heading>Add a user</Heading>
+    <Spacer direction="b" :size="8" />
 
     <div class="flex mb-8">
       <nuxt-link

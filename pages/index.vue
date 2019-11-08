@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col">
-    <h1 class="tracking-wider mb-8">Dashboard</h1>
+    <Heading>Dashboard</Heading>
+    <Spacer direction="b" :size="8" />
 
     <!-- <div class="inline-flex">
       <div class="flex-1 mr-8">
