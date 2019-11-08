@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full max-w-sm text-gray-500 tracking-wider">
+  <div class="w-full max-w-lg text-gray-700 tracking-wider">
     <form @submit.prevent="authenticate">
-      <div class="w-full text-white text-center mb-8">
-        <LausanneLogo class="h-32 mb-10" />
+      <div class="w-full flex items-center justify-center text-white text-center mb-16">
+        <LausanneLogo class="h-32" />
       </div>
 
       <p class="text-white mb-8" v-if="errors">No account found with the provided credentials.</p>
@@ -31,7 +31,7 @@
       </div>
 
       <button
-        class="w-full font-bold text-white p-4 mt-8 mb-6 bg-gray-900 hover:bg-gray-800 transition rounded"
+        class="w-full font-bold text-white h-12 mt-8 mb-6 bg-gray-800 hover:bg-gray-700 transition rounded"
         type="submit"
       >Sign In</button>
     </form>

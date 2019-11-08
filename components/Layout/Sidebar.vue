@@ -1,5 +1,5 @@
 <template>
-  <aside class="text-white h-full flex flex-col justify-between bg-gray-900">
+  <aside class="text-white h-full flex flex-col justify-between bg-gray-900 select-none">
     <div class="flex flex-col">
       <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
         <LausanneLogo class="h-32" />
