@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <small class="tracking-wider mr-4">({{ currentUser.username }})</small>
       <button class="flex items-center tracking-wider" @click="logout">
-        <Icon name="door-exit" class="h-5 mr-1" />Sign Out
+        <Icon name="door-exit" class="mono h-5 mr-1" />Sign Out
       </button>
     </div>
   </header>

@@ -24,7 +24,7 @@ input:focus {
   transition: all 0.3s;
 }
 
-svg .primary {
+svg:not(.mono) .primary {
   color: hsl(211, 10%, 53%);
 }
 

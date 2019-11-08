@@ -9,7 +9,7 @@
 
       <div class="flex flex-col bg-white rounded px-8 py-4">
         <div class="flex items-center h-12">
-          <Icon name="user" class="h-5 mr-4" />
+          <Icon name="user" class="mono h-5 mr-4" />
           <input
             class="h-full flex-1 tracking-wider"
             type="text"
