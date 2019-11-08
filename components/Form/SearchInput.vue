@@ -1,7 +1,7 @@
 <template>
   <div class="inline-flex items-center w-full">
     <label class="mb-2" :for="name">{{ label }}</label>
-    <IconSearch class="fill-current h-8 mr-8" />
+    <Icon name="search" class="h-8 mr-8" />
     <input
       class="border border-neutral-300 h-12 w-full rounded px-4"
       :id="name"
@@ -10,13 +10,11 @@
       :value="value"
       @input="$emit('input', $event.target.value)"
       :autofocus="autofocus"
-    >
+    />
   </div>
 </template>
 
 <script>
-import IconSearch from '@/assets/icons/icon-search.svg'
-
 export default {
   props: {
     label: {},
@@ -27,17 +25,15 @@ export default {
     autofocus: { default: false },
     nomargin: { default: false },
   },
-
-  components: { IconSearch }
 }
 </script>
 
 <style lang="postcss" scoped>
 svg .primary {
-  @apply .text-gray-200
+  @apply .text-gray-200;
 }
 
 input::placeholder {
-  @apply .text-gray-600
+  @apply .text-gray-600;
 }
 </style>

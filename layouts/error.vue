@@ -3,7 +3,7 @@
     <h1 class="text-5xl">Error {{ error.statusCode }}</h1>
     <p>{{ error.message }}</p>
     <nuxt-link
-      class="w-1/4 font-bold text-center text-white p-4 mt-8 mb-6 bg-gray-900 hover:bg-gray-800 transition rounded uppercase"
+      class="w-1/4 font-bold text-center text-white p-4 mt-8 mb-6 bg-gray-800 hover:bg-gray-700 transition rounded uppercase"
       to="/"
     >Drive Me Home</nuxt-link>
   </div>

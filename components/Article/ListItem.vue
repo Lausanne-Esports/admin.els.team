@@ -2,7 +2,7 @@
   <tr class="h-16 border-b border-neutral-200">
     <td>
       <a class="inline-flex items-center" :href="frontendUrl">
-        <IconLink class="fill-current h-4 mr-2" />
+        <Icon name="link" class="h-4 mr-2" />
         <span>{{ frenchTranslation.headline }}</span>
       </a>
     </td>
@@ -26,7 +26,7 @@
           :to="addTranslationLink"
           v-if="article.translations.length < 2"
         >
-          <IconAdd class="fill-current h-5" />
+          <Icon name="add" class="h-5" />
         </nuxt-link>
       </div>
     </td>
@@ -36,7 +36,7 @@
           class="inline-flex shadow items-center justify-center hover:bg-gray-100 transition rounded h-10 w-10 text-gray-700"
           :to="editArticleLink"
         >
-          <IconEdit class="fill-current h-5" />
+          <Icon name="edit" class="h-5" />
         </nuxt-link>
       </div>
     </td>
@@ -44,14 +44,8 @@
 </template>
 
 <script>
-import IconAdd from '@/assets/icons/icon-add.svg'
-import IconLink from '@/assets/icons/icon-link.svg'
-import IconEdit from '@/assets/icons/icon-edit.svg'
-
 export default {
   props: ['article'],
-
-  components: { IconAdd, IconEdit, IconLink },
 
   computed: {
     stateStyle() {

@@ -12,19 +12,15 @@
         class="inline-flex shadow items-center justify-center hover:bg-gray-100 transition rounded h-10 w-10 text-gray-700"
         :to="editStreamLink"
       >
-        <IconEdit class="fill-current h-5" />
+        <Icon name="edit" class="h-5" />
       </nuxt-link>
     </td>
   </tr>
 </template>
 
 <script>
-import IconEdit from '@/assets/icons/icon-edit.svg'
-
 export default {
   props: ['stream'],
-
-  components: { IconEdit },
 
   computed: {
     stateStyle() {

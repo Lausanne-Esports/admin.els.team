@@ -82,7 +82,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/composition-api', ssr: false },
+    { src: '~/plugins/init', ssr: false },
     { src: '~/plugins/simple-mde', ssr: false },
     { src: '~/plugins/izitoast', ssr: false },
     { src: '~/plugins/portal' },

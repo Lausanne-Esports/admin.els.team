@@ -7,7 +7,7 @@
         class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         to="/members/create"
       >
-        <IconAdd class="fill-current h-8 mr-1" />
+        <Icon name="add" class="h-5 mr-1" />
         <span>Add a Member</span>
       </nuxt-link>
     </div>
@@ -41,14 +41,13 @@
 </template>
 
 <script>
-import IconAdd from '@/assets/icons/icon-add.svg'
 import SearchInput from '@/components/Form/SearchInput'
 import ListItem from '@/components/Member/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { IconAdd, ListItem, SearchInput },
+  components: { ListItem, SearchInput },
 
   data: () => ({
     members: [],

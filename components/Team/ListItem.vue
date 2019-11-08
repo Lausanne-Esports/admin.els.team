@@ -11,7 +11,7 @@
           class="inline-flex shadow items-center justify-center hover:bg-gray-100 transition rounded h-10 w-10 text-gray-700"
           :to="editTeamLink"
         >
-          <IconEdit class="fill-current h-5" />
+          <Icon name="edit" class="h-5" />
         </nuxt-link>
       </div>
     </td>
@@ -19,12 +19,8 @@
 </template>
 
 <script>
-import IconEdit from '@/assets/icons/icon-edit.svg'
-
 export default {
   props: ['first', 'last', 'team'],
-
-  components: { IconEdit },
 
   computed: {
     editTeamLink() {

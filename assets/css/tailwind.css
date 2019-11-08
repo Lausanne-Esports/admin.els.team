@@ -24,6 +24,19 @@ input:focus {
   transition: all 0.3s;
 }
 
+svg .primary {
+  color: hsl(211, 10%, 53%);
+}
+
+.svg-icon {
+  fill: none;
+  stroke: currentColor;
+}
+.svg-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
 .svg-up {
   transform: rotate(0deg);
 }

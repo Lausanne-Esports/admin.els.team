@@ -7,22 +7,22 @@
 
       <span class="tracking-wider uppercase bg-gray-800 p-4">Main</span>
       <menu-item to="/" icon="chart-line">
-        <DashboardIcon class="fill-current h-6 mr-3" />Dashboard
+        <Icon name="dashboard" class="h-6 mr-3" />Dashboard
       </menu-item>
       <menu-item to="/articles">
-        <NewsIcon class="fill-current h-6 mr-3" />Articles
+        <Icon name="news" class="h-6 mr-3" />Articles
       </menu-item>
       <menu-item to="/members">
-        <MembersIcon class="fill-current h-6 mr-3" />Members
+        <Icon name="user-group" class="h-6 mr-3" />Members
       </menu-item>
       <menu-item to="/teams">
-        <TeamIcon class="fill-current h-6 mr-3" />Teams
+        <Icon name="layers" class="h-6 mr-3" />Teams
       </menu-item>
       <menu-item to="/streams">
-        <StreamsIcon class="fill-current h-6 mr-3" />Streams
+        <Icon name="videocam" class="h-6 mr-3" />Streams
       </menu-item>
       <menu-item to="/users">
-        <UsersIcon class="fill-current h-6 mr-3" />Users
+        <Icon name="user-couple" class="h-6 mr-3" />Users
       </menu-item>
     </div>
     <div class="flex justify-center py-8">
@@ -33,22 +33,10 @@
 
 <script>
 import LausanneLogo from '@/assets/images/logo-white.svg'
-import DashboardIcon from '@/assets/icons/icon-dashboard.svg'
-import NewsIcon from '@/assets/icons/icon-news.svg'
-import MembersIcon from '@/assets/icons/icon-user-group.svg'
-import TeamIcon from '@/assets/icons/icon-layers.svg'
-import StreamsIcon from '@/assets/icons/icon-videocam.svg'
-import UsersIcon from '@/assets/icons/icon-user-couple.svg'
 import MenuItem from '@/components/Layout/Sidebar/MenuItem'
 
 export default {
   components: {
-    DashboardIcon,
-    UsersIcon,
-    MembersIcon,
-    NewsIcon,
-    TeamIcon,
-    StreamsIcon,
     LausanneLogo,
     MenuItem,
   },

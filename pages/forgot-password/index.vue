@@ -9,7 +9,7 @@
 
       <div class="flex flex-col bg-white rounded px-8 py-4">
         <div class="flex items-center h-12">
-          <UserIcon class="fill-current h-5 mr-4" />
+          <Icon name="user" class="h-5 mr-4" />
           <input
             class="h-full flex-1 tracking-wider"
             type="text"
@@ -34,12 +34,11 @@
 
 <script>
 import LausanneLogo from '~/assets/images/logo-white.svg'
-import UserIcon from '~/assets/icons/icon-user.svg'
 
 export default {
   layout: 'auth',
 
-  components: { LausanneLogo, UserIcon },
+  components: { LausanneLogo },
 
   data: () => ({
     form: {

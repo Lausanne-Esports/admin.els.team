@@ -7,7 +7,7 @@
         class="inline-flex items-center shadow bg-blue-800 hover:bg-blue-900 transition rounded text-white px-4 py-2"
         to="/users/create"
       >
-        <IconAdd class="fill-current h-8 mr-1" />
+        <Icon name="add" class="h-5 mr-1" />
         <span>Add a User</span>
       </nuxt-link>
     </div>
@@ -30,13 +30,12 @@
 </template>
 
 <script>
-import IconAdd from '@/assets/icons/icon-add.svg'
 import ListItem from '@/components/User/ListItem'
 
 export default {
   layout: 'app',
 
-  components: { IconAdd, ListItem },
+  components: { ListItem },
 
   data: () => ({
     users: [],

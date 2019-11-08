@@ -7,7 +7,7 @@
         class="inline-flex shadow items-center justify-center hover:bg-gray-200 transition rounded bg-white px-4 py-2 mr-4"
         to="/articles"
       >
-        <BackIcon class="fill-current h-8 mr-1" />
+        <Icon name="cheveron-left" class="h-8 mr-1" />
         <span>Back</span>
       </nuxt-link>
 
@@ -69,7 +69,6 @@
 
 <script>
 import slug from '@slynova/slug'
-import BackIcon from '@/assets/icons/icon-cheveron-left.svg'
 import BaseInput from '@/components/Form/BaseInput'
 import SearchableSelect from '@/components/Form/SearchableSelect'
 import DeleteTranslationButton from '@/components/Article/DeleteTranslationButton'
@@ -78,7 +77,6 @@ export default {
   layout: 'app',
 
   components: {
-    BackIcon,
     BaseInput,
     DeleteTranslationButton,
     SearchableSelect,
