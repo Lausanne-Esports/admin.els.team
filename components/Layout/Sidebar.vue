@@ -2,7 +2,7 @@
   <aside class="text-white h-full flex flex-col justify-between bg-gray-900 select-none">
     <div class="flex flex-col">
       <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
-        <LausanneLogo class="h-32" />
+        <img class="h-32" src="/logo-white.svg" alt="Lausanne Esports" />
       </nuxt-link>
 
       <span class="tracking-wider uppercase bg-gray-800 p-4">Main</span>
@@ -32,12 +32,10 @@
 </template>
 
 <script>
-import LausanneLogo from '@/assets/images/logo-white.svg'
 import MenuItem from '@/components/Layout/Sidebar/MenuItem'
 
 export default {
   components: {
-    LausanneLogo,
     MenuItem,
   },
 }

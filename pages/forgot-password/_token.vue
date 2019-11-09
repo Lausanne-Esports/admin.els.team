@@ -2,8 +2,9 @@
   <div class="w-full max-w-lg text-gray-700 tracking-wider">
     <form @submit.prevent="send">
       <div class="w-full flex items-center justify-center text-white text-center mb-8">
-        <LausanneLogo class="h-32" />
+        <img class="h-32" src="/logo-white.svg" alt="Lausanne Esports" />
       </div>
+
       <p class="text-white mb-8" v-if="errors">{{ errors[0].detail }}</p>
 
       <div class="flex flex-col bg-white rounded px-8 py-4">
@@ -37,12 +38,8 @@
 </template>
 
 <script>
-import LausanneLogo from '~/assets/images/logo-white.svg'
-
 export default {
   layout: 'auth',
-
-  components: { LausanneLogo },
 
   data: () => ({
     form: {
