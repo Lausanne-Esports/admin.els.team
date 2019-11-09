@@ -27,7 +27,7 @@
         <div
           ref="dropdown"
           v-show="isOpen"
-          class="shadow flex flex-col bg-white rounded absolute m-0 p-2 right left z-30"
+          class="w-full shadow flex flex-col bg-white rounded absolute m-0 p-2 right left z-30"
         >
           <input
             class="block w-full w-full bg-white h-12 border-neutral-300 border rounded px-4"
