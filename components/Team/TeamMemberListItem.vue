@@ -1,11 +1,11 @@
 <template>
   <tr class="h-16 border-b border-neutral-200 cursor-pointer">
+    <td>{{ fullname }}</td>
     <td>
-      {{ fullname }}
-      <small
-        class="bg-blue-700 text-blue-100 px-4 py-2 rounded-full ml-8"
+      <span
+        class="bg-blue-200 text-blue-800 px-3 py-1 rounded ml-8"
         v-if="member.pivot.academy"
-      >Academy</small>
+      >Academy</span>
     </td>
     <td>{{ member.pivot.role }}</td>
     <td>

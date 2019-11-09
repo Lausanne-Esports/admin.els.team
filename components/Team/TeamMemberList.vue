@@ -3,6 +3,7 @@
     <thead>
       <tr class="text-sm h-12 text-left uppercase text-gray-500">
         <th>Name</th>
+        <th></th>
         <th>Roles</th>
         <th></th>
       </tr>
