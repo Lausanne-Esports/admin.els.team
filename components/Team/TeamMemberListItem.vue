@@ -1,9 +1,15 @@
 <template>
   <tr class="h-16 border-b border-neutral-200 cursor-pointer">
-    <td>{{ fullname }}</td>
+    <td>
+      {{ fullname }}
+      <small
+        class="bg-blue-700 text-blue-100 px-4 py-2 rounded-full ml-8"
+        v-if="member.pivot.academy"
+      >Academy</small>
+    </td>
     <td>{{ member.pivot.role }}</td>
     <td>
-      <div class="flex item-centers">
+      <div class="flex justify-end mr-8">
         <button class="relative outline-none relative text-gray-500">
           <svg
             class="fill-current svg-right h-5 w-5"

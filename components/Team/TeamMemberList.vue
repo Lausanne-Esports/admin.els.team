@@ -4,7 +4,7 @@
       <tr class="text-sm h-12 text-left uppercase text-gray-500">
         <th>Name</th>
         <th>Roles</th>
-        <th>Actions</th>
+        <th></th>
       </tr>
     </thead>
     <Draggable v-model="members" tag="tbody" @update="computeNewOrder">
