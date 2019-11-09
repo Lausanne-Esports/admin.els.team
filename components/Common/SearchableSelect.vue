@@ -41,7 +41,7 @@
             @keydown.tab.prevent
           />
 
-          <ul ref="items" class="p0 max-h-52 relative overflow-y-auto">
+          <ul v-if="items.length > 0" ref="items" class="p0 max-h-52 relative overflow-y-auto">
             <li
               class="cursor-pointer px-4 py-4 mt-2 hover:bg-gray-200 rounded"
               v-for="(item, i) in filteredItems"
@@ -50,6 +50,8 @@
               :class="{ 'is-active': i === highlightedIndex}"
             >{{ item.name }}</li>
           </ul>
+
+          <p v-else class="mt-2">No Items Found</p>
         </div>
       </div>
     </div>
@@ -132,9 +134,11 @@ export default {
     },
 
     scrollToHighlighted() {
-      this.$refs.items.children[this.highlightedIndex].scrollIntoView({
-        block: 'nearest',
-      })
+      if (this.items.length > 0) {
+        this.$refs.items.children[this.highlightedIndex].scrollIntoView({
+          block: 'nearest',
+        })
+      }
     },
 
     highlight(index) {
