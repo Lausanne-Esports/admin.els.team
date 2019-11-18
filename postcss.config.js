@@ -24,6 +24,7 @@ const productionPlugins = [
       /editor/,
       /m[xybtlr]{1}-[0-9]{1,2}/,
       /p[xybtlr]{1}-[0-9]{1,2}/,
+      /svg/,
     ],
     extractors: [
       {
