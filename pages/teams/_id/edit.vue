@@ -56,6 +56,7 @@
         :team="team"
         @submit="loadTeamMembers"
         @updateMemberList="updateMemberList"
+        @refreshList="refreshList"
       />
     </Panel>
   </div>
@@ -148,8 +149,16 @@ export default {
       }
     },
 
+    // TODO: Cleanup event management
     updateMemberList(members) {
       this.teamMembers = members
+    },
+
+    refreshList({ id, update }) {
+      const member = this.teamMembers.find(member => member.id === id)
+
+      member.pivot.role = update.role
+      member.pivot.academy = update.academy
     },
   },
 }

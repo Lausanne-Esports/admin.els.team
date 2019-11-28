@@ -1,6 +1,6 @@
 <template>
   <modal :open="open" @close="dismiss()">
-    <h3 class="mb-8 pb-4 border-b border-primary">Are you sure?</h3>
+    <h3 class="text-xl font-bold mb-8 pb-4 border-b border-primary">Are you sure?</h3>
 
     <p class="mb-16">Do you really want to delete this translation?</p>
 

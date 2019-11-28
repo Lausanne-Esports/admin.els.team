@@ -17,6 +17,7 @@
         :first="index === 0"
         :last="lastItemIndex === index"
         @submit="$emit('submit')"
+        @refreshList="refreshList"
       ></ListItem>
     </Draggable>
   </table>
@@ -53,6 +54,10 @@ export default {
         order: newOrder,
       })
       this.$emit('updateMemberList', members)
+    },
+
+    refreshList() {
+      this.$emit('refreshList', ...arguments)
     },
   },
 }

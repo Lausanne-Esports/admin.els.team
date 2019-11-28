@@ -38,26 +38,45 @@
             >
               <ul>
                 <li
-                  class="hover:bg-blue-500 hover:text-white px-4 py-2 cursor-pointer transition"
+                  class="flex hover:bg-blue-500 hover:text-white px-4 py-2 cursor-pointer transition"
+                  @click="showEditModal"
+                >Edit</li>
+                <li
+                  class="flex hover:bg-blue-500 hover:text-white px-4 py-2 cursor-pointer transition"
                   @click="deleteMember"
                 >Remove from the team</li>
               </ul>
             </div>
           </transition>
         </button>
+
+        <portal to="modals" v-if="showModal">
+          <TeamMemberEditionModal
+            :open="showModal"
+            :member="member"
+            :team="team"
+            @close="showModal = false"
+            @refreshList="refreshList"
+          />
+        </portal>
       </div>
     </td>
   </tr>
 </template>
 
 <script>
-// TODO: Handle modification of role with modal
+import TeamMemberEditionModal from './TeamMemberEditionModal.vue'
 
 export default {
   props: ['first', 'last', 'member', 'team'],
 
+  components: {
+    TeamMemberEditionModal,
+  },
+
   data: () => ({
     showDropdown: false,
+    showModal: false,
   }),
 
   computed: {
@@ -68,6 +87,14 @@ export default {
   },
 
   methods: {
+    showEditModal() {
+      this.showModal = true
+    },
+
+    refreshList() {
+      this.$emit('refreshList', ...arguments)
+    },
+
     async deleteMember() {
       try {
         await this.$axios.$delete(
