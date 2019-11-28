@@ -51,13 +51,13 @@ export default {
     stateStyle() {
       switch (this.frenchTranslation.state_id) {
         case 1:
-          return 'bg-red-200 text-red-800'
+          return 'bg-red-100 text-red-800'
         case 2:
-          return 'bg-yellow-200 text-yellow-800'
+          return 'bg-yellow-100 text-yellow-800'
         case 3:
-          return 'bg-pink-200 text-pink-800'
+          return 'bg-pink-100 text-pink-800'
         case 4:
-          return 'bg-teal-200 text-teal-800'
+          return 'bg-teal-100 text-teal-800'
       }
 
       return ''

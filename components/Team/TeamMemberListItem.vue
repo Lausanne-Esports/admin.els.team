@@ -3,7 +3,7 @@
     <td>{{ fullname }}</td>
     <td>
       <span
-        class="bg-blue-200 text-blue-800 px-3 py-1 rounded ml-8"
+        class="bg-blue-100 text-blue-800 px-3 py-1 rounded ml-8"
         v-if="member.pivot.academy"
       >Academy</span>
     </td>
