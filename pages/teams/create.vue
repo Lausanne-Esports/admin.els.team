@@ -69,9 +69,9 @@ export default {
       try {
         const team = await this.$axios.$post('admin/teams', this.form)
         this.$router.push(`/teams/${team.id}/edit`)
-        this.$toast.success('Équipe crée !')
+        this.$toast.success('Team created!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

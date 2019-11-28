@@ -100,10 +100,10 @@ export default {
         await this.$axios.$delete(
           `admin/teams/${this.team.id}/members/${this.member.id}`
         )
-        this.$toast.success("Membre supprimé de l'équipe !")
+        this.$toast.success('Member deleted from the team!')
         this.$emit('submit')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

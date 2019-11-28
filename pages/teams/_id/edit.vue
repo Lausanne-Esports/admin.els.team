@@ -143,9 +143,9 @@ export default {
     async save() {
       try {
         await this.$axios.$put(`admin/teams/${this.team.id}`, this.form)
-        this.$toast.success('Equipe sauvegardée !')
+        this.$toast.success('Team saved!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
 

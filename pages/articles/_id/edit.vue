@@ -128,11 +128,11 @@ export default {
     async save() {
       try {
         await this.$axios.$put(`admin/articles/${this.article.id}`, this.form)
-        this.$toast.success('Article sauvegardé !')
+        this.$toast.success('Article saved!')
       } catch (e) {
         console.log(e)
         this.errors = e.response.data.errors
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

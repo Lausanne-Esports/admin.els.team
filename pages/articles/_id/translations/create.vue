@@ -104,11 +104,11 @@ export default {
           `admin/articles/${this.$route.params.id}/translations`,
           this.form
         )
-        this.$toast.success('Traduction sauvegardée !')
+        this.$toast.success('Traduction saved!')
       } catch (e) {
         console.log(e)
         this.errors = e.response.data.errors
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

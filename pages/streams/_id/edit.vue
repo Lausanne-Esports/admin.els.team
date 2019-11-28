@@ -77,9 +77,9 @@ export default {
       try {
         await this.$axios.$put(`admin/streams/${this.stream.id}`, this.form)
         this.$router.push('/streams')
-        this.$toast.success('Stream saved !')
+        this.$toast.success('Stream saved!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Somethign went wrong')
       }
     },
 
@@ -87,9 +87,9 @@ export default {
       try {
         await this.$axios.$delete(`admin/streams/${this.stream.id}`)
         this.$router.push('/streams')
-        this.$toast.success('Stream deleted !')
+        this.$toast.success('Stream deleted!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

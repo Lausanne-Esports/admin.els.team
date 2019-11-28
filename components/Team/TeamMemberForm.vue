@@ -3,7 +3,7 @@
     <div class="flex justify-between">
       <div class="w-full mr-8">
         <searchable-select
-          label="Membre"
+          label="Member"
           name="member_id"
           :items="members"
           v-model="form.member_id"
@@ -11,7 +11,7 @@
       </div>
 
       <div class="w-full">
-        <base-input label="Rôle(s)" name="role" v-model="form.role"></base-input>
+        <base-input label="Role" name="role" v-model="form.role"></base-input>
       </div>
     </div>
     <div class="inline-flex">
@@ -52,11 +52,11 @@ export default {
           `admin/teams/${this.team.id}/members`,
           this.form
         )
-        this.$toast.success('Membre ajouté !')
+        this.$toast.success('Member added!')
         this.form = { member_id: null, role: null }
         this.$emit('submit')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

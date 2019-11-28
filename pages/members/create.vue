@@ -187,9 +187,9 @@ export default {
       try {
         await this.$axios.$post('admin/members', this.form)
         this.$router.push('/members')
-        this.$toast.success('Membre sauvegardé !')
+        this.$toast.success('Member saved!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

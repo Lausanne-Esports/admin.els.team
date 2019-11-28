@@ -70,10 +70,10 @@ export default {
     async save() {
       try {
         await this.$axios.$post('admin/users', this.form)
-        this.$toast.success('Utilisateur sauvegardé !')
+        this.$toast.success('User saved!')
         this.$router.push('/users')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

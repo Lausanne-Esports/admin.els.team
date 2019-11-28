@@ -47,9 +47,9 @@ export default {
       try {
         await this.$axios.$post('admin/streams', this.form)
         this.$router.push('/streams')
-        this.$toast.success('Stream sauvegardé !')
+        this.$toast.success('Stream saved!')
       } catch (e) {
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },

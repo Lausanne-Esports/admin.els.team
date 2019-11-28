@@ -163,11 +163,11 @@ export default {
       try {
         await this.$axios.$post('admin/articles', this.form)
         this.$router.push('/articles')
-        this.$toast.success('Article sauvegardé !')
+        this.$toast.success('Article saved!')
       } catch (e) {
         console.log(e)
         this.errors = e.response.data.errors
-        this.$toast.error('Une erreur est survenue')
+        this.$toast.error('Something went wrong')
       }
     },
   },
