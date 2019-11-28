@@ -8,6 +8,11 @@
         <th></th>
       </tr>
     </thead>
+    <tbody v-if="members.length <= 0">
+      <tr>
+        <td>There's currently no member in this team</td>
+      </tr>
+    </tbody>
     <Draggable v-model="members" tag="tbody" @update="computeNewOrder">
       <ListItem
         v-for="(member, index) in members"
