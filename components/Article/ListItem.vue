@@ -6,6 +6,7 @@
         <span>{{ frenchTranslation.headline }}</span>
       </a>
     </td>
+    <td>{{ viewCount }}</td>
     <td>
       <span :class="`${stateStyle} px-3 py-1 rounded`">{{ stateText }}</span>
     </td>
@@ -48,6 +49,13 @@ export default {
   props: ['article'],
 
   computed: {
+    viewCount() {
+      return this.article.translations.reduce((counter, translation) => {
+        counter += translation.view_count
+        return counter
+      }, 0)
+    },
+
     stateStyle() {
       switch (this.frenchTranslation.state_id) {
         case 1:

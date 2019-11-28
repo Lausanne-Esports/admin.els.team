@@ -24,7 +24,8 @@
                 Headline
                 <small>(FR)</small>
               </th>
-              <th></th>
+              <th>View Count</th>
+              <th>Status</th>
               <th>Release Date</th>
               <th>Category</th>
               <th>Languages</th>
