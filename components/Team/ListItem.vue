@@ -6,6 +6,9 @@
       <small v-if="team.academy">(Académie)</small>
     </td>
     <td>
+      <span v-if="!team.activated" class="bg-red-100 text-red-800 px-3 py-1 rounded">Archived</span>
+    </td>
+    <td>
       <div class="flex item-centers">
         <nuxt-link
           class="inline-flex shadow items-center justify-center hover:bg-gray-100 transition rounded h-10 w-10 text-gray-700"
