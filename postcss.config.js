@@ -16,11 +16,12 @@ const productionPlugins = [
       './components/**/*.tsx',
     ],
     whitelist: ['body', 'html', '__nuxt', '__layout'],
-    whitelistPatterns: [
+    whitelistPatternsChildren: [
       /flatpickr/,
       /iziToast/,
       /CodeMirror/,
       /cm/,
+      /separator/,
       /editor/,
       /m[xybtlr]{1}-[0-9]{1,2}/,
       /p[xybtlr]{1}-[0-9]{1,2}/,
