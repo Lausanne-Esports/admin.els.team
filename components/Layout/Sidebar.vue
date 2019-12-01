@@ -15,6 +15,9 @@
       <menu-item to="/members">
         <Icon name="user-group" class="h-6 mr-3" />Members
       </menu-item>
+      <menu-item to="/awards">
+        <Icon name="trophy" class="h-6 mr-3" />Awards
+      </menu-item>
       <menu-item to="/teams">
         <Icon name="layers" class="h-6 mr-3" />Teams
       </menu-item>

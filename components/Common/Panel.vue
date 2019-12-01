@@ -1,7 +1,14 @@
 <template functional>
   <section class="p-8 bg-white shadow rounded w-full">
-    <header v-if="props.header" class="mb-8 pb-4 border-b border-neutral-300">
+    <header
+      v-if="props.header"
+      class="w-full inline-flex items-center justify-between mb-8 pb-4 border-b border-neutral-300"
+    >
       <h2 class="text-2xl font-bold text-gray-900">{{ props.header }}</h2>
+
+      <div>
+        <slot name="tools" />
+      </div>
     </header>
 
     <slot />

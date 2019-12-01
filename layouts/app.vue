@@ -6,6 +6,7 @@
       <navbar></navbar>
       <nuxt />
     </main>
+
     <portal-target name="modals"></portal-target>
   </div>
 </template>
