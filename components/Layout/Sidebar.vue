@@ -1,5 +1,7 @@
 <template>
-  <aside class="text-white h-full flex flex-col justify-between bg-gray-900 select-none">
+  <aside
+    class="text-white h-full flex flex-col justify-between bg-gray-900 select-none"
+  >
     <div class="flex flex-col">
       <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
         <img class="h-32" src="/logo-white.svg" alt="Lausanne Esports" />
@@ -15,11 +17,11 @@
       <menu-item to="/members">
         <Icon name="user-group" class="h-6 mr-3" />Members
       </menu-item>
-      <menu-item to="/awards">
-        <Icon name="trophy" class="h-6 mr-3" />Awards
-      </menu-item>
       <menu-item to="/teams">
         <Icon name="layers" class="h-6 mr-3" />Teams
+      </menu-item>
+      <menu-item to="/awards">
+        <Icon name="trophy" class="h-6 mr-3" />Awards
       </menu-item>
       <menu-item to="/streams">
         <Icon name="videocam" class="h-6 mr-3" />Streams
@@ -53,4 +55,3 @@ svg .primary {
   @apply .text-gray-500;
 }
 </style>
-
