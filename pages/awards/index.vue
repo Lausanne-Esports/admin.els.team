@@ -18,8 +18,10 @@
         :year="year"
         :categories="categories"
         :key="year"
+        :categoryOrder="categoryOrderByYear[year]"
         :results="resultPerYear[year]"
         @updateOrder="computeNewOrder"
+        @updateCategoryOrder="computeNewCategoryOrder"
       />
 
       <Spacer direction="b" :size="8" :key="`${year}-spacer`" />
@@ -40,17 +42,28 @@ export default {
   data: () => ({
     awards: [],
     categories: [],
+    categoryOrderByYear: [],
     resultPerYear: {},
   }),
 
   async created() {
-    const [awards, categories] = await Promise.all([
+    const [awards, categories, categoryOrderByYear] = await Promise.all([
       this.$axios.$get('awards'),
       this.$axios.$get('teams/categories'),
+      this.$axios.$get('awards/categories/order'),
     ])
 
     this.awards = awards
     this.categories = categories
+    this.categoryOrderByYear = categoryOrderByYear.reduce((agg, order) => {
+      if (!agg[order.year]) {
+        agg[order.year] = []
+      }
+
+      agg[order.year].push(order)
+
+      return agg
+    }, {})
 
     this.resultPerYear = this.awards.reduce((agg, award) => {
       if (!agg[award.year]) {
@@ -80,7 +93,10 @@ export default {
 
       await this.$axios.$post(`admin/awards/order`, { order: newOrder })
     },
+
+    async computeNewCategoryOrder(categories) {
+      this.$axios.$post('admin/awards/categories/order', { categories })
+    },
   },
 }
 </script>
-
