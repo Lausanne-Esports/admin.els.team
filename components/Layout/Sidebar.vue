@@ -31,7 +31,7 @@
       </menu-item>
     </div>
     <div class="flex justify-center py-8">
-      <small>v.20191201</small>
+      <small>v.20191219</small>
     </div>
   </aside>
 </template>
