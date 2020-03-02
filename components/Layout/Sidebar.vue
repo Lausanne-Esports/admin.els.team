@@ -20,6 +20,9 @@
       <menu-item to="/teams">
         <Icon name="layers" class="h-6 mr-3" />Teams
       </menu-item>
+      <menu-item to="/staff">
+        <Icon name="brick" class="h-6 mr-3" />Staff
+      </menu-item>
       <menu-item to="/awards">
         <Icon name="trophy" class="h-6 mr-3" />Awards
       </menu-item>
