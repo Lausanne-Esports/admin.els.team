@@ -1,6 +1,6 @@
 <template>
   <header class="flex items-center justify-end w-full h-16">
-    <div class="flex items-center">
+    <div v-if="currentUser" class="flex items-center">
       <small class="tracking-wider mr-4">({{ currentUser.username }})</small>
       <button class="flex items-center tracking-wider" @click="logout">
         <Icon name="door-exit" class="mono h-5 mr-1" />Sign Out
