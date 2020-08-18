@@ -35,7 +35,7 @@ export default {
 
   mounted() {
     this.form = {
-      role: this.member.pivot.role,
+      role: this.member.pivot_role,
     }
   },
 

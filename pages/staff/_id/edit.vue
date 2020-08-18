@@ -133,7 +133,7 @@ export default {
     refreshList({ id, update }) {
       const member = this.staffMembers.find(member => member.id === id)
 
-      member.pivot.role = update.role
+      member.pivot_role = update.role
     },
   },
 }
