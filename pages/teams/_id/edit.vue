@@ -157,8 +157,8 @@ export default {
     refreshList({ id, update }) {
       const member = this.teamMembers.find(member => member.id === id)
 
-      member.pivot.role = update.role
-      member.pivot.academy = update.academy
+      member.pivot_role = update.role
+      member.pivot_academy = update.academy
     },
   },
 }

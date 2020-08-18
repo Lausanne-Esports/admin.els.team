@@ -38,8 +38,8 @@ export default {
 
   mounted() {
     this.form = {
-      role: this.member.pivot.role,
-      academy: this.member.pivot.academy,
+      role: this.member.pivot_role,
+      academy: this.member.pivot_academy,
     }
   },
 
