@@ -37,7 +37,7 @@
     </form>
 
     <div class="w-full text-center hover:text-white transition">
-      <nuxt-link class="uppercase" to="/forgot-password">Forgot your password ?</nuxt-link>
+      <nuxt-link class="uppercase" to="/password-requests">Forgot your password ?</nuxt-link>
     </div>
   </div>
 </template>

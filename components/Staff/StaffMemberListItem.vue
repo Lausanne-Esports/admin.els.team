@@ -3,10 +3,10 @@
     <td>{{ fullname }}</td>
     <td>
     </td>
-    <td>{{ member.pivot.role }}</td>
+    <td>{{ member.pivot_role }}</td>
     <td>
       <div class="flex justify-end mr-8">
-        <button class="relative outline-none relative text-gray-500">
+        <button class="relative outline-none text-gray-500">
           <svg
             class="fill-current svg-right h-5 w-5"
             xmlns="http://www.w3.org/2000/svg"

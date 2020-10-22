@@ -5,8 +5,6 @@
         <img class="h-32" src="/logo-white.svg" alt="Lausanne Esports" />
       </div>
 
-      <p class="text-white mb-8" v-if="errors">{{ errors[0].detail }}</p>
-
       <div class="flex flex-col bg-white rounded px-8 py-4">
         <div class="flex items-center border-b h-16 pb-4">
           <Icon name="lock" class="mono h-5 mr-4" />
@@ -46,22 +44,22 @@ export default {
       password: null,
       password_confirmation: null,
     },
-    errors: null,
-    token: null,
+    email: null,
+    signature: null,
   }),
 
   async created() {
-    this.token = this.$route.params.token
+    this.email = this.$route.params.email
+    this.signature = this.$route.query.signature
   },
 
   methods: {
     async send() {
       try {
-        await this.$axios.$post(`/password-requests/${this.token}`, this.form)
+        await this.$axios.$post(`/password-requests/${this.email}?signature=${this.signature}`, this.form)
         this.$toast.success('Mot de passe modifié !')
         this.$router.push('/login')
       } catch (e) {
-        this.errors = e.response.data.errors
         this.$toast.error('Une erreur est survenue')
       }
     },

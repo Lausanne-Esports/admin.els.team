@@ -60,7 +60,9 @@ export default {
         agg[order.year] = []
       }
 
-      agg[order.year].push(order)
+      if (!agg[order.year].find(award => award.category_id === order.category_id)) {
+        agg[order.year].push(order)
+      }
 
       return agg
     }, {})
