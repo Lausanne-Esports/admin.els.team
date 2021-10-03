@@ -1,13 +1,13 @@
 <template>
   <aside
-    class="text-white h-full flex flex-col justify-between bg-gray-900 select-none"
+    class="flex flex-col justify-between h-full text-white bg-gray-900 select-none"
   >
     <div class="flex flex-col">
-      <nuxt-link class="flex mt-8 mb-8 align-center justify-center" to="/">
+      <nuxt-link class="align-center flex justify-center mt-8 mb-8" to="/">
         <img class="h-32" src="/logo-white.svg" alt="Lausanne Esports" />
       </nuxt-link>
 
-      <span class="tracking-wider uppercase bg-gray-800 p-4">Main</span>
+      <span class="p-4 tracking-wider uppercase bg-gray-800">Main</span>
       <menu-item to="/" icon="chart-line">
         <Icon name="dashboard" class="h-6 mr-3" />Dashboard
       </menu-item>
@@ -34,7 +34,7 @@
       </menu-item>
     </div>
     <div class="flex justify-center py-8">
-      <small>v.20201021</small>
+      <small>v.20211003</small>
     </div>
   </aside>
 </template>
